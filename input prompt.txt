@@ -1,0 +1,87 @@
+Build a real-time blink rate attention analyzer web app using React.
+Overview:
+A browser-based dashboard that accesses the user's webcam, detects blinks in real-time using facial landmark detection, calculates blink rate, and categorizes attention state. No backend required — everything runs client-side.
+
+Tech Stack:
+
+React (with hooks)
+@mediapipe/face_mesh for facial landmark detection (468 landmarks)
+@mediapipe/camera_utils for camera handling
+recharts for all charts/graphs
+Tailwind CSS for styling
+
+
+Core Blink Detection Logic:
+Use the Eye Aspect Ratio (EAR) formula:
+EAR = (|p2-p6| + |p3-p5|) / (2 * |p1-p4|)
+Use MediaPipe FaceMesh landmark indices for the left eye: [33, 160, 158, 133, 153, 144] and right eye: [362, 385, 387, 263, 373, 380]. Average both eyes. A blink is detected when EAR drops below 0.21 and comes back up (track state to avoid double-counting). Store each blink as a timestamp in a ref array.
+Attention Categorization (rolling 60s window):
+BPM < 8        → "Hyperfocused" (eye strain risk)   — blue
+BPM 8–14       → "Attentive"                         — green
+BPM 15–20      → "Neutral"                           — yellow
+BPM 21–30      → "Fatigued"                          — orange
+BPM > 30       → "Sleepy"                            — red
+Also track blink duration (how long EAR stays below threshold in ms) — longer duration = heavier blink = more fatigue signal.
+
+Dashboard Layout — 3 sections:
+1. Top Bar / Header
+
+App title
+Session timer (HH:MM:SS)
+A single large "Current State" badge showing the attention category with its color
+Current BPM number
+
+2. Left Panel — Live Camera Feed
+
+Show webcam feed in a <video> element with a <canvas> overlay
+Draw dots on eye landmarks in real-time
+Show live EAR value below the feed
+Show a small indicator dot (green/red) for "blink detected" that flashes on each blink
+
+3. Right Panel — Charts (using recharts)
+
+BPM Over Time — AreaChart, updates every 5 seconds, last 2 minutes of data, color changes based on attention zone
+Attention State Timeline — BarChart or timeline showing which state you were in over the session
+Blink Duration Histogram — BarChart showing distribution of blink durations (short/medium/long blinks)
+Session Stats panel (not a chart) — total blinks, avg BPM, longest focus streak (time spent in "Attentive"), most frequent state
+
+
+Implementation Details:
+
+Use useRef for video, canvas, blink timestamps, and EAR history (not state, to avoid re-render lag)
+Use useState only for chart data and UI values that need to re-render
+Run MediaPipe FaceMesh in onResults callback, draw landmarks on canvas using requestAnimationFrame
+Every 5 seconds: calculate rolling BPM from blink timestamp array, push to chart data state, prune old data beyond 2 minutes
+On mount: request camera permission and initialize FaceMesh with maxNumFaces: 1, refineLandmarks: true
+Handle camera permission denied gracefully with a clear error state UI
+
+
+Visual Style:
+
+Dark theme (dark gray/slate background, not pure black)
+Glassmorphism cards for each panel (semi-transparent with backdrop blur)
+Smooth color transitions on the attention badge when state changes
+Recharts tooltips and axes should be styled to match the dark theme
+Responsive layout that works at 1280px+ width
+
+
+File Structure:
+src/
+  App.jsx               — layout shell
+  hooks/
+    useFaceMesh.js      — mediapipe init, EAR calculation, blink detection logic
+    useBlinkStats.js    — rolling BPM, categorization, session stats
+  components/
+    CameraFeed.jsx      — video + canvas overlay
+    AttentionBadge.jsx  — current state display
+    BpmChart.jsx        — area chart
+    TimelineChart.jsx   — attention state over time
+    DurationChart.jsx   — blink duration histogram
+    SessionStats.jsx    — stat cards
+
+Known Gotchas to handle:
+
+MediaPipe loads async — show a loading spinner until face mesh is ready
+If no face is detected for 3+ seconds, show a "No face detected" warning and pause BPM calculation
+EAR can be noisy — use a small smoothing window (average last 3 EAR values) before applying threshold
+Prune the blink timestamp array to only keep last 60 seconds to avoid memory growth

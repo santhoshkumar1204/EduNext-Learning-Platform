@@ -1,0 +1,12 @@
+Statistical Analysis Package
+Rows analyzed: 41
+Numeric columns analyzed: attentionScore, blinkScore, blinkConfidence, fatigueScore, fatigueConfidence, attentionDriftScore, bpm, ibiMean, ibiStd, blinkVariability, headScore, headConfidence, pitch, yaw, roll, gazeScore, gazeConfidence, finalAttentionScore, fusionConfidence
+Pearson tests: 136
+Spearman tests: 136
+t-tests: 0
+ANOVA tests: 0
+Mann-Whitney tests: 0
+Kruskal-Wallis tests: 0
+Chi-square tests: 4
+Effect size rows: 0
+Confidence interval rows: 7

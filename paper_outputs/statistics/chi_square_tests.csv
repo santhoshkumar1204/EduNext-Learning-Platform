@@ -1,0 +1,5 @@
+test,x,y,statistic,degrees_of_freedom,p_value,null_hypothesis,alternative_hypothesis,interpretation
+Chi-square,attentionState,gazeDirection,15.291858617648847,1,9.211265408788672e-05,H0: attentionState and gazeDirection are independent,H1: attentionState and gazeDirection are associated,reject H0 at alpha=0.05
+Chi-square,attentionState,headDirection,8.548262548262548,2,0.013924139726671931,H0: attentionState and headDirection are independent,H1: attentionState and headDirection are associated,reject H0 at alpha=0.05
+Chi-square,headDirection,gazeDirection,10.711711711711711,2,0.004720427762438397,H0: headDirection and gazeDirection are independent,H1: headDirection and gazeDirection are associated,reject H0 at alpha=0.05
+Chi-square,attentionDriftTrend,attentionState,1.9454280287613623,2,0.37805559616328155,H0: attentionDriftTrend and attentionState are independent,H1: attentionDriftTrend and attentionState are associated,fail to reject H0 at alpha=0.05

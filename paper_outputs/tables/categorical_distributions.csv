@@ -1,0 +1,11 @@
+variable,category,count,percentage
+attentionState,Medium,27,65.85365853658537
+attentionState,High,14,34.146341463414636
+attentionDriftTrend,Stable,26,63.41463414634146
+attentionDriftTrend,Improving,12,29.268292682926827
+attentionDriftTrend,Declining,3,7.317073170731707
+headDirection,Forward,37,90.2439024390244
+headDirection,Left,3,7.317073170731707
+headDirection,Right,1,2.4390243902439024
+gazeDirection,Up,29,70.73170731707317
+gazeDirection,Rejected,12,29.268292682926827

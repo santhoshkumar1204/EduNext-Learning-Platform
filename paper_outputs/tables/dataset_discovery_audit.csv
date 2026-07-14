@@ -1,0 +1,7 @@
+path,folder,filename,suffix,accepted,kind,reason
+C:\Users\santh\Downloads\blink-detection-main\datasets\Arulmozhi.csv,C:\Users\santh\Downloads\blink-detection-main\datasets,Arulmozhi.csv,.csv,False,ignored,Rejected: CSV filename does not start with attention_session_.
+C:\Users\santh\Downloads\blink-detection-main\datasets\attention_session_20260616_233539.csv,C:\Users\santh\Downloads\blink-detection-main\datasets,attention_session_20260616_233539.csv,.csv,True,session_csv,Accepted as session CSV export.
+C:\Users\santh\Downloads\blink-detection-main\datasets\attention_session_20260616_233542.json,C:\Users\santh\Downloads\blink-detection-main\datasets,attention_session_20260616_233542.json,.json,True,session_json,Accepted as session JSON export.
+C:\Users\santh\Downloads\blink-detection-main\datasets\blinkrate_data1.csv.xlsx,C:\Users\santh\Downloads\blink-detection-main\datasets,blinkrate_data1.csv.xlsx,.xlsx,False,ignored,Rejected: XLSX is not loaded by the analytics package.
+C:\Users\santh\Downloads\blink-detection-main\package-lock.json,C:\Users\santh\Downloads\blink-detection-main,package-lock.json,.json,False,ignored,Rejected: JSON filename does not start with attention_session_.
+C:\Users\santh\Downloads\blink-detection-main\package.json,C:\Users\santh\Downloads\blink-detection-main,package.json,.json,False,ignored,Rejected: JSON filename does not start with attention_session_.

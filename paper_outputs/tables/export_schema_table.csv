@@ -1,0 +1,25 @@
+field,datatype,source_module,formula_source,description
+timestamp,string,Session Recorder,new Date(now).toISOString(),Sample timestamp
+attentionScore,number,Attention Fusion,fusion.finalAttentionScore,Duplicate export of final attention score
+attentionState,string,Attention Fusion,fusion.finalAttentionState,Final attention label
+blinkScore,number,Attention Fusion / Blink,fusion.blinkScore,Blink module score before weighting
+blinkConfidence,number,Attention Fusion / Blink,fusion.blinkConfidence,Blink module confidence
+fatigueScore,number,Fatigue,blinkAnalytics.fatigue.fatigueScore,Fatigue score
+fatigueConfidence,number,Fatigue,blinkAnalytics.fatigue.fatigueConfidence,Fatigue confidence
+attentionDriftScore,number,Attention Drift,blinkAnalytics.attentionDrift.attentionDriftScore,Drift-adjusted attention score
+attentionDriftTrend,string,Attention Drift,blinkAnalytics.attentionDrift.trendLabel,Trend label
+bpm,number,Blink Analytics,metrics.currentBpm,Rolling blinks per minute
+ibiMean,number,Blink Events,blinkAnalytics.ibi.avgIbi,Mean inter-blink interval
+ibiStd,number,Blink Events,blinkAnalytics.ibi.ibiStdDev,Standard deviation of IBI
+blinkVariability,number,Blink Events,blinkAnalytics.ibi.variabilityIndex,Coefficient of variation of IBI
+headScore,number,Attention Fusion / Head,fusion.headScore,Head module score before weighting
+headConfidence,number,Attention Fusion / Head,fusion.headConfidence,Head module confidence
+pitch,number,Head Pose,headPose.pitchAngle,Calibrated pitch angle
+yaw,number,Head Pose,headPose.yawAngle,Calibrated yaw angle
+roll,number,Head Pose,headPose.rollAngle,Calibrated roll angle
+headDirection,string,Head Pose,headPose.headDirection,Head direction label
+gazeScore,number,Attention Fusion / Gaze,fusion.gazeScore,Gaze module score before weighting
+gazeConfidence,number,Attention Fusion / Gaze,fusion.gazeConfidence,Gaze module confidence
+gazeDirection,string,Gaze Tracking,gaze.gazeDirection,Gaze direction label
+finalAttentionScore,number,Attention Fusion,fusion.finalAttentionScore,Final fused attention score
+fusionConfidence,number,Session Recorder,"averageFinite([fusion.blinkConfidence, fusion.headConfidence, fusion.gazeConfidence])",Mean module confidence

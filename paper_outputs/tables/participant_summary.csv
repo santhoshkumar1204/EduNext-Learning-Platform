@@ -1,0 +1,2 @@
+participant_id,sample_count,session_start,session_end,mean_finalAttentionScore,mean_blinkScore,mean_headScore,mean_gazeScore,mean_fatigueScore,mean_fusionConfidence,mean_bpm,duration_seconds
+datasets_attention_session_20260616_233539,41,2026-06-16 18:02:14.323000+00:00,2026-06-16 18:05:34.401000+00:00,69.54398932112021,85.98480238136409,95.50927884422597,3.7025379462978205,10.926530370018632,69.94493966782927,13.951219512195122,200.078

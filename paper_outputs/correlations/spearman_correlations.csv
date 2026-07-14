@@ -1,0 +1,137 @@
+test,x,y,n,statistic,p_value,null_hypothesis,alternative_hypothesis,interpretation
+Spearman,attentionScore,blinkScore,41,0.3273519163763067,0.036689536941696174,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,attentionScore,blinkConfidence,41,0.03101045296167248,0.8473746168588716,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,attentionScore,fatigueScore,41,-0.2571755423448339,0.1045390872146296,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,attentionScore,attentionDriftScore,41,0.2571755423448339,0.1045390872146296,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,attentionScore,bpm,41,0.07124169422656346,0.65803671495106,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,attentionScore,ibiMean,41,-0.13723625367750955,0.3922056648885617,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,attentionScore,ibiStd,41,-0.013871941725825822,0.9314020964772449,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,attentionScore,blinkVariability,41,-0.029052557199371064,0.8569075454806507,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,attentionScore,headScore,41,0.053484320557491305,0.7398034125940267,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,attentionScore,pitch,41,0.11777003484320561,0.4633551534821623,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,attentionScore,yaw,41,-0.29564459930313597,0.0605591477343916,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,attentionScore,roll,41,-0.11445993031358888,0.47610378893247873,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,attentionScore,gazeScore,41,-0.06515679442508711,0.6856720565318337,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,attentionScore,gazeConfidence,41,-0.8771777003484322,5.3910889868327356e-14,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,attentionScore,finalAttentionScore,41,1.0,0.0,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,attentionScore,fusionConfidence,41,-0.6921602787456448,5.36398591864518e-07,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,blinkScore,blinkConfidence,41,-0.2109756097560976,0.18547427361326901,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,blinkScore,fatigueScore,41,-0.9514971642995602,1.4412832646797575e-21,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,blinkScore,attentionDriftScore,41,0.9514971642995602,1.4412832646797575e-21,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,blinkScore,bpm,41,0.522031163093297,0.00046412307790892225,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,blinkScore,ibiMean,41,-0.30439751371953644,0.0529884767801473,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,blinkScore,ibiStd,41,-0.025039291039698184,0.8765093915390165,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,blinkScore,blinkVariability,41,0.24175566366203366,0.12780659254419852,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,blinkScore,headScore,41,-0.2987804878048781,0.05775360608126462,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,blinkScore,pitch,41,0.19512195121951223,0.22150175189237625,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,blinkScore,yaw,41,-0.1447735191637631,0.3664698487600172,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,blinkScore,roll,41,-0.15365853658536588,0.33746810840876484,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,blinkScore,gazeScore,41,0.12839721254355405,0.4236888873469066,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,blinkScore,gazeConfidence,41,-0.044599303135888516,0.7818713853577955,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,blinkScore,finalAttentionScore,41,0.3273519163763067,0.036689536941696174,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,blinkScore,fusionConfidence,41,0.010104529616724742,0.9500044386075883,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,blinkConfidence,fatigueScore,41,0.37407351613794027,0.01598041702883318,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,blinkConfidence,attentionDriftScore,41,-0.37407351613794027,0.01598041702883318,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,blinkConfidence,bpm,41,-0.055856984798495775,0.7286893799001631,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,blinkConfidence,ibiMean,41,-0.45978071003208854,0.0024917607765419444,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,blinkConfidence,ibiStd,41,-0.7995124149400493,3.641071160352508e-10,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,blinkConfidence,blinkVariability,41,-0.9368359135340734,2.177585452164953e-19,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,blinkConfidence,headScore,41,0.7371080139372823,3.889260668055419e-08,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,blinkConfidence,pitch,41,-0.15574912891986065,0.330856173925423,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,blinkConfidence,yaw,41,0.3221254355400697,0.03998260493048477,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,blinkConfidence,roll,41,0.22926829268292684,0.1493246357948437,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,blinkConfidence,gazeScore,41,-0.9324041811846692,7.848543691182778e-19,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,blinkConfidence,gazeConfidence,41,0.13013937282229968,0.41737373787415766,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,blinkConfidence,finalAttentionScore,41,0.03101045296167248,0.8473746168588716,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,blinkConfidence,fusionConfidence,41,0.4944250871080141,0.00101697543082282,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,fatigueScore,attentionDriftScore,41,-1.0,0.0,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,fatigueScore,bpm,41,-0.49593027079540786,0.0009760324811998059,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,fatigueScore,ibiMean,41,0.19545653198243323,0.22069493150469283,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,fatigueScore,ibiStd,41,-0.10808213234790788,0.501179116399282,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,fatigueScore,blinkVariability,41,-0.43206640619272785,0.004788076302139568,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,fatigueScore,headScore,41,0.3697988887380431,0.01732751630017028,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,fatigueScore,pitch,41,-0.23362147299846178,0.14154116177310913,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,fatigueScore,yaw,41,0.11349571933196369,0.4798518055004858,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,fatigueScore,roll,41,0.15859740026557262,0.32197851798977056,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,fatigueScore,gazeScore,41,-0.2850914763849787,0.07080541816596433,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,fatigueScore,gazeConfidence,41,0.012038746554812444,0.9404499711375042,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,fatigueScore,finalAttentionScore,41,-0.2571755423448339,0.1045390872146296,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,fatigueScore,fusionConfidence,41,0.03716308719094276,0.8175630521756934,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,attentionDriftScore,bpm,41,0.49593027079540786,0.0009760324811998059,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,attentionDriftScore,ibiMean,41,-0.19545653198243323,0.22069493150469283,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,attentionDriftScore,ibiStd,41,0.10808213234790788,0.501179116399282,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,attentionDriftScore,blinkVariability,41,0.43206640619272785,0.004788076302139568,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,attentionDriftScore,headScore,41,-0.3697988887380431,0.01732751630017028,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,attentionDriftScore,pitch,41,0.23362147299846178,0.14154116177310913,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,attentionDriftScore,yaw,41,-0.11349571933196369,0.4798518055004858,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,attentionDriftScore,roll,41,-0.15859740026557262,0.32197851798977056,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,attentionDriftScore,gazeScore,41,0.2850914763849787,0.07080541816596433,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,attentionDriftScore,gazeConfidence,41,-0.012038746554812444,0.9404499711375042,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,attentionDriftScore,finalAttentionScore,41,0.2571755423448339,0.1045390872146296,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,attentionDriftScore,fusionConfidence,41,-0.03716308719094276,0.8175630521756934,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,bpm,ibiMean,41,-0.6277371125891422,1.1175478879606265e-05,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,bpm,ibiStd,41,-0.3475755002759965,0.025968859158938935,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,bpm,blinkVariability,41,0.11985663976771768,0.45541369698071055,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,bpm,headScore,41,-0.33907549926974195,0.030105429218960627,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,bpm,pitch,41,0.1967669370601158,0.2175544776106732,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,bpm,yaw,41,-0.04720308574520769,0.7694736190458322,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,bpm,roll,41,-0.18706408054582307,0.2415484394727258,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,bpm,gazeScore,41,0.11966856367627654,0.4561264665449254,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,bpm,gazeConfidence,41,0.16057790465545657,0.31589450075268305,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,bpm,finalAttentionScore,41,0.07124169422656346,0.65803671495106,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,bpm,fusionConfidence,41,0.22098037178497232,0.16500304134694244,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,ibiMean,ibiStd,41,0.8671793079342887,2.258891669861809e-13,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,ibiMean,blinkVariability,41,0.3393918210415938,0.029942294260183952,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,ibiMean,headScore,41,-0.04510562183806258,0.7794562970634877,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,ibiMean,pitch,41,-0.04719949983441365,0.7694906550523253,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,ibiMean,yaw,41,-0.02303265795986174,0.8863384289460409,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,ibiMean,roll,41,-0.07817144519710652,0.6271042911520777,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,ibiMean,gazeScore,41,0.32123578260685964,0.04056643307776878,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,ibiMean,gazeConfidence,41,-0.13941737659037523,0.3846522313327707,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,ibiMean,finalAttentionScore,41,-0.13723625367750955,0.3922056648885617,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,ibiMean,fusionConfidence,41,-0.3582276272090618,0.021462286785877426,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,ibiStd,blinkVariability,41,0.666025865082139,2.0085824153492312e-06,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,ibiStd,headScore,41,-0.4562036684549888,0.002719205737591424,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,ibiStd,pitch,41,0.1117607380552382,0.4866346606283104,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,ibiStd,yaw,41,-0.14081329525460928,0.37986323197192784,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,ibiStd,roll,41,-0.15041023607121834,0.3479021324858509,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,ibiStd,gazeScore,41,0.6894093302985889,6.203311689903988e-07,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,ibiStd,gazeConfidence,41,-0.2298031100995297,0.1483518275778539,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,ibiStd,finalAttentionScore,41,-0.013871941725825822,0.9314020964772449,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,ibiStd,fusionConfidence,41,-0.5391735840603998,0.0002754570836005178,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,blinkVariability,headScore,41,-0.6732690207433828,1.411535917470496e-06,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,blinkVariability,pitch,41,0.11664645338005739,0.4676619293170675,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,blinkVariability,yaw,41,-0.3831796733322454,0.013403349155677207,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,blinkVariability,roll,41,-0.25335923755847917,0.10997126811545374,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,blinkVariability,gazeScore,41,0.877160390638068,5.4050522213608256e-14,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,blinkVariability,gazeConfidence,41,-0.11359288130204542,0.47947342481728605,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,blinkVariability,finalAttentionScore,41,-0.02905255719937106,0.8569075454806507,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,blinkVariability,fusionConfidence,41,-0.4576868320357375,0.0026227784805201116,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,headScore,pitch,41,-0.17439024390243907,0.2754962735846003,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,headScore,yaw,41,0.22369337979094078,0.1597450626625377,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,headScore,roll,41,0.1928571428571429,0.2270166016369125,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,headScore,gazeScore,41,-0.8261324041811848,2.923581528855079e-11,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,headScore,gazeConfidence,41,0.06341463414634146,0.693661245790126,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,headScore,finalAttentionScore,41,0.053484320557491305,0.7398034125940267,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,headScore,fusionConfidence,41,0.3111498257839722,0.04768361570023398,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,pitch,yaw,41,0.13466898954703838,0.401206163904098,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,pitch,roll,41,-0.0033101045296167254,0.9836129380264684,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,pitch,gazeScore,41,0.08780487804878051,0.5851383002762268,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,pitch,gazeConfidence,41,-0.019860627177700353,0.9019096664940704,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,pitch,finalAttentionScore,41,0.11777003484320561,0.4633551534821623,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,pitch,fusionConfidence,41,-0.093205574912892,0.5621746049194527,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,yaw,roll,41,0.47212543554006975,0.0018299342043929178,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,yaw,gazeScore,41,-0.29059233449477356,0.06530636620325177,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,yaw,gazeConfidence,41,0.3534843205574914,0.023380850575893695,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,yaw,finalAttentionScore,41,-0.29564459930313597,0.0605591477343916,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,yaw,fusionConfidence,41,0.3919860627177701,0.011255670655521573,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,roll,gazeScore,41,-0.19756097560975616,0.2156666181672246,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,roll,gazeConfidence,41,0.12142857142857144,0.449480022044212,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,roll,finalAttentionScore,41,-0.11445993031358888,0.47610378893247873,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,roll,fusionConfidence,41,0.15034843205574916,0.3481025469168896,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,gazeScore,gazeConfidence,41,-0.12177700348432058,0.4481705014599172,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,gazeScore,finalAttentionScore,41,-0.06515679442508711,0.6856720565318337,H0: Spearman rho = 0,H1: Spearman rho != 0,fail to reject H0 at alpha=0.05
+Spearman,gazeScore,fusionConfidence,41,-0.4646341463414635,0.0022099557632409375,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,gazeConfidence,finalAttentionScore,41,-0.8771777003484322,5.3910889868327356e-14,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,gazeConfidence,fusionConfidence,41,0.8975609756097562,1.892046564711465e-15,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05
+Spearman,finalAttentionScore,fusionConfidence,41,-0.6921602787456448,5.36398591864518e-07,H0: Spearman rho = 0,H1: Spearman rho != 0,reject H0 at alpha=0.05

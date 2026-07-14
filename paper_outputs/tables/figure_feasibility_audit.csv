@@ -1,0 +1,29 @@
+title,required_columns,status,reason,note
+Attention Timeline,"timestamp, finalAttentionScore",possible,Required columns are present.,Single-session time series
+Blink Timeline,"timestamp, bpm, blinkScore",possible,Required columns are present.,Single-session time series
+Fatigue Timeline,"timestamp, fatigueScore",possible,Required columns are present.,Single-session time series
+Attention Drift Timeline,"timestamp, attentionDriftScore",possible,Required columns are present.,Single-session time series
+Head Score Timeline,"timestamp, headScore",possible,Required columns are present.,Single-session time series
+Gaze Score Timeline,"timestamp, gazeScore",possible,Required columns are present.,Single-session time series
+Fusion Confidence Timeline,"timestamp, fusionConfidence",possible,Required columns are present.,Single-session time series
+BPM Timeline,"timestamp, bpm",possible,Required columns are present.,Single-session time series
+IBI Timeline,"timestamp, ibiMean, ibiStd",possible,Required columns are present.,Single-session time series
+Attention State Distribution,attentionState,possible,Required columns are present.,Categorical frequency plot
+Gaze Direction Distribution,gazeDirection,possible,Required columns are present.,Categorical frequency plot
+Head Direction Distribution,headDirection,possible,Required columns are present.,Categorical frequency plot
+Head Pose Angle Histograms,"pitch, yaw, roll",possible,Required columns are present.,Univariate histogram
+Numeric Histograms Grid,"attentionScore, blinkScore, blinkConfidence, fatigueScore, fatigueConfidence, attentionDriftScore, bpm, ibiMean, ibiStd, blinkVariability, headScore, headConfidence, pitch, yaw, roll, gazeScore, gazeConfidence, finalAttentionScore, fusionConfidence",possible,Required columns are present.,All numeric univariate distributions
+Attention State Boxplots,"attentionState, bpm, fatigueScore, blinkScore, headScore, gazeScore, finalAttentionScore",possible,Required columns are present.,Requires at least two state groups
+Attention State Violin Plots,"attentionState, bpm, fatigueScore, blinkScore, headScore, gazeScore, finalAttentionScore",possible,Required columns are present.,Requires at least two state groups
+Attention vs Blink Scatter,"blinkScore, finalAttentionScore",possible,Required columns are present.,Bivariate scatter
+Attention vs Head Scatter,"headScore, finalAttentionScore",possible,Required columns are present.,Bivariate scatter
+Attention vs Gaze Scatter,"gazeScore, finalAttentionScore",possible,Required columns are present.,Bivariate scatter
+Fatigue vs Attention Scatter,"fatigueScore, finalAttentionScore",possible,Required columns are present.,Bivariate scatter
+Correlation Heatmap,"attentionScore, blinkScore, blinkConfidence, fatigueScore, fatigueConfidence, attentionDriftScore, bpm, ibiMean, ibiStd, blinkVariability, headScore, headConfidence, pitch, yaw, roll, gazeScore, gazeConfidence, finalAttentionScore, fusionConfidence",possible,Required columns are present.,Requires at least two numeric columns
+Fusion Contribution Timeline,"blinkScore, headScore, gazeScore, blinkConfidence, headConfidence, gazeConfidence, timestamp",possible,Required columns are present.,Recomputed from exported columns
+Calibration Quality Proxy Plot,"timestamp, gazeConfidence, headConfidence, fusionConfidence",possible,Required columns are present.,Uses confidence proxies only
+Participant Mean Comparison,"participant_id, finalAttentionScore, blinkScore, headScore, gazeScore",possible,Required columns are present.,Works with one or more sessions
+Participant State Comparison,"participant_id, attentionState",possible,Required columns are present.,Works with one or more sessions
+Direction Crosstab Heatmap,"headDirection, gazeDirection",possible,Required columns are present.,Requires two categorical columns
+Summary-Level Attention Comparison,"averageAttentionScore, averageBlinkScore, averageHeadScore, averageGazeScore",possible,Required columns are present.,Requires JSON summary
+Session Summary Metrics,"averageAttentionScore, averageBlinkScore, averageHeadScore, averageGazeScore, averageFatigueScore, averageBPM",possible,Required columns are present.,Requires JSON summary

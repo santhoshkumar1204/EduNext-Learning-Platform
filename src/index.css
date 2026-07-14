@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  body {
+    @apply bg-slate-900 text-slate-100 antialiased;
+    background-image: radial-gradient(
+        1200px 600px at 10% -10%,
+        rgba(59, 130, 246, 0.12),
+        transparent 60%
+      ),
+      radial-gradient(
+        1000px 500px at 110% 10%,
+        rgba(168, 85, 247, 0.1),
+        transparent 55%
+      );
+    background-attachment: fixed;
+  }
+}
+
+@layer components {
+  /* Glassmorphism card */
+  .glass {
+    @apply rounded-2xl border border-white/10 bg-white/5 shadow-xl backdrop-blur-md;
+  }
+  .glass-strong {
+    @apply rounded-2xl border border-white/15 bg-white/[0.07] shadow-2xl backdrop-blur-xl;
+  }
+}
+
+/* Recharts dark theme tweaks */
+.recharts-cartesian-axis-tick-value {
+  fill: #94a3b8;
+  font-size: 11px;
+}
+.recharts-default-tooltip {
+  background: rgba(15, 23, 42, 0.92) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 0.75rem !important;
+}
