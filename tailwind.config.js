@@ -1,0 +1,87 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  darkMode: "class",
+  content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx,html}"],
+  theme: {
+    extend: {
+      colors: {
+        // EdTech design-system semantic tokens (navy/blue primary, green = success only)
+        primary: "#0F2B5B",
+        "primary-dark": "#0A1F44",
+        navy: "#0F2B5B",
+        "navy-light": "#1A365D",
+        secondary: "#2563EB",
+        "secondary-dark": "#1D4ED8",
+        accent: "#2563EB",
+        success: "#22C55E",
+        "success-dark": "#15803D",
+        warning: "#F59E0B",
+        background: "#F8FAFC",
+        surface: "#ffffff",
+        "on-surface": "#0F172A",
+        "on-surface-variant": "#64748B",
+        outline: "#94A3B8",
+        "outline-variant": "#E2E8F0",
+        "secondary-container": "#DBEAFE",
+        "primary-container": "#DBEAFE",
+        "success-container": "#DCFCE7",
+        error: "#EF4444",
+      },
+      fontFamily: {
+        sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ["'Plus Jakarta Sans'", "Inter", "sans-serif"],
+        "headline-xl": ["Inter", "sans-serif"],
+        "headline-lg": ["Inter", "sans-serif"],
+        "headline-md": ["Inter", "sans-serif"],
+        "body-lg": ["Inter", "sans-serif"],
+        "body-md": ["Inter", "sans-serif"],
+        "label-md": ["Inter", "sans-serif"],
+        "label-sm": ["Inter", "sans-serif"],
+        "label-bold": ["Inter", "sans-serif"],
+      },
+      fontSize: {
+        "headline-xl": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
+        "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "700" }],
+        "headline-lg-mobile": ["28px", { lineHeight: "36px", fontWeight: "700" }],
+        "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+        "label-md": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "600" }],
+        "label-bold": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "700" }],
+        "label-sm": ["12px", { lineHeight: "16px", fontWeight: "500" }],
+      },
+      boxShadow: {
+        soft: "0 4px 20px -2px rgba(0, 0, 0, 0.05)",
+        hover: "0 10px 40px -4px rgba(0, 0, 0, 0.08)",
+        glass: "0 8px 32px rgba(0, 0, 0, 0.06)",
+      },
+      transitionTimingFunction: {
+        premium: "cubic-bezier(0.4, 0, 0.2, 1)",
+      },
+      animation: {
+        "fade-in-up": "fadeInUp 0.8s cubic-bezier(0.4,0,0.2,1) forwards",
+        "fade-in": "fadeIn 1s cubic-bezier(0.4,0,0.2,1) forwards",
+        shimmer: "shimmer 2s linear infinite",
+        "pulse-slow": "pulse 3s cubic-bezier(0.4,0,0.6,1) infinite",
+        float: "float 6s ease-in-out infinite",
+        "spin-slow": "spin 8s linear infinite",
+      },
+      keyframes: {
+        fadeInUp: {
+          "0%": { opacity: "0", transform: "translateY(20px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        fadeIn: { "0%": { opacity: "0" }, "100%": { opacity: "1" } },
+        shimmer: {
+          from: { backgroundPosition: "200% 0" },
+          to: { backgroundPosition: "-200% 0" },
+        },
+        float: {
+          "0%,100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-12px)" },
+        },
+      },
+    },
+  },
+  plugins: [],
+};

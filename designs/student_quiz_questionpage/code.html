@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+
+<html lang="en" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduNext - Peer Challenges</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#2d476f",
+                        "surface-container-high": "#e6e8ea",
+                        "background": "#f7f9fb",
+                        "secondary-fixed": "#6bff8f",
+                        "surface-container": "#eceef0",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#43474e",
+                        "surface-tint": "#455f88",
+                        "on-secondary-fixed": "#002109",
+                        "primary-fixed-dim": "#adc7f7",
+                        "inverse-primary": "#adc7f7",
+                        "on-tertiary-container": "#6a9dff",
+                        "tertiary-container": "#003374",
+                        "on-tertiary-fixed": "#001a42",
+                        "on-error": "#ffffff",
+                        "on-surface": "#191c1e",
+                        "on-tertiary-fixed-variant": "#004395",
+                        "tertiary-fixed": "#d8e2ff",
+                        "secondary-fixed-dim": "#4ae176",
+                        "outline": "#74777f",
+                        "surface": "#f7f9fb",
+                        "secondary": "#006e2f",
+                        "primary-fixed": "#d6e3ff",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "surface-bright": "#f7f9fb",
+                        "secondary-container": "#6bff8f",
+                        "surface-variant": "#e0e3e5",
+                        "surface-dim": "#d8dadc",
+                        "error-container": "#ffdad6",
+                        "primary": "#002045",
+                        "inverse-surface": "#2d3133",
+                        "on-secondary-container": "#007432",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f2f4f6",
+                        "outline-variant": "#c4c6cf",
+                        "primary-container": "#1a365d",
+                        "tertiary": "#001f4b",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-background": "#191c1e",
+                        "on-primary-fixed": "#001b3c",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#005321",
+                        "on-primary-container": "#86a0cd",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-secondary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "gutter": "24px",
+                        "base": "8px",
+                        "margin-mobile": "16px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-xl": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        .progress-bar-container {
+            height: 12px;
+            background-color: #e0e3e5;
+            border-radius: 9999px;
+            overflow: hidden;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background-color: #006e2f; /* Secondary color for progress */
+            border-radius: 9999px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex">
+<!-- Side Navigation Shell -->
+<aside class="hidden md:flex flex-col bg-surface-container-low/90 backdrop-blur-xl h-screen w-64 fixed left-0 top-0 overflow-y-auto border-r border-outline-variant/20 shadow-md p-4 gap-1 z-40">
+<div class="mb-6 px-2">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">EduNext</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Learning Portal</p>
+</div>
+<nav class="flex flex-col gap-1 flex-1">
+<div class="text-xs font-bold text-outline uppercase tracking-wider mb-1 mt-2 px-3">Menu</div>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg cursor-pointer active:opacity-80 transition-transform duration-200 hover:translate-x-1 font-label-md text-label-md" href="#"><span class="material-symbols-outlined">dashboard</span><span class="">Dashboard</span></a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg cursor-pointer active:opacity-80 transition-transform duration-200 hover:translate-x-1 font-label-md text-label-md" href="#"><span class="material-symbols-outlined">school</span><span class="">Courses</span></a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg cursor-pointer active:opacity-80 transition-transform duration-200 hover:translate-x-1 font-label-md text-label-md" href="#"><span class="material-symbols-outlined">library_books</span><span class="">My Courses</span></a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg cursor-pointer active:opacity-80 transition-transform duration-200 hover:translate-x-1 font-label-md text-label-md" href="#"><span class="material-symbols-outlined">trending_up</span><span class="">Progress &amp; Streaks</span></a>
+<div class="text-xs font-bold text-outline uppercase tracking-wider mb-1 mt-4 px-3">Activities</div>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg cursor-pointer active:opacity-80 transition-transform duration-200 hover:translate-x-1 font-label-md text-label-md" href="#"><span class="material-symbols-outlined">quiz</span><span class="">Quizzes</span></a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg cursor-pointer active:opacity-80 transition-transform duration-200 hover:translate-x-1 font-label-md text-label-md" href="#"><span class="material-symbols-outlined">assignment</span><span class="">Assignments</span></a>
+<a class="flex items-center gap-3 px-3 py-2 bg-secondary-container text-on-secondary-container rounded-lg font-bold cursor-pointer active:opacity-80 font-label-md text-label-md" href="#"><span class="material-symbols-outlined">groups</span><span class="">Peer Challenges</span></a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg cursor-pointer active:opacity-80 transition-transform duration-200 hover:translate-x-1 font-label-md text-label-md" href="#"><span class="material-symbols-outlined">local_fire_department</span><span class="">Streak Pot</span></a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg cursor-pointer active:opacity-80 transition-transform duration-200 hover:translate-x-1 font-label-md text-label-md" href="#"><span class="material-symbols-outlined">handshake</span><span class="">My Apprenticeships</span></a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg cursor-pointer active:opacity-80 transition-transform duration-200 hover:translate-x-1 font-label-md text-label-md" href="#"><span class="material-symbols-outlined">leaderboard</span><span class="">Leaderboard</span></a>
+<div class="text-xs font-bold text-outline uppercase tracking-wider mb-1 mt-4 px-3">Resources</div>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg cursor-pointer active:opacity-80 transition-transform duration-200 hover:translate-x-1 font-label-md text-label-md" href="#"><span class="material-symbols-outlined">campaign</span><span class="">Announcements</span></a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg cursor-pointer active:opacity-80 transition-transform duration-200 hover:translate-x-1 font-label-md text-label-md" href="#"><span class="material-symbols-outlined">download</span><span class="">Downloads</span></a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg cursor-pointer active:opacity-80 transition-transform duration-200 hover:translate-x-1 font-label-md text-label-md" href="#"><span class="material-symbols-outlined">explore</span><span class="">Career Find</span></a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg cursor-pointer active:opacity-80 transition-transform duration-200 hover:translate-x-1 font-label-md text-label-md" href="#"><span class="material-symbols-outlined">forum</span><span class="">Explore Community</span></a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg cursor-pointer active:opacity-80 transition-transform duration-200 hover:translate-x-1 font-label-md text-label-md" href="#"><span class="material-symbols-outlined">view_in_ar</span><span class="">Cardboard VR</span></a>
+</nav>
+<div class="mt-auto flex flex-col gap-2 pt-4 border-t border-outline-variant/20">
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="">Help Center</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-64 p-margin-mobile md:p-margin-desktop min-h-screen">
+<!-- Header Section -->
+<header class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<a class="inline-flex items-center text-primary mb-2 hover:underline" href="#">
+<span class="material-symbols-outlined mr-1" style="font-size: 20px;">arrow_back</span>
+                    Back
+                </a>
+<h2 class="font-headline-xl text-headline-xl text-primary">Peer Challenges</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2 max-w-2xl">Compete with fellow learners, earn points, and climb the leaderboard.</p>
+</div>
+<div class="flex items-center gap-4 bg-surface-container-low rounded-full px-4 py-2 border border-outline-variant/20">
+<div class="flex items-center gap-2 text-secondary font-label-md">
+<span class="material-symbols-outlined" style='font-variation-settings: "FILL" 1;'>wifi</span>
+<span class="">Online</span>
+</div>
+<div class="h-4 w-px bg-outline-variant"></div>
+<div class="flex items-center gap-2 text-secondary font-label-md">
+<span class="material-symbols-outlined">sync_saved_locally</span>
+<span class="">All Synced</span>
+</div>
+</div>
+</header>
+<!-- Metric Cards -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+<div class="glass-card rounded-xl p-6 flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">emoji_events</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Current Standing</p>
+<p class="font-headline-lg text-headline-lg text-primary">Rank #18</p>
+</div>
+</div>
+<div class="glass-card rounded-xl p-6 flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary-container/20 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-3xl">stars</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Total Earned</p>
+<p class="font-headline-lg text-headline-lg text-primary">1,250 <span class="text-lg font-normal text-on-surface-variant">Points</span></p>
+</div>
+</div>
+<div class="glass-card rounded-xl p-6 flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-tertiary-container/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-3xl">bolt</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Engagement</p>
+<p class="font-headline-lg text-headline-lg text-primary">3 <span class="text-lg font-normal text-on-surface-variant">Active</span></p>
+</div>
+</div>
+</section>
+<!-- Navigation Tabs -->
+<div class="flex overflow-x-auto gap-2 mb-8 border-b border-outline-variant/30 pb-2 hide-scrollbar">
+<button class="px-4 py-2 font-label-md text-label-md text-primary border-b-2 border-primary whitespace-nowrap">Active Challenges</button>
+<button class="px-4 py-2 font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap">My Challenges</button>
+<button class="px-4 py-2 font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap">Completed Challenges</button>
+<button class="px-4 py-2 font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-size: 18px;">leaderboard</span> Leaderboard
+            </button>
+</div>
+<!-- Active Challenges Grid -->
+<section class="mb-12">
+<h3 class="font-headline-md text-headline-md text-primary mb-6">Discover New Challenges</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Challenge Card 1 -->
+<div class="glass-card rounded-xl p-6 flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+<div class="flex justify-between items-start mb-4">
+<h4 class="font-headline-sm text-lg font-bold text-primary">Math Sprint Challenge</h4>
+<span class="bg-secondary-container text-on-secondary-container px-2 py-1 rounded-full font-label-sm text-xs">Easy</span>
+</div>
+<p class="font-body-sm text-sm text-on-surface-variant mb-6 flex-grow">Solve 20 arithmetic problems as fast as possible.</p>
+<div class="flex justify-between items-center mb-4 text-sm text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined" style="font-size: 16px;">group</span>
+<span class="">24/30 Joined</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined" style="font-size: 16px;">schedule</span>
+<span class="">2h 15m left</span>
+</div>
+</div>
+<div class="mb-4">
+<div class="flex justify-between text-xs mb-1">
+<span class="text-on-surface-variant font-medium">Progress</span>
+<span class="text-primary font-bold">65%</span>
+</div>
+<div class="progress-bar-container">
+<div class="progress-bar-fill" style="width: 65%;"></div>
+</div>
+</div>
+<div class="flex justify-between items-center mt-auto pt-4 border-t border-outline-variant/20">
+<div class="flex items-center gap-1 text-secondary font-bold">
+<span class="material-symbols-outlined">workspace_premium</span>
+<span class="">100 Points</span>
+</div>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md text-sm hover:bg-primary/90 transition-colors">Join Challenge</button>
+</div>
+</div>
+<!-- Challenge Card 2 -->
+<div class="glass-card rounded-xl p-6 flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+<div class="flex justify-between items-start mb-4">
+<h4 class="font-headline-sm text-lg font-bold text-primary">Code Logic Battle</h4>
+<span class="bg-tertiary-container text-on-tertiary-container px-2 py-1 rounded-full font-label-sm text-xs">Medium</span>
+</div>
+<p class="font-body-sm text-sm text-on-surface-variant mb-6 flex-grow">Test your algorithmic thinking against peers in real-time.</p>
+<div class="flex justify-between items-center mb-4 text-sm text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined" style="font-size: 16px;">group</span>
+<span class="">18/25 Joined</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined" style="font-size: 16px;">schedule</span>
+<span class="">4h 30m left</span>
+</div>
+</div>
+<div class="mb-4">
+<div class="flex justify-between text-xs mb-1">
+<span class="text-on-surface-variant font-medium">Progress</span>
+<span class="text-primary font-bold">40%</span>
+</div>
+<div class="progress-bar-container">
+<div class="progress-bar-fill" style="width: 40%; background-color: #004395;"></div>
+</div>
+</div>
+<div class="flex justify-between items-center mt-auto pt-4 border-t border-outline-variant/20">
+<div class="flex items-center gap-1 text-secondary font-bold">
+<span class="material-symbols-outlined">workspace_premium</span>
+<span class="">200 Points</span>
+</div>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md text-sm hover:bg-primary/90 transition-colors">Join Challenge</button>
+</div>
+</div>
+<!-- Challenge Card 3 -->
+<div class="glass-card rounded-xl p-6 flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+<div class="flex justify-between items-start mb-4">
+<h4 class="font-headline-sm text-lg font-bold text-primary">UI Design Sprint</h4>
+<span class="bg-error-container text-on-error-container px-2 py-1 rounded-full font-label-sm text-xs">Hard</span>
+</div>
+<p class="font-body-sm text-sm text-on-surface-variant mb-6 flex-grow">Create a high-fidelity prototype for a mobile dashboard in under 24 hours.</p>
+<div class="flex justify-between items-center mb-4 text-sm text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined" style="font-size: 16px;">group</span>
+<span class="">12/20 Joined</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined" style="font-size: 16px;">schedule</span>
+<span class="">1d 2h left</span>
+</div>
+</div>
+<div class="mb-4">
+<div class="flex justify-between text-xs mb-1">
+<span class="text-on-surface-variant font-medium">Progress</span>
+<span class="text-primary font-bold">10%</span>
+</div>
+<div class="progress-bar-container">
+<div class="progress-bar-fill" style="width: 10%; background-color: #ba1a1a;"></div>
+</div>
+</div>
+<div class="flex justify-between items-center mt-auto pt-4 border-t border-outline-variant/20">
+<div class="flex items-center gap-1 text-secondary font-bold">
+<span class="material-symbols-outlined">workspace_premium</span>
+<span class="">500 Points</span>
+</div>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md text-sm hover:bg-primary/90 transition-colors">Join Challenge</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Layout Section: Leaderboard & Secondary Info -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Leaderboard Column -->
+<div class="lg:col-span-2 space-y-8">
+<section class="glass-card rounded-xl p-6">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-md text-headline-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">emoji_events</span>
+                            Global Leaderboard
+                        </h3>
+<a class="text-primary text-sm font-medium hover:underline" href="#">View All</a>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant/30 text-on-surface-variant font-label-sm text-xs uppercase tracking-wider">
+<th class="py-3 px-4 font-medium">Rank</th>
+<th class="py-3 px-4 font-medium">Student</th>
+<th class="py-3 px-4 font-medium">Points</th>
+<th class="py-3 px-4 font-medium">Won</th>
+<th class="py-3 px-4 font-medium text-right">Streak</th>
+</tr>
+</thead>
+<tbody class="text-sm">
+<tr class="border-b border-outline-variant/10 hover:bg-surface-container/50 transition-colors">
+<td class="py-3 px-4 font-bold text-primary">1</td>
+<td class="py-3 px-4 font-medium flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center text-xs">A</div>
+                                        Alex Johnson
+                                    </td>
+<td class="py-3 px-4 text-secondary font-semibold">3,450</td>
+<td class="py-3 px-4 text-on-surface-variant">12</td>
+<td class="py-3 px-4 text-right text-tertiary-container font-medium flex items-center justify-end gap-1">
+<span class="material-symbols-outlined" style="font-size: 16px;">local_fire_department</span> 15
+                                    </td>
+</tr>
+<tr class="border-b border-outline-variant/10 hover:bg-surface-container/50 transition-colors">
+<td class="py-3 px-4 font-bold text-primary">2</td>
+<td class="py-3 px-4 font-medium flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center text-xs">M</div>
+                                        Maria Garcia
+                                    </td>
+<td class="py-3 px-4 text-secondary font-semibold">3,120</td>
+<td class="py-3 px-4 text-on-surface-variant">9</td>
+<td class="py-3 px-4 text-right text-tertiary-container font-medium flex items-center justify-end gap-1">
+<span class="material-symbols-outlined" style="font-size: 16px;">local_fire_department</span> 8
+                                    </td>
+</tr>
+<tr class="border-b border-outline-variant/10 hover:bg-surface-container/50 transition-colors">
+<td class="py-3 px-4 font-bold text-primary">3</td>
+<td class="py-3 px-4 font-medium flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center text-xs">S</div>
+                                        Sam Lee
+                                    </td>
+<td class="py-3 px-4 text-secondary font-semibold">2,980</td>
+<td class="py-3 px-4 text-on-surface-variant">11</td>
+<td class="py-3 px-4 text-right text-tertiary-container font-medium flex items-center justify-end gap-1">
+<span class="material-symbols-outlined" style="font-size: 16px;">local_fire_department</span> 12
+                                    </td>
+</tr>
+<!-- Highlighted User Row -->
+<tr class="bg-primary/5 border-l-4 border-primary mt-2">
+<td class="py-3 px-4 font-bold text-primary">18</td>
+<td class="py-3 px-4 font-bold text-primary flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center text-xs">Y</div>
+                                        You
+                                    </td>
+<td class="py-3 px-4 text-secondary font-bold">1,250</td>
+<td class="py-3 px-4 text-on-surface-variant font-medium">4</td>
+<td class="py-3 px-4 text-right text-tertiary-container font-bold flex items-center justify-end gap-1">
+<span class="material-symbols-outlined" style="font-size: 16px;">local_fire_department</span> 3
+                                    </td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+<!-- Side Column: Achievements & My Active -->
+<div class="space-y-8">
+<!-- Achievements -->
+<section class="glass-card rounded-xl p-6">
+<h3 class="font-headline-sm text-lg font-bold text-primary mb-4">Your Badges</h3>
+<div class="flex flex-wrap gap-3">
+<div class="flex items-center gap-2 bg-surface p-2 rounded-lg border border-outline-variant/20 shadow-sm" title="First Challenge Completed">
+<span class="material-symbols-outlined text-secondary" style='font-variation-settings: "FILL" 1;'>military_tech</span>
+<span class="text-xs font-medium text-on-surface">Initiate</span>
+</div>
+<div class="flex items-center gap-2 bg-surface p-2 rounded-lg border border-outline-variant/20 shadow-sm" title="Top 10 Finish">
+<span class="material-symbols-outlined text-tertiary-container" style='font-variation-settings: "FILL" 1;'>workspace_premium</span>
+<span class="text-xs font-medium text-on-surface">Top 10</span>
+</div>
+<div class="flex items-center gap-2 bg-surface p-2 rounded-lg border border-outline-variant/20 shadow-sm opacity-50 grayscale" title="Challenge Champion (Locked)">
+<span class="material-symbols-outlined" style='font-variation-settings: "FILL" 1;'>trophy</span>
+<span class="text-xs font-medium text-on-surface">Champion</span>
+</div>
+</div>
+</section>
+<!-- My Active Challenges Mini -->
+<section class="glass-card rounded-xl p-6">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-headline-sm text-lg font-bold text-primary">Resume</h3>
+<span class="bg-primary-container text-on-primary-container text-xs px-2 py-1 rounded-full">1 Active</span>
+</div>
+<div class="border border-outline-variant/20 rounded-lg p-4 bg-surface-container-lowest">
+<h4 class="font-label-md text-sm font-bold text-primary mb-1">Science Quiz Battle</h4>
+<p class="text-xs text-on-surface-variant mb-3">Physics module.</p>
+<div class="mb-3">
+<div class="progress-bar-container h-2">
+<div class="progress-bar-fill" style="width: 80%;"></div>
+</div>
+</div>
+<button class="w-full bg-surface hover:bg-surface-variant border border-outline-variant/30 text-primary px-4 py-2 rounded-lg font-label-md text-sm transition-colors">Continue</button>
+</div>
+</section>
+</div>
+</div>
+</main>
+</body></html>

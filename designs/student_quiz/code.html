@@ -1,0 +1,446 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>EduNext - Streak Pot</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#001a42",
+                        "background": "#f7f9fb",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#adc7f7",
+                        "on-secondary-container": "#007432",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#191c1e",
+                        "on-error-container": "#93000a",
+                        "surface": "#f7f9fb",
+                        "secondary-container": "#6bff8f",
+                        "surface-container": "#eceef0",
+                        "primary-container": "#1a365d",
+                        "on-tertiary-fixed-variant": "#004395",
+                        "outline-variant": "#c4c6cf",
+                        "surface-variant": "#e0e3e5",
+                        "surface-container-high": "#e6e8ea",
+                        "inverse-on-surface": "#eff1f3",
+                        "secondary": "#006e2f",
+                        "on-tertiary-container": "#6a9dff",
+                        "on-surface-variant": "#43474e",
+                        "inverse-surface": "#2d3133",
+                        "surface-dim": "#d8dadc",
+                        "on-primary-container": "#86a0cd",
+                        "error-container": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#6bff8f",
+                        "on-error": "#ffffff",
+                        "outline": "#74777f",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "tertiary": "#001f4b",
+                        "on-secondary-fixed": "#002109",
+                        "on-secondary-fixed-variant": "#005321",
+                        "primary-fixed-dim": "#adc7f7",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-tint": "#455f88",
+                        "secondary-fixed-dim": "#4ae176",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "tertiary-container": "#003374",
+                        "primary-fixed": "#d6e3ff",
+                        "on-primary-fixed": "#001b3c",
+                        "on-surface": "#191c1e",
+                        "primary": "#002045",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-bright": "#f7f9fb",
+                        "tertiary-fixed": "#d8e2ff",
+                        "on-primary-fixed-variant": "#2d476f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "40px",
+                        "container-max": "1280px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-xl": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        .progress-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .5; }
+        }
+        .emerald-accent { color: #10b981; }
+        .bg-emerald-accent { background-color: #10b981; }
+        .text-emerald-accent { color: #10b981; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex antialiased">
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col h-screen w-72 left-0 sticky bg-surface-container-low dark:bg-surface-container-lowest shadow-md p-6 space-y-2 z-20"><div class="mb-8 px-4 flex items-center space-x-3"><div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-on-primary font-bold text-xl">E</div><div><h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary">EduNext</h1><p class="font-label-sm text-label-sm text-on-surface-variant">Learning Portal</p></div></div><div class="flex-1 overflow-y-auto space-y-1 scrollbar-hide"><p class="px-4 py-2 text-[10px] font-bold uppercase tracking-wider text-outline-variant">Menu</p><a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-variant/50 hover:text-on-surface transition-colors" href="#"><span class="material-symbols-outlined">dashboard</span><span class="font-label-md text-label-md">Dashboard</span></a><a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-variant/50 hover:text-on-surface transition-colors" href="#"><span class="material-symbols-outlined">school</span><span class="font-label-md text-label-md">Courses</span></a><a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-variant/50 hover:text-on-surface transition-colors" href="#"><span class="material-symbols-outlined">library_books</span><span class="font-label-md text-label-md">My Courses</span></a><a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-variant/50 hover:text-on-surface transition-colors" href="#"><span class="material-symbols-outlined">trending_up</span><span class="font-label-md text-label-md">Progress &amp; Streaks</span></a><p class="px-4 py-2 text-[10px] font-bold uppercase tracking-wider text-outline-variant mt-4">Activities</p><a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-variant/50 hover:text-on-surface transition-colors" href="#"><span class="material-symbols-outlined">quiz</span><span class="font-label-md text-label-md">Quizzes</span></a><a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-variant/50 hover:text-on-surface transition-colors" href="#"><span class="material-symbols-outlined">assignment</span><span class="font-label-md text-label-md">Assignments</span></a><a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-variant/50 hover:text-on-surface transition-colors" href="#"><span class="material-symbols-outlined">groups</span><span class="font-label-md text-label-md">Peer Challenges</span></a><a class="flex items-center space-x-3 px-4 py-3 bg-secondary-container text-on-secondary-container rounded-lg font-bold transition-transform translate-x-1 shadow-sm" href="#"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_fire_department</span><span class="font-label-md text-label-md">Streak Pot</span></a><a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-variant/50 hover:text-on-surface transition-colors" href="#"><span class="material-symbols-outlined">work_history</span><span class="font-label-md text-label-md">My Apprenticeships</span></a><a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-variant/50 hover:text-on-surface transition-colors" href="#"><span class="material-symbols-outlined">leaderboard</span><span class="font-label-md text-label-md">Leaderboard</span></a><p class="px-4 py-2 text-[10px] font-bold uppercase tracking-wider text-outline-variant mt-4">Resources</p><a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-variant/50 hover:text-on-surface transition-colors" href="#"><span class="material-symbols-outlined">campaign</span><span class="font-label-md text-label-md">Announcements</span></a><a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-variant/50 hover:text-on-surface transition-colors" href="#"><span class="material-symbols-outlined">download</span><span class="font-label-md text-label-md">Downloads</span></a><a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-variant/50 hover:text-on-surface transition-colors" href="#"><span class="material-symbols-outlined">explore</span><span class="font-label-md text-label-md">Career Find</span></a><a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-variant/50 hover:text-on-surface transition-colors" href="#"><span class="material-symbols-outlined">forum</span><span class="font-label-md text-label-md">Explore Community</span></a><a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-variant/50 hover:text-on-surface transition-colors" href="#"><span class="material-symbols-outlined">view_in_ar</span><span class="font-label-md text-label-md">Cardboard VR</span></a></div></nav>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col min-w-0">
+<!-- TopNavBar -->
+<header class="bg-surface/80 backdrop-blur-xl dark:bg-inverse-surface/80 w-full top-0 sticky shadow-sm z-10 bg-surface/70 border-b border-white/20">
+<div class="flex justify-between items-center px-margin-desktop py-4 w-full max-w-container-max mx-auto">
+<div class="md:hidden">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary">EduNext</span>
+</div>
+<div class="hidden md:flex flex-1 max-w-xl mx-8 relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 transform -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-high border-none rounded-full py-2 pl-10 pr-4 focus:ring-2 focus:ring-primary focus:bg-white transition-all font-body-md text-on-surface placeholder-on-surface-variant" placeholder="Search courses, skills, or students..." type="text">
+</div>
+<div class="flex items-center space-x-4">
+<button class="p-2 text-primary dark:text-inverse-primary hover:bg-primary-container/50 transition-all duration-200 rounded-full scale-95 active:scale-90">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-primary dark:text-inverse-primary hover:bg-primary-container/50 transition-all duration-200 rounded-full scale-95 active:scale-90 hidden sm:block">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-surface-container-high cursor-pointer">
+<img alt="User avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiPFL5wxMWMs75XDP9an0JqwHfRMpmi968ICGrVR8lcU5NHr5eK6p7v2UqHbVlQ20Liv9vcpajfnqF7q_rPFudk9HVSflfW18qLjmKHaHBM1amSLt5IrFCBndCL1HNkCNukx1RJAfTy0b3A0Z3TsW_iC2sdbcRtVcJDOn6yLj6Zas4rXexVzea5XToJs14JkdeHiuLS5HZJdtW73IC6IYcWPY8ktG0r9iM7iyq15gM-F7tEZvTD5XlOL562mo0vH2pK8wr8ywDIWs">
+</div>
+</div>
+</div>
+</header>
+<!-- Canvas -->
+<main class="flex-1 overflow-y-auto p-margin-mobile md:p-margin-desktop">
+<div class="max-w-container-max mx-auto space-y-gutter">
+<!-- Hero Section: Streak Pot Card -->
+<section class="glass-card rounded-xl overflow-hidden relative">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none"></div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8 relative z-10">
+<!-- Left Content -->
+<div class="flex flex-col justify-center space-y-6">
+<div>
+<div class="inline-flex items-center space-x-2 bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full mb-4">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: &quot;FILL&quot; 1;">stars</span>
+<span class="font-label-sm text-label-sm font-bold tracking-wider uppercase">Emerald Tier Active</span>
+</div>
+<h2 class="font-headline-xl text-headline-xl text-primary font-bold mb-2">EduNext Streak Pot</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Consistency powers the community. Every day you learn, you contribute energy to the collective pot. Reach the milestones together to unlock exclusive EduNext Community rewards and premium resources.</p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-lowest rounded-lg p-4 border border-outline-variant/30">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Pot Level</p>
+<div class="flex items-baseline space-x-2">
+<span class="font-headline-lg text-headline-lg font-bold text-primary">Level 4</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-lg p-4 border border-outline-variant/30"><p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Active Contributors</p><div class="flex items-baseline space-x-2"><span class="font-headline-lg text-headline-lg font-bold text-primary">5,420</span><span class="material-symbols-outlined text-emerald-accent" style="font-variation-settings: &quot;FILL&quot; 1;">group</span></div></div>
+</div>
+</div>
+<!-- Right Content: 3D Placeholder Area -->
+<div class="relative h-64 lg:h-96 rounded-xl bg-surface-container-lowest/50 border border-outline-variant/20 flex items-center justify-center overflow-hidden">
+<!-- Futuristic Reward Container Image Placeholder -->
+<img alt="A premium, high-fidelity 3D visualization of a futuristic 'Learning Vault' or 'Reward Capsule'. It should be a crystal-like glass container with glowing energy inside, representing a collective reward pot. The design is sleek, modern, and professional, using translucent glassmorphism, soft cyan and emerald green lighting, and a clean white background. Perfect for a flagship EdTech feature. No cartoon elements or clipart." class="w-full h-full object-cover rounded-xl z-0 mix-blend-multiply" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6CP2Ato9aAFbT9LHRw52REwtOJioBT9_a8P1075e5IAlXsBxEjZO7xrXSAOqPKmYgUGS6b2c25svRythpXR04mbNg8QrN_oZ_reWa0fYmkP_m7OdEm708VYtp-EN-I_X7b-zekaLp3VmH_ywOxS_Qmo_ChzqMADf5ZwWuw_PR959GCvIshgKSUZEe1f_VB53hkM4CWUwX6_6jyaIERsbuOCbI3qwQNd_Ye5tNWJ4xneH7j8hnY8uOUEP9PyFEOQuWvaPErv4B8IQ">
+<!-- Placeholder overlay for future Three.js integration context -->
+<div class="absolute inset-0 ring-1 ring-inset ring-black/5 rounded-xl pointer-events-none"></div>
+<div class="absolute bottom-4 left-4 bg-surface/80 backdrop-blur-md px-4 py-2 rounded-lg border border-white/20 z-10"><p class="font-label-sm text-label-sm font-bold text-primary">Current Pot Energy: 72% Charged</p></div></div>
+</div>
+</section>
+<!-- Pot Progress Tracker -->
+<section class="glass-card rounded-xl p-8 relative">
+<div class="flex justify-between items-end mb-6">
+<div>
+<h3 class="font-headline-md text-headline-md font-bold text-primary">Collective Progress</h3>
+<p class="font-body-md text-on-surface-variant mt-1">We need 8% more to unlock the next milestone.</p>
+</div>
+<div class="text-right">
+<span class="font-headline-lg text-headline-lg font-bold text-emerald-accent">72%</span>
+</div>
+</div>
+<div class="relative pt-4 pb-8">
+<!-- Progress Bar Track -->
+<div class="h-6 bg-surface-container-high rounded-full overflow-hidden w-full relative">
+<!-- Fill -->
+<div class="h-full bg-gradient-to-r from-emerald-400 to-emerald-accent rounded-full transition-all duration-1000 ease-out flex items-center justify-end pr-2 relative" style="width: 72%;">
+<div class="w-2 h-2 bg-white rounded-full progress-pulse"></div>
+</div>
+</div>
+<!-- Markers -->
+<div class="absolute top-0 w-full h-full pointer-events-none">
+<!-- 25% -->
+<div class="absolute left-[25%] -ml-3 top-2 flex flex-col items-center">
+<div class="w-6 h-6 rounded-full bg-emerald-accent border-4 border-surface flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-[10px] text-white font-bold">check</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-6">25%</span>
+</div>
+<!-- 50% -->
+<div class="absolute left-[50%] -ml-3 top-2 flex flex-col items-center">
+<div class="w-6 h-6 rounded-full bg-emerald-accent border-4 border-surface flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-[10px] text-white font-bold">check</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-6">50%</span>
+</div>
+<!-- 75% -->
+<div class="absolute left-[75%] -ml-3 top-2 flex flex-col items-center">
+<div class="w-6 h-6 rounded-full bg-surface-container-highest border-4 border-surface flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-[10px] text-outline">lock</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-6">75%</span>
+</div>
+<!-- 100% -->
+<div class="absolute right-0 top-2 flex flex-col items-center">
+<div class="w-6 h-6 rounded-full bg-surface-container-highest border-4 border-surface flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-[10px] text-outline">lock</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-6 mr-2">100%</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Upcoming Rewards Grid -->
+<section>
+<h3 class="font-headline-md text-headline-md font-bold text-primary mb-6">Milestone Rewards</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- 25% Reward (Unlocked) -->
+<div class="glass-card rounded-xl p-6 border-t-4 border-t-emerald-accent opacity-75">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-emerald-accent" style="font-variation-settings: &quot;FILL&quot; 1;">military_tech</span>
+</div>
+<span class="font-label-sm text-label-sm bg-surface px-2 py-1 rounded-full text-on-surface-variant">25%</span>
+</div>
+<h4 class="font-label-md text-label-md font-bold text-primary mb-1">Community Achievement Badge</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Exclusive digital badge awarded to all participants.</p>
+<div class="mt-4 flex items-center text-emerald-accent text-sm font-semibold">
+<span class="material-symbols-outlined text-sm mr-1">check_circle</span> Unlocked
+                            </div>
+</div>
+<!-- 50% Reward (Unlocked) -->
+<div class="glass-card rounded-xl p-6 border-t-4 border-t-emerald-accent opacity-75">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-emerald-accent" style="font-variation-settings: &quot;FILL&quot; 1;">menu_book</span>
+</div>
+<span class="font-label-sm text-label-sm bg-surface px-2 py-1 rounded-full text-on-surface-variant">50%</span>
+</div>
+<h4 class="font-label-md text-label-md font-bold text-primary mb-1">Learning Resources Unlock</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Unlock Premium Learning Resources including curated study guides and expert-led masterclasses.</p>
+<div class="mt-4 flex items-center text-emerald-accent text-sm font-semibold">
+<span class="material-symbols-outlined text-sm mr-1">check_circle</span> Unlocked
+                            </div>
+</div>
+<!-- 75% Reward (Next) -->
+<div class="glass-card rounded-xl p-6 border-t-4 border-t-primary-container relative overflow-hidden transform hover:-translate-y-1 transition-transform duration-300 shadow-md">
+<div class="absolute -right-4 -top-4 w-16 h-16 bg-primary-container/10 rounded-full blur-xl"></div>
+<div class="flex justify-between items-start mb-4 relative z-10">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center">
+
+</div>
+<span class="font-label-sm text-label-sm bg-surface px-2 py-1 rounded-full text-on-surface-variant font-bold">75%</span>
+</div>
+<h4 class="font-label-md text-label-md font-bold text-primary mb-1 relative z-10">Community Celebration Event</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant relative z-10">Exclusive Community Event: A live interactive workshop with global industry leaders.</p>
+<div class="mt-4 w-full bg-surface-container-high rounded-full h-1.5">
+<div class="bg-primary h-1.5 rounded-full" style="width: 96%"></div>
+</div>
+<p class="text-xs text-on-surface-variant mt-2 text-right">Exclusive Community Event: A live interactive workshop with global industry leaders.</p>
+</div>
+<!-- 100% Reward (Locked) -->
+<div class="glass-card rounded-xl p-6 border-t-4 border-t-outline-variant bg-surface-container-lowest/40">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-outline flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">workspace_premium</span>
+</div>
+<span class="font-label-sm text-label-sm bg-surface px-2 py-1 rounded-full text-outline-variant">100%</span>
+</div>
+<h4 class="font-label-md text-label-md font-bold text-outline mb-1">Grand Community Reward</h4>
+<p class="font-label-sm text-label-sm text-outline-variant">A major surprise unlock for the entire student body.</p>
+<div class="mt-4 flex items-center text-outline text-sm font-semibold">
+<span class="material-symbols-outlined text-sm mr-1">lock</span> Locked
+                            </div>
+</div>
+</div>
+</section>
+<!-- Two Column Layout for Stats & Info -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Left Column: Personal Stats -->
+<div class="lg:col-span-1 space-y-6">
+<!-- My Contribution Card -->
+<div class="glass-card rounded-xl p-6">
+<h3 class="font-headline-md text-headline-md font-bold text-primary mb-4 flex items-center">
+<span class="material-symbols-outlined mr-2">person</span>
+                                My Contribution
+                            </h3>
+<div class="space-y-4">
+<div class="flex justify-between items-center p-3 bg-surface rounded-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Current Streak</span>
+<span class="font-label-md text-label-md font-bold text-emerald-accent flex items-center">
+                                        12 Days <span class="material-symbols-outlined text-sm ml-1" style="font-variation-settings: &quot;FILL&quot; 1;">local_fire_department</span>
+</span>
+</div>
+<div class="flex justify-between items-center p-3 bg-surface rounded-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Longest Streak</span>
+<span class="font-label-md text-label-md font-bold text-primary">28 Days</span>
+</div>
+<div class="flex justify-between items-center p-3 bg-surface rounded-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Points Contributed</span>
+<span class="font-label-md text-label-md font-bold text-primary">450 pts</span>
+</div>
+<div class="flex justify-between items-center p-3 bg-primary-container text-on-primary-container rounded-lg">
+<span class="font-label-sm text-label-sm">Platform Rank</span>
+<span class="font-headline-md text-headline-md font-bold">#42</span>
+</div>
+</div>
+</div>
+<!-- How it Works -->
+<div class="glass-card rounded-xl p-6 border-t-4 border-t-primary"><h3 class="font-label-md text-label-md font-bold text-primary mb-4 flex items-center"><span class="material-symbols-outlined mr-2">flag</span>Next Personal Milestone</h3><div class="space-y-3"><div class="flex justify-between items-center"><span class="text-xs text-on-surface-variant">Current Streak</span><span class="text-xs font-bold">12 Days</span></div><div class="w-full bg-surface-container-high h-1.5 rounded-full"><div class="bg-primary h-1.5 rounded-full" style="width: 60%"></div></div><div class="flex justify-between items-center"><span class="text-xs text-on-surface-variant">Next Goal: 20 Days</span><span class="text-xs font-bold text-primary">8 Days Left</span></div></div></div><div class="glass-card rounded-xl p-6 bg-tertiary-fixed text-on-tertiary-fixed">
+<h4 class="font-label-md text-label-md font-bold mb-2 flex items-center">
+<span class="material-symbols-outlined mr-2 text-sm">info</span>
+                                How it Works
+                            </h4>
+<p class="font-label-sm text-label-sm text-on-tertiary-fixed-variant leading-relaxed">1. Learn Daily: Complete lessons to stay active.<br class="">2. Maintain Streaks: Longer streaks boost your impact.<br class="">3. Earn Contribution Points: Every action adds energy.<br class="">4. Fill the Community Pot: Watch the collective energy rise.<br class="">5. Unlock Collective Rewards: Reach milestones for the whole community.</p>
+</div>
+</div>
+<!-- Right Column: Community Stats -->
+<div class="lg:col-span-2 space-y-6">
+<!-- Top Contributors List -->
+<div class="glass-card rounded-xl p-6">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-md text-headline-md font-bold text-primary flex items-center"><span class="material-symbols-outlined mr-2">emoji_events</span>Top Streak Contributors</h3>
+<button class="text-primary font-label-sm text-label-sm hover:underline">View All</button>
+</div>
+<div class="space-y-3">
+<!-- Contributor 1 -->
+<div class="flex items-center justify-between p-3 hover:bg-surface rounded-lg transition-colors border border-transparent hover:border-outline-variant/20">
+<div class="flex items-center space-x-4">
+<div class="w-8 h-8 rounded-full bg-yellow-100 flex items-center justify-center text-yellow-600 font-bold text-sm">1</div>
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-high">
+<img alt="Avatar for Sarah J" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3cb0KkRjebz23CIuJLb_WWRIW_rtIVOZr1bouAwtVv3_XADXPhyQq9acBSokD2pecTwl6MBDURUnF9SL_8LFD-1Pv8juxF1xOfBRR9HmuwW7mAnv9FTplPXnRNeaRA4a7TskRPMYwxC-Z2_aT1PzqxJxrNXPSHEr4tUcpPP5lpAhbZO8iAKnbPIxenYoJjIGV8AieQpQlGQO-4pIsGRiTAdxIT1moFl7ogjBm6KtcNuy2m_NZwgHVwFY_GpGehmPEmgA_3qIBbII">
+</div>
+<div>
+<p class="font-label-md text-label-md font-bold text-primary">Sarah Jenkins</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant flex items-center">
+<span class="material-symbols-outlined text-[12px] text-emerald-accent mr-1" style="font-variation-settings: &quot;FILL&quot; 1;">local_fire_department</span>
+                                                85 Day Streak
+                                            </p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-label-md text-label-md font-bold text-primary">3,200</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">pts</p>
+</div>
+</div>
+<!-- Contributor 2 -->
+<div class="flex items-center justify-between p-3 hover:bg-surface rounded-lg transition-colors border border-transparent hover:border-outline-variant/20">
+<div class="flex items-center space-x-4">
+<div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 font-bold text-sm">2</div>
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-high">
+<img alt="Avatar for Michael T" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDVhI-4TF95GMB_2O7mYpijPzet6kyVoQ2nX9WoaQetdn_Fqx8LD-rdTVwl7GjR2u4_aZ0HycuLE9q8oDQ-EJFqkhUbtpenEgFewSLV4w_rRkPCT-JjQcOOczXhBGX1JoZrDHZogN6PaBMX46hy6iKbzzMt5bFvRAgp3yqVs3ZpywAfFHIVtmpaMQI_2_4HBLmxXlvVsmfZvftMfKRBmYZ2kqjCoKrYBsFosAdtBmlBPmxbzOxpuY2aualiymOgomnna5t0hLggLs">
+</div>
+<div>
+<p class="font-label-md text-label-md font-bold text-primary">Michael Torres</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant flex items-center">
+<span class="material-symbols-outlined text-[12px] text-emerald-accent mr-1" style="font-variation-settings: &quot;FILL&quot; 1;">local_fire_department</span>
+                                                72 Day Streak
+                                            </p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-label-md text-label-md font-bold text-primary">2,850</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">pts</p>
+</div>
+</div>
+<!-- Contributor 3 -->
+<div class="flex items-center justify-between p-3 hover:bg-surface rounded-lg transition-colors border border-transparent hover:border-outline-variant/20">
+<div class="flex items-center space-x-4">
+<div class="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 font-bold text-sm">3</div>
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-high">
+<img alt="Avatar for Aisha K" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkn5wOEnKhORbfUGgVXjOMix8cYY7FaxhElcPX5Bot19yvCR2jGHS2I3MSh0allN0KGEQEk7IyiIWXWcYnbpnIJFtWcs05O9SkPjUznR6uJnUZXTrS1A80S3nLFmTUHcAaCo3edt-KBpiSyT7vnJutQ6il3TplISQKj9wyCzUNddISupSBIlEi6mRShfyCEH-V4kRSAzmfLiHPsnTtmeNRV6ig1RNFKk7rZwuWpI8OKntAshBNyDrHvcmtkfJGolfmY1UXY_tYFOY">
+</div>
+<div>
+<p class="font-label-md text-label-md font-bold text-primary">Aisha Khan</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant flex items-center">
+<span class="material-symbols-outlined text-[12px] text-emerald-accent mr-1" style="font-variation-settings: &quot;FILL&quot; 1;">local_fire_department</span>
+                                                68 Day Streak
+                                            </p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-label-md text-label-md font-bold text-primary">2,600</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">pts</p>
+</div>
+</div>
+<!-- Contributor 4 -->
+
+<!-- Contributor 5 -->
+
+</div>
+</div>
+<!-- Recent Unlocks -->
+<div>
+<h3 class="font-headline-md text-headline-md font-bold text-primary mb-4 flex items-center"><span class="material-symbols-outlined mr-2">emoji_events</span>Top Streak Contributors</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="glass-card rounded-xl p-4 flex items-center space-x-4 border border-outline-variant/30 bg-gradient-to-r from-surface to-surface-bright">
+<div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">calendar_month</span>
+</div>
+<div>
+<p class="font-label-md text-label-md font-bold text-primary">100 Day Community Streak</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Achieved 2 days ago</p>
+</div>
+</div>
+<div class="glass-card rounded-xl p-4 flex items-center space-x-4 border border-outline-variant/30 bg-gradient-to-r from-surface to-surface-bright">
+<div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center text-purple-600">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">group_add</span>
+</div>
+<div>
+<p class="font-label-md text-label-md font-bold text-primary">500 Active Learners</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Achieved last week</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+
+</body></html>

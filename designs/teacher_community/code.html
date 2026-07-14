@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduNext - Community Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-fixed-variant": "#005225",
+                      "on-tertiary-fixed-variant": "#3323cc",
+                      "surface-container": "#edeef0",
+                      "inverse-primary": "#62de85",
+                      "secondary": "#405f91",
+                      "primary-fixed": "#7ffb9f",
+                      "on-surface": "#191c1e",
+                      "on-secondary-fixed-variant": "#264778",
+                      "tertiary-fixed-dim": "#c3c0ff",
+                      "surface-dim": "#d9dadc",
+                      "surface-container-highest": "#e1e2e4",
+                      "surface-tint": "#006d33",
+                      "on-secondary-container": "#315182",
+                      "on-primary-fixed": "#00210b",
+                      "on-error": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "inverse-surface": "#2e3132",
+                      "surface-variant": "#e1e2e4",
+                      "surface-bright": "#f8f9fb",
+                      "primary-container": "#008740",
+                      "on-error-container": "#93000a",
+                      "on-primary": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "surface-container-high": "#e7e8ea",
+                      "outline": "#6e7a6d",
+                      "primary-fixed-dim": "#62de85",
+                      "primary": "#006b31",
+                      "background": "#f8f9fb",
+                      "tertiary-fixed": "#e2dfff",
+                      "secondary-fixed-dim": "#a9c7ff",
+                      "tertiary": "#4b41e1",
+                      "surface-container-low": "#f3f4f6",
+                      "inverse-on-surface": "#f0f1f3",
+                      "error-container": "#ffdad6",
+                      "on-secondary-fixed": "#001b3d",
+                      "on-primary-container": "#f7fff3",
+                      "on-tertiary-fixed": "#0f0069",
+                      "on-tertiary-container": "#fffbff",
+                      "secondary-container": "#a6c5fe",
+                      "on-surface-variant": "#3e4a3e",
+                      "outline-variant": "#bdcabb",
+                      "on-background": "#191c1e",
+                      "on-tertiary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "tertiary-container": "#645efb",
+                      "secondary-fixed": "#d6e3ff",
+                      "surface": "#f8f9fb"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "1rem",
+                      "stack-md": "1.5rem",
+                      "stack-sm": "0.5rem",
+                      "gutter": "1.5rem",
+                      "stack-lg": "2.5rem",
+                      "container-max": "1280px"
+              },
+              "fontFamily": {
+                      "label-bold": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "label-bold": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "500"
+                              }
+                      ]
+              }
+            },
+          }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md min-h-screen flex">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-screen w-64 bg-surface border-r border-outline-variant flex flex-col py-6 overflow-y-auto hidden md:flex z-40">
+<div class="px-6 mb-8">
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary">EduNext</h1>
+<p class="text-on-surface-variant mt-1">Teacher Dashboard</p>
+</div>
+<div class="px-4 mb-6">
+<button class="w-full bg-primary text-on-primary py-3 rounded-lg font-label-bold text-label-bold flex items-center justify-center gap-2 hover:bg-on-primary-fixed-variant transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add</span>
+                Create New Course
+            </button>
+</div>
+<nav class="flex-1 flex flex-col gap-1 px-2">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium rounded-lg hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium rounded-lg hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+                Courses
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium rounded-lg hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">group</span>
+                Students
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium rounded-lg hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">analytics</span>
+                Learning Analytics
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium rounded-lg hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">visibility</span>
+                Attention Analytics
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium rounded-lg hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">videocam</span>
+                Webcam Recordings
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium rounded-lg hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">quiz</span>
+                Quizzes
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium rounded-lg hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">assignment</span>
+                Assignments
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-primary font-bold border-r-4 border-primary bg-primary-container/10 rounded-lg" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">forum</span>
+                Community
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium rounded-lg hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">campaign</span>
+                Announcements
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium rounded-lg hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">school</span>
+                Apprenticeships
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium rounded-lg hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">description</span>
+                Reports
+            </a>
+</nav>
+<div class="mt-auto px-2 pt-6 border-t border-outline-variant mx-4 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium rounded-lg hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+                Settings
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium rounded-lg hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+                Logout
+            </a>
+<div class="flex items-center gap-3 mt-4 px-4 py-2">
+<img alt="A professional headshot of a middle-aged female educator, Dr. Amarjeet Kaur, smiling warmly. She has dark hair styled neatly and is wearing glasses and a smart blouse. The background is a soft, blurred modern office or classroom setting with gentle, even lighting reflecting a modern corporate educational environment." class="w-10 h-10 rounded-full object-cover border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDacyybN7XFGtFh6y_XAm0uKcZlP8wbZZUFhFzUWt0GLI5XdHnRt7sBO_REtwW-YwxIQYiP3DvsLtLV1TK8slPL1rKBvVRK-M4I2Iw1NKLoiRPEo6ZzbPnXkttXmlnnf2gO-DAf4U8qgq6mWN-hyXmjSHQmzjyQ4gJ9yl8ZIsGoUHIMGxC1_2pEcxJwi8u92dUO08KzAfek4NJ7ENvga12S26CEeQp4vJ5glW9OSysm1IBEGB_vQTp3hSYwcJBZCnkS5UEysVz5Dqo"/>
+<div class="flex flex-col">
+<span class="font-label-bold text-label-bold text-on-surface">Dr. A. Kaur</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Teacher</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col min-w-0 md:ml-64">
+<!-- TopAppBar -->
+<header class="bg-background docked full-width top-0 sticky border-b border-outline-variant flex justify-between items-center w-full px-gutter h-20 z-30">
+<div class="flex items-center flex-1 max-w-2xl">
+<h2 class="hidden md:block font-headline-lg text-headline-lg font-bold text-primary mr-8">Community</h2>
+<h2 class="md:hidden font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary mr-4">Community</h2>
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-10 pr-4 py-2 border border-outline-variant rounded-lg bg-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-body-md font-body-md placeholder:text-on-surface-variant" placeholder="Search doubts and discussions..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2.5 h-2.5 bg-error rounded-full"></span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined">help</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors hidden sm:block">
+<span class="material-symbols-outlined">apps</span>
+</button>
+<img alt="A professional headshot of Dr. Amarjeet Kaur." class="w-8 h-8 rounded-full object-cover md:hidden border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBv93O9tpJzIlLNGmsxkS3_GkwK6cwt5ZrH3NUjSi0J-HhFlP29ByRyGBaeSeBso5E-zCOmnoXg7gRIPccQUcfMGfU24Wv6MXG0axMrXb-0DAiH5wsFpKoftS1KfrqZX3hr7blhihYj_leITYwN4ELDJSHy3fy0g2tePY7w9MyVkksxXqqsjJgo-VsLzSGazNNF2-grMx0D4Ogni-d0c9eXO9W0iBnwwvG0A4JONa-5a2YCcYMLCfMALaujG8Mv5TLUCUaoCQU38mY"/>
+</div>
+</header>
+<!-- Page Content -->
+<div class="p-4 md:p-8 overflow-y-auto pb-24">
+<!-- Page Header (Mobile) & Subtitle -->
+<div class="mb-8">
+<p class="text-on-surface-variant font-body-md text-body-md">Manage student doubts and discussions across all your active courses.</p>
+</div>
+<!-- Summary Cards Bento Grid -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-stack-lg">
+<div class="bg-surface border border-outline-variant p-4 rounded-xl flex flex-col justify-between hover:shadow-sm transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-error-container/20 text-error rounded-lg">
+<span class="material-symbols-outlined">help_center</span>
+</div>
+</div>
+<div>
+<p class="text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider mb-1">Open Doubts</p>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-bold">24</h3>
+</div>
+</div>
+<div class="bg-surface border border-outline-variant p-4 rounded-xl flex flex-col justify-between hover:shadow-sm transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-primary-container/20 text-primary rounded-lg">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+</div>
+<div>
+<p class="text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider mb-1">Resolved Today</p>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-bold">18</h3>
+</div>
+</div>
+<div class="bg-surface border border-outline-variant p-4 rounded-xl flex flex-col justify-between hover:shadow-sm transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-secondary-container/20 text-secondary rounded-lg">
+<span class="material-symbols-outlined">timer</span>
+</div>
+</div>
+<div>
+<p class="text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider mb-1">Avg Response</p>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-bold">2.4h</h3>
+</div>
+</div>
+<div class="bg-surface border border-outline-variant p-4 rounded-xl flex flex-col justify-between hover:shadow-sm transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-tertiary-container/20 text-tertiary rounded-lg">
+<span class="material-symbols-outlined">trending_up</span>
+</div>
+</div>
+<div>
+<p class="text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider mb-1">Top Topic</p>
+<h3 class="font-label-bold text-label-bold text-on-surface font-bold truncate">Calculus Ch 4</h3>
+</div>
+</div>
+</div>
+<!-- Filters & Controls -->
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 bg-surface p-4 rounded-xl border border-outline-variant">
+<div class="flex flex-wrap gap-3 w-full sm:w-auto">
+<select class="border border-outline-variant rounded-lg bg-surface px-3 py-2 text-on-surface font-label-bold text-label-bold focus:ring-primary focus:border-primary w-full sm:w-auto">
+<option>All Courses</option>
+<option>Advanced Calculus (MATH301)</option>
+<option>Linear Algebra (MATH201)</option>
+</select>
+<select class="border border-outline-variant rounded-lg bg-surface px-3 py-2 text-on-surface font-label-bold text-label-bold focus:ring-primary focus:border-primary w-full sm:w-auto">
+<option>All Subjects</option>
+<option>Derivatives</option>
+<option>Integrals</option>
+<option>Matrices</option>
+</select>
+</div>
+<div class="flex bg-surface-container-low p-1 rounded-lg border border-outline-variant w-full sm:w-auto">
+<button class="flex-1 sm:flex-none px-4 py-1.5 rounded-md bg-surface shadow-sm font-label-bold text-label-bold text-primary">Open</button>
+<button class="flex-1 sm:flex-none px-4 py-1.5 rounded-md font-label-bold text-label-bold text-on-surface-variant hover:bg-surface-container-high transition-colors">Answered</button>
+<button class="flex-1 sm:flex-none px-4 py-1.5 rounded-md font-label-bold text-label-bold text-on-surface-variant hover:bg-surface-container-high transition-colors">Resolved</button>
+</div>
+</div>
+<!-- Discussion List -->
+<div class="flex flex-col gap-4">
+<!-- Discussion Card 1 -->
+<div class="bg-surface border border-outline-variant rounded-xl p-5 hover:border-primary/50 transition-colors">
+<div class="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-error-container text-on-error-container border border-error-container/20">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                                Open Doubt
+                            </span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">MATH301 • 2 hours ago</span>
+</div>
+</div>
+<h3 class="font-label-bold text-lg font-bold text-on-surface mb-2">Struggling with the Chain Rule application in Question 4 of the assignment.</h3>
+<p class="text-on-surface-variant font-body-md text-body-md line-clamp-2 mb-4">I understand the basic formula, but when trying to apply it to the complex fraction in Q4, I keep getting the signs wrong. Can someone explain the step-by-step differentiation of the denominator?</p>
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between pt-4 border-t border-outline-variant gap-4">
+<div class="flex items-center gap-3">
+<img alt="A headshot of a young male university student with short hair, wearing a casual grey t-shirt, looking slightly confused but engaged. The background is a blurred library setting. Soft, natural lighting." class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMP6SgMYl2PlagcxFI1uheXvKFlXjQ4kHiWFvhcnUKx_COHVoFPHBMxHWzJpoghfrVaOfoVsu-SgGmqiNSusWTlSHiQimuyQgtcDnQLTDIWWddVbcCqtpPDG1mbDkwZmf6XOJw3VqwOcexO6sbrXZBbUW_tIWNAxjs5Um4lU6iGcEVq8epQdhn5-osG4HHfC--j91DJa0hnJTFdEBr9SHYFaLUyMZMqpxCCJRacvbzO_jQct8QTx7gDm-kXRvqKlX1dIazJZbZRpM"/>
+<div>
+<p class="font-label-bold text-label-bold text-on-surface">Alex Mercer</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">2 replies • 1 upvote</p>
+</div>
+</div>
+<div class="flex gap-2 w-full sm:w-auto">
+<button class="flex-1 sm:flex-none px-4 py-2 border border-outline-variant rounded-lg text-on-surface font-label-bold text-label-bold hover:bg-surface-container-low transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">visibility</span>
+                                View
+                            </button>
+<button class="flex-1 sm:flex-none px-4 py-2 bg-primary text-on-primary rounded-lg font-label-bold text-label-bold hover:bg-on-primary-fixed-variant transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">reply</span>
+                                Reply
+                            </button>
+</div>
+</div>
+</div>
+<!-- Discussion Card 2 -->
+<div class="bg-surface border border-outline-variant rounded-xl p-5 hover:border-primary/50 transition-colors">
+<div class="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-surface-container-high text-on-surface-variant border border-outline-variant">
+<span class="material-symbols-outlined text-[14px]">forum</span>
+                                Discussion
+                            </span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">MATH201 • 5 hours ago</span>
+</div>
+</div>
+<h3 class="font-label-bold text-lg font-bold text-on-surface mb-2">Real-world applications of Eigenvectors?</h3>
+<p class="text-on-surface-variant font-body-md text-body-md line-clamp-2 mb-4">Aside from the textbook examples about page rank algorithms, where else in modern software engineering or data science are eigenvectors heavily relied upon? Looking for practical project ideas.</p>
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between pt-4 border-t border-outline-variant gap-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold text-sm">
+                                SJ
+                            </div>
+<div>
+<p class="font-label-bold text-label-bold text-on-surface">Sarah Jenkins</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">5 replies • 12 upvotes</p>
+</div>
+</div>
+<div class="flex gap-2 w-full sm:w-auto">
+<button class="flex-1 sm:flex-none px-4 py-2 border border-outline-variant rounded-lg text-on-surface font-label-bold text-label-bold hover:bg-surface-container-low transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">visibility</span>
+                                View
+                            </button>
+<button class="flex-1 sm:flex-none px-4 py-2 bg-primary text-on-primary rounded-lg font-label-bold text-label-bold hover:bg-on-primary-fixed-variant transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">reply</span>
+                                Reply
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Load More -->
+<div class="mt-8 flex justify-center">
+<button class="px-6 py-2 border border-outline-variant rounded-full text-primary font-label-bold text-label-bold hover:bg-surface-container-low transition-colors">
+                    Load More Discussions
+                </button>
+</div>
+</div>
+</main>
+</body></html>

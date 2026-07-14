@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduNext - Downloads</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#eceef0",
+                        "on-primary-fixed": "#001b3c",
+                        "inverse-on-surface": "#eff1f3",
+                        "tertiary": "#001f4b",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-background": "#191c1e",
+                        "on-tertiary-fixed-variant": "#004395",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "primary": "#002045",
+                        "on-surface": "#191c1e",
+                        "outline": "#74777f",
+                        "secondary-fixed": "#6bff8f",
+                        "surface-variant": "#e0e3e5",
+                        "surface-container-low": "#f2f4f6",
+                        "primary-fixed": "#d6e3ff",
+                        "on-primary-container": "#86a0cd",
+                        "outline-variant": "#c4c6cf",
+                        "on-tertiary-fixed": "#001a42",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#003374",
+                        "inverse-surface": "#2d3133",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#007432",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#adc7f7",
+                        "on-surface-variant": "#43474e",
+                        "on-secondary-fixed-variant": "#005321",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#6a9dff",
+                        "secondary-container": "#6bff8f",
+                        "on-secondary-fixed": "#002109",
+                        "surface-dim": "#d8dadc",
+                        "primary-fixed-dim": "#adc7f7",
+                        "secondary-fixed-dim": "#4ae176",
+                        "surface-tint": "#455f88",
+                        "primary-container": "#1a365d",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#f7f9fb",
+                        "on-error-container": "#93000a",
+                        "secondary": "#006e2f",
+                        "surface-container-high": "#e6e8ea",
+                        "on-secondary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#d8e2ff",
+                        "surface-bright": "#f7f9fb",
+                        "surface": "#f7f9fb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "margin-desktop": "40px",
+                        "container-max": "1280px",
+                        "base": "8px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "headline-xl": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Glassmorphism utilities */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        .glass-nav {
+            background: rgba(242, 244, 246, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e0e3e5;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #74777f;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased overflow-hidden h-screen flex flex-col md:flex-row">
+<!-- Mobile TopAppBar (Hidden on md+) -->
+<header class="md:hidden w-full flex justify-between items-center px-margin-mobile py-base z-50 bg-surface/80 backdrop-blur-xl shadow-sm border-b border-surface-container-high">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-2xl">school</span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-tight">EduNext</span>
+</div>
+<div class="flex items-center gap-4 text-primary">
+<button class="hover:bg-primary-container/20 p-2 rounded-full transition-colors"><span class="material-symbols-outlined">search</span></button>
+<button class="hover:bg-primary-container/20 p-2 rounded-full transition-colors"><span class="material-symbols-outlined">notifications</span></button>
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold text-sm">SK</div>
+</div>
+</header>
+<!-- SideNavBar (Hidden on Mobile) -->
+<nav class="hidden md:flex flex-col h-screen w-64 docked left-0 bg-surface-container-low/90 backdrop-blur-xl border-r border-surface-container-high py-base px-4 gap-2 overflow-y-auto flex-shrink-0 z-40 relative shadow-md">
+<!-- Header -->
+<div class="px-2 py-4 mb-4 flex flex-col items-center border-b border-surface-variant/50">
+<div class="w-16 h-16 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center text-xl font-bold mb-3 shadow-inner">
+<img alt="User Profile" class="w-full h-full rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0DGUpN4Ih89u-7a9lu7S9WrWbx0SyR6GwSEfSgYBVqgfuE_sX0wW-qbIYPG4e4n0lv2uI9PQizcVQBLsc4EG2INXXoUmiDqho_Q5pfBsz7bA7Cdqrew-hMDjde-lnFGEv9JwM3ixBbAojV519V8zEZa_C8jUmWYLch48J6KcNcy5gknx2g0_5D4EUAOGX0mzRyXw28cBwtWR8nh1Wm0W1LuLkfDpsA42MOJuzoSUZ730Zny31GQ30-03clp4HOLZjgea1_EKh-7k"/>
+</div>
+<div class="text-center">
+<h2 class="font-headline-md text-headline-md text-primary truncate w-48 px-2">Simran Kaur</h2>
+<p class="text-label-md font-label-md text-on-surface-variant mt-1">Student</p>
+</div>
+</div>
+<!-- Navigation Links -->
+<div class="flex-1 space-y-1">
+<p class="px-3 text-xs font-semibold text-on-surface-variant uppercase tracking-wider mb-2 mt-4">Learning</p>
+<a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant hover:bg-surface-container-highest rounded-xl group transition-all" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">dashboard</span>
+<span class="font-label-md text-label-md truncate">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant hover:bg-surface-container-highest rounded-xl group transition-all" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">school</span>
+<span class="font-label-md text-label-md truncate">Courses</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant hover:bg-surface-container-highest rounded-xl group transition-all" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">local_library</span>
+<span class="font-label-md text-label-md truncate">My Courses</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant hover:bg-surface-container-highest rounded-xl group transition-all" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">trending_up</span>
+<span class="font-label-md text-label-md truncate">Progress &amp; Streaks</span>
+</a>
+<p class="px-3 text-xs font-semibold text-on-surface-variant uppercase tracking-wider mb-2 mt-6">Assessments</p>
+<a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant hover:bg-surface-container-highest rounded-xl group transition-all" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">quiz</span>
+<span class="font-label-md text-label-md truncate">Quizzes</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant hover:bg-surface-container-highest rounded-xl group transition-all" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">assignment</span>
+<span class="font-label-md text-label-md truncate">Assignments</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant hover:bg-surface-container-highest rounded-xl group transition-all" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">groups</span>
+<span class="font-label-md text-label-md truncate">Peer Challenges</span>
+</a>
+<p class="px-3 text-xs font-semibold text-on-surface-variant uppercase tracking-wider mb-2 mt-6">Engagement</p>
+<a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant hover:bg-surface-container-highest rounded-xl group transition-all" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">workspace_premium</span>
+<span class="font-label-md text-label-md truncate">Streak Pot</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant hover:bg-surface-container-highest rounded-xl group transition-all" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">work</span>
+<span class="font-label-md text-label-md truncate">My Apprenticeships</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant hover:bg-surface-container-highest rounded-xl group transition-all" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">leaderboard</span>
+<span class="font-label-md text-label-md truncate">Leaderboard</span>
+</a>
+<p class="px-3 text-xs font-semibold text-on-surface-variant uppercase tracking-wider mb-2 mt-6">Resources</p>
+<a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant hover:bg-surface-container-highest rounded-xl group transition-all" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">campaign</span>
+<span class="font-label-md text-label-md truncate">Announcements</span>
+</a>
+<!-- Active State -->
+<a class="flex items-center gap-3 px-3 py-2.5 bg-secondary-container text-on-secondary-container rounded-xl font-bold group transition-all shadow-sm scale-98" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">download</span>
+<span class="font-label-md text-label-md truncate">Downloads</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant hover:bg-surface-container-highest rounded-xl group transition-all" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">explore</span>
+<span class="font-label-md text-label-md truncate">Career Find</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant hover:bg-surface-container-highest rounded-xl group transition-all" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">forum</span>
+<span class="font-label-md text-label-md truncate">Explore Community</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant hover:bg-surface-container-highest rounded-xl group transition-all" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">view_in_ar</span>
+<span class="font-label-md text-label-md truncate">Cardboard VR</span>
+</a>
+</div>
+<!-- Footer -->
+<div class="mt-auto pt-4 border-t border-surface-variant/50 space-y-1 mb-2">
+<a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant hover:bg-surface-container-highest rounded-xl group transition-all" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">support_agent</span>
+<span class="font-label-md text-label-md truncate">Support</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant hover:bg-surface-container-highest rounded-xl group transition-all" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">logout</span>
+<span class="font-label-md text-label-md truncate">Sign Out</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col h-full overflow-hidden relative">
+<!-- Desktop TopAppBar -->
+<header class="hidden md:flex justify-between items-center w-full px-margin-desktop py-base z-30 bg-surface/80 backdrop-blur-xl shadow-sm sticky top-0 h-16 flex-shrink-0 border-b border-surface-container">
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:bg-surface-container-highest p-2 rounded-full transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="h-6 w-px bg-surface-variant mx-1"></div>
+<div class="flex items-center gap-2 text-on-surface-variant text-sm">
+<a class="hover:text-primary transition-colors" href="#">Home</a>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<span class="font-medium text-primary">Downloads</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<!-- Search -->
+<div class="relative w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-lg">search</span>
+<input class="w-full pl-10 pr-4 py-1.5 bg-surface-container-highest border-transparent focus:border-primary focus:bg-surface rounded-full text-sm placeholder-on-surface-variant/70 transition-all outline-none ring-0" placeholder="Search EduNext..." type="text"/>
+</div>
+<button class="text-on-surface-variant hover:bg-primary-container/20 p-2 rounded-full transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full border border-surface"></span>
+</button>
+<button class="text-on-surface-variant hover:bg-primary-container/20 p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<button class="text-on-surface-variant hover:bg-primary-container/20 p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined">help</span>
+</button>
+</div>
+</header>
+<!-- Scrollable Canvas -->
+<div class="flex-1 overflow-y-auto p-margin-mobile md:p-margin-desktop space-y-gutter pb-24 md:pb-margin-desktop relative z-10 bg-background/50">
+<!-- Atmospheric gradient background -->
+<div class="absolute top-0 left-0 right-0 h-96 bg-gradient-to-b from-secondary-container/20 via-primary-container/5 to-transparent -z-10 pointer-events-none"></div>
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+<div>
+<div class="flex items-center gap-3 mb-2">
+<div class="w-10 h-10 rounded-xl bg-secondary-container text-on-secondary-container flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">cloud_download</span>
+</div>
+<h1 class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-primary">Downloads</h1>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Access your downloaded resources anytime, even offline. Keep your learning uninterrupted.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-4 py-2 border border-outline-variant text-primary rounded-lg font-label-md text-label-md hover:bg-surface-container-highest transition-colors flex items-center gap-2 bg-surface">
+<span class="material-symbols-outlined text-[18px]">sync</span>
+                        Sync Now
+                    </button>
+</div>
+</div>
+<!-- Summary Bento Grid -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="glass-card rounded-2xl p-5 flex flex-col justify-between items-start hover:shadow-md transition-shadow">
+<div class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-[18px]">description</span>
+</div>
+<div>
+<p class="font-headline-lg text-headline-md text-on-surface">42</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Files &amp; Documents</p>
+</div>
+</div>
+<div class="glass-card rounded-2xl p-5 flex flex-col justify-between items-start hover:shadow-md transition-shadow">
+<div class="w-8 h-8 rounded-full bg-secondary/10 text-secondary flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-[18px]">play_circle</span>
+</div>
+<div>
+<p class="font-headline-lg text-headline-md text-on-surface">8</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Video Lectures</p>
+</div>
+</div>
+<div class="glass-card rounded-2xl p-5 flex flex-col justify-between items-start hover:shadow-md transition-shadow">
+<div class="w-8 h-8 rounded-full bg-tertiary/10 text-tertiary flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-[18px]">storage</span>
+</div>
+<div>
+<p class="font-headline-lg text-headline-md text-on-surface">1.8 <span class="text-lg font-normal text-on-surface-variant">GB</span></p>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full mt-2 overflow-hidden">
+<div class="bg-primary h-full w-[45%] rounded-full"></div>
+</div>
+<p class="font-label-sm text-[10px] text-on-surface-variant mt-1">Used of 4.0 GB</p>
+</div>
+</div>
+<div class="glass-card rounded-2xl p-5 flex flex-col justify-between items-start hover:shadow-md transition-shadow bg-gradient-to-br from-surface to-secondary-container/10 border-secondary/20">
+<div class="w-8 h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">System Ready</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Last download: Today, 09:41 AM</p>
+</div>
+</div>
+</div>
+<!-- Main Content Layout Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter mt-8">
+<!-- Left Column (Main List) -->
+<div class="lg:col-span-2 space-y-6">
+<!-- Search & Filter Bar -->
+<div class="glass-card rounded-2xl p-4 sticky top-0 z-20 shadow-sm border-b-0">
+<div class="flex flex-col sm:flex-row gap-3">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-lg">search</span>
+<input class="w-full pl-10 pr-4 py-2.5 bg-surface-container-low border border-outline-variant focus:border-primary focus:bg-surface rounded-xl font-body-md text-body-md placeholder-on-surface-variant/70 transition-all outline-none ring-0" placeholder="Search downloaded content..." type="text"/>
+</div>
+<button class="px-4 py-2 border border-outline-variant text-on-surface rounded-xl font-label-md text-label-md hover:bg-surface-container-highest transition-colors flex items-center justify-center gap-2 sm:w-auto w-full bg-surface">
+<span class="material-symbols-outlined text-[18px]">sort</span>
+                                Sort
+                            </button>
+</div>
+<!-- Filter Chips -->
+<div class="flex gap-2 mt-4 overflow-x-auto pb-1 scrollbar-hide -mx-2 px-2 sm:mx-0 sm:px-0">
+<button class="px-4 py-1.5 bg-primary text-on-primary rounded-full font-label-sm text-label-sm whitespace-nowrap flex-shrink-0 shadow-sm transition-transform hover:scale-105">All</button>
+<button class="px-4 py-1.5 bg-surface-container-high text-on-surface rounded-full font-label-sm text-label-sm whitespace-nowrap flex-shrink-0 hover:bg-surface-variant transition-colors border border-transparent">Documents</button>
+<button class="px-4 py-1.5 bg-surface-container-high text-on-surface rounded-full font-label-sm text-label-sm whitespace-nowrap flex-shrink-0 hover:bg-surface-variant transition-colors border border-transparent">Videos</button>
+<button class="px-4 py-1.5 bg-surface-container-high text-on-surface rounded-full font-label-sm text-label-sm whitespace-nowrap flex-shrink-0 hover:bg-surface-variant transition-colors border border-transparent">Assignments</button>
+<button class="px-4 py-1.5 bg-surface-container-high text-on-surface rounded-full font-label-sm text-label-sm whitespace-nowrap flex-shrink-0 hover:bg-surface-variant transition-colors border border-transparent">Course Materials</button>
+</div>
+</div>
+<!-- Resource List -->
+<div class="space-y-4">
+<!-- Item 1: Document -->
+<div class="glass-card rounded-2xl p-4 flex flex-col sm:flex-row gap-4 items-start sm:items-center hover:bg-surface-container-lowest/50 transition-colors group border border-outline-variant/30">
+<div class="w-12 h-12 rounded-xl bg-error-container/50 text-on-error-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">picture_as_pdf</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 mb-1">
+<h3 class="font-label-md text-label-md text-on-surface truncate">Machine Learning Notes - Chapter 4</h3>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium bg-secondary-container text-on-secondary-container">
+<span class="material-symbols-outlined text-[12px] mr-1">offline_pin</span> Offline
+                                    </span>
+</div>
+<p class="font-body-md text-[13px] text-on-surface-variant truncate">From: Fundamentals of Machine Learning CS401</p>
+<div class="flex items-center gap-3 mt-2 text-[12px] text-outline">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">insert_drive_file</span> 2.4 MB</span>
+<span>•</span>
+<span>Downloaded Oct 24</span>
+</div>
+</div>
+<div class="flex items-center gap-2 w-full sm:w-auto mt-3 sm:mt-0 pt-3 sm:pt-0 border-t sm:border-t-0 border-surface-variant">
+<button class="flex-1 sm:flex-none px-4 py-2 bg-primary text-on-primary rounded-lg font-label-md text-label-sm hover:bg-primary/90 transition-colors shadow-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[16px]">visibility</span> View
+                                </button>
+<button class="p-2 text-on-surface-variant hover:bg-error-container hover:text-error rounded-lg transition-colors flex items-center justify-center" title="Remove Download">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+<!-- Item 2: Video -->
+<div class="glass-card rounded-2xl p-4 flex flex-col sm:flex-row gap-4 items-start sm:items-center hover:bg-surface-container-lowest/50 transition-colors group border border-outline-variant/30">
+<div class="w-12 h-12 rounded-xl bg-tertiary-container/50 text-on-tertiary-container flex items-center justify-center flex-shrink-0 relative overflow-hidden">
+<span class="material-symbols-outlined z-10" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+<!-- Simulated video thumbnail bg -->
+<div class="absolute inset-0 bg-primary/10"></div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 mb-1">
+<h3 class="font-label-md text-label-md text-on-surface truncate">Introduction to Game Theory Concepts</h3>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium bg-secondary-container text-on-secondary-container">
+<span class="material-symbols-outlined text-[12px] mr-1">offline_pin</span> Offline
+                                    </span>
+</div>
+<p class="font-body-md text-[13px] text-on-surface-variant truncate">From: Advanced Economics 301</p>
+<div class="flex items-center gap-3 mt-2 text-[12px] text-outline">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">hd</span> 720p</span>
+<span>•</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span> 45 mins</span>
+<span>•</span>
+<span>120 MB</span>
+</div>
+</div>
+<div class="flex items-center gap-2 w-full sm:w-auto mt-3 sm:mt-0 pt-3 sm:pt-0 border-t sm:border-t-0 border-surface-variant">
+<button class="flex-1 sm:flex-none px-4 py-2 bg-primary text-on-primary rounded-lg font-label-md text-label-sm hover:bg-primary/90 transition-colors shadow-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[16px]">play_arrow</span> Play Offline
+                                </button>
+<button class="p-2 text-on-surface-variant hover:bg-error-container hover:text-error rounded-lg transition-colors flex items-center justify-center" title="Remove Download">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+<!-- Item 3: Document -->
+<div class="glass-card rounded-2xl p-4 flex flex-col sm:flex-row gap-4 items-start sm:items-center hover:bg-surface-container-lowest/50 transition-colors group border border-outline-variant/30 opacity-75">
+<div class="w-12 h-12 rounded-xl bg-surface-variant text-on-surface-variant flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined">folder_zip</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 mb-1">
+<h3 class="font-label-md text-label-md text-on-surface truncate">Project Assets &amp; Code Templates</h3>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium bg-surface-variant text-on-surface-variant">
+<span class="material-symbols-outlined text-[12px] mr-1">sync_problem</span> Update Avail.
+                                    </span>
+</div>
+<p class="font-body-md text-[13px] text-on-surface-variant truncate">From: Web Development Bootcamp</p>
+<div class="flex items-center gap-3 mt-2 text-[12px] text-outline">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">folder</span> 45.2 MB</span>
+<span>•</span>
+<span>Downloaded Sep 12</span>
+</div>
+</div>
+<div class="flex items-center gap-2 w-full sm:w-auto mt-3 sm:mt-0 pt-3 sm:pt-0 border-t sm:border-t-0 border-surface-variant">
+<button class="flex-1 sm:flex-none px-4 py-2 border border-outline-variant text-on-surface rounded-lg font-label-md text-label-sm hover:bg-surface-container-highest transition-colors shadow-sm flex items-center justify-center gap-2 bg-surface">
+<span class="material-symbols-outlined text-[16px]">sync</span> Update
+                                </button>
+<button class="p-2 text-on-surface-variant hover:bg-error-container hover:text-error rounded-lg transition-colors flex items-center justify-center" title="Remove Download">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Pagination (Simplified) -->
+<div class="flex justify-center mt-6">
+<button class="px-6 py-2 border border-outline-variant rounded-full text-on-surface-variant font-label-md text-sm hover:bg-surface-container-highest transition-colors bg-surface/50 backdrop-blur-sm">
+                            Load More Files
+                        </button>
+</div>
+</div>
+<!-- Right Column (Sidebar Widgets) -->
+<div class="space-y-6">
+<!-- Storage Management Widget -->
+<div class="glass-card rounded-3xl p-6 border-t-4 border-t-primary shadow-sm relative overflow-hidden">
+<!-- Decorative background element -->
+<div class="absolute -right-10 -top-10 w-32 h-32 bg-primary/5 rounded-full blur-2xl"></div>
+<h3 class="font-headline-md text-lg text-on-surface flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-primary">pie_chart</span>
+                            Storage
+                        </h3>
+<!-- Donut Chart representation -->
+<div class="flex items-center justify-center mb-6">
+<div class="relative w-32 h-32 flex items-center justify-center rounded-full bg-surface-container-highest">
+<!-- Simulated SVG Donut Chart -->
+<svg class="w-full h-full transform -rotate-90 absolute inset-0" viewbox="0 0 36 36">
+<path class="text-surface-variant" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="100, 100" stroke-width="4"></path>
+<path class="text-primary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="45, 100" stroke-width="4"></path>
+<path class="text-tertiary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="15, 100" stroke-dashoffset="-45" stroke-width="4"></path>
+</svg>
+<div class="absolute flex flex-col items-center justify-center text-center">
+<span class="font-headline-md text-xl text-on-surface">45%</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant uppercase tracking-wider">Used</span>
+</div>
+</div>
+</div>
+<!-- Legend -->
+<div class="space-y-3 mb-6">
+<div class="flex justify-between items-center text-sm">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-primary"></span>
+<span class="text-on-surface-variant">Course Videos</span>
+</div>
+<span class="font-medium text-on-surface">1.2 GB</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-tertiary"></span>
+<span class="text-on-surface-variant">Documents</span>
+</div>
+<span class="font-medium text-on-surface">0.6 GB</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-surface-variant"></span>
+<span class="text-on-surface-variant">Free Space</span>
+</div>
+<span class="font-medium text-on-surface">2.2 GB</span>
+</div>
+</div>
+<button class="w-full py-2.5 border border-outline-variant text-primary rounded-xl font-label-md text-sm hover:bg-primary-container/10 transition-colors flex items-center justify-center gap-2 bg-surface">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+                            Manage Storage Settings
+                        </button>
+</div>
+<!-- Quick Help Card -->
+<div class="glass-card rounded-2xl p-5 bg-tertiary-container/10 border-tertiary/20">
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-full bg-tertiary text-on-tertiary flex items-center justify-center flex-shrink-0 mt-1">
+<span class="material-symbols-outlined text-[18px]">lightbulb</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface mb-1">Smart Downloads Active</h4>
+<p class="font-body-md text-sm text-on-surface-variant">EduNext automatically downloads next modules when connected to Wi-Fi. <a class="text-tertiary hover:underline" href="#">Change preferences</a>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Mobile BottomNavBar (Visible only on md hidden) -->
+<nav class="md:hidden w-full bg-surface-container-lowest/90 backdrop-blur-xl border-t border-surface-container-high pb-safe flex justify-around items-center h-16 flex-shrink-0 z-50 fixed bottom-0">
+<a class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[24px]">dashboard</span>
+<span class="font-label-sm text-[10px] mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[24px]">school</span>
+<span class="font-label-sm text-[10px] mt-1">Courses</span>
+</a>
+<!-- Active Tab Mobile -->
+<a class="flex flex-col items-center justify-center w-full h-full text-primary relative" href="#">
+<div class="absolute -top-3 w-12 h-1 bg-primary rounded-b-full"></div>
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">download</span>
+<span class="font-label-sm text-[10px] mt-1 font-bold">Downloads</span>
+</a>
+<a class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[24px]">person</span>
+<span class="font-label-sm text-[10px] mt-1">Profile</span>
+</a>
+</nav>
+<script>
+        // Simple script for micro-interactions
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterButtons = document.querySelectorAll('.overflow-x-auto button');
+            filterButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Reset all
+                    filterButtons.forEach(b => {
+                        b.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm', 'hover:scale-105');
+                        b.classList.add('bg-surface-container-high', 'text-on-surface');
+                    });
+                    // Set active
+                    this.classList.remove('bg-surface-container-high', 'text-on-surface');
+                    this.classList.add('bg-primary', 'text-on-primary', 'shadow-sm', 'hover:scale-105');
+                });
+            });
+        });
+    </script>
+</body></html>

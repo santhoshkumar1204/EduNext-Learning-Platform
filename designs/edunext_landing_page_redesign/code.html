@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduNext - Learning Made Yours</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#2563EB", // Primary Blue
+                        secondary: "#16A34A", // Primary Green
+                        accent: "#7C3AED", // Accent Purple
+                        background: "#F8FAFC",
+                        surface: "#FFFFFF",
+                        "slate-900": "#0F172A",
+                        "slate-800": "#1E293B",
+                        "slate-700": "#334155",
+                        "slate-600": "#475569",
+                        "slate-500": "#64748B",
+                        "slate-400": "#94A3B8",
+                        "slate-300": "#CBD5E1",
+                        "slate-200": "#E2E8F0",
+                        "slate-100": "#F1F5F9",
+                        "slate-50": "#F8FAFC",
+                        "primary-container": "#DBEAFE",
+                        "secondary-fixed": "#DCFCE7",
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                        'hover': '0 10px 40px -4px rgba(0, 0, 0, 0.08)',
+                    },
+                    transitionTimingFunction: {
+                        'premium': 'cubic-bezier(0.4, 0, 0.2, 1)',
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards',
+                        'fade-in': 'fadeIn 1s cubic-bezier(0.4, 0, 0.2, 1) forwards',
+                        'shimmer': 'shimmer 2s linear infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        shimmer: {
+                            from: { backgroundPosition: '200% 0' },
+                            to: { backgroundPosition: '-200% 0' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Base styles for smooth scrolling and animations */
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; }
+        .section-padding { padding-top: 6rem; padding-bottom: 6rem; }
+        @media (min-width: 768px) {
+            .section-padding { padding-top: 8rem; padding-bottom: 8rem; }
+        }
+        
+        .premium-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .premium-hover:hover {
+            transform: scale(1.02) translateY(-4px);
+            box-shadow: 0 20px 40px -8px rgba(0, 0, 0, 0.1);
+            border-color: rgba(203, 213, 225, 0.8);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .btn-interactive:active {
+            transform: scale(0.95);
+        }
+        
+        .shimmer-effect {
+            background: linear-gradient(90deg, 
+                rgba(255,255,255,0) 0%, 
+                rgba(255,255,255,0.2) 50%, 
+                rgba(255,255,255,0) 100%);
+            background-size: 200% 100%;
+            animation: shimmer 2.5s infinite;
+        }
+
+        /* Hide summary marker */
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+    </style>
+</head>
+<body class="text-slate-600 antialiased min-h-screen flex flex-col bg-background selection:bg-primary/20 selection:text-primary">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+<div class="flex justify-between items-center px-4 md:px-8 py-4 max-w-7xl mx-auto">
+<!-- Brand & Location -->
+<div class="flex items-center gap-4">
+<a class="flex items-center gap-3 transition-transform hover:opacity-90" href="#">
+<img alt="EduNext Logo" class="h-10 object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLuE3BfhtD0TfTtO8HCqR0zLcKYzyEGVGfLWmFUKNMSyhtTYCjzMZmWZAEv-KIa7qVzvARjle94cdrMVCxcJuPyI9dag6LsRDPDNxhSlLCXtnP7yhxAj5M1K3im1QEdjuF39FQ5xe24yF_pq32iohW2QeespKPbYTOMiaaOXBphn60KyIBRAM3MOQvmo4QaqPSOiDFJwtm3rpuc0rkRCb5NAQA5HoSP9YHeRte0WkIRoMMxA2Tbn-mI_gMg"/>
+</a>
+<div class="hidden md:flex items-center gap-2 ml-4 bg-slate-50 px-4 py-2 rounded-full border border-slate-200 hover:border-slate-300 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[18px] text-slate-500" data-icon="language">language</span>
+<span class="text-sm font-medium text-slate-600">US English</span>
+<span class="material-symbols-outlined text-[16px] text-slate-500" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<!-- Navigation Links (Desktop) -->
+<div class="hidden lg:flex items-center gap-8">
+<a class="text-base font-semibold text-primary border-b-2 border-primary pb-1" href="#">Courses</a>
+<a class="text-base font-medium text-slate-500 hover:text-slate-900 transition-colors" href="#">Assignments</a>
+<a class="text-base font-medium text-slate-500 hover:text-slate-900 transition-colors" href="#">Community</a>
+<a class="text-base font-medium text-slate-500 hover:text-slate-900 transition-colors" href="#">Analytics</a>
+</div>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-6">
+<!-- Status Badges (Desktop) -->
+<div class="hidden xl:flex items-center gap-3">
+<div class="flex items-center gap-1.5 bg-green-50 text-secondary px-3 py-1.5 rounded-full border border-green-100">
+<span class="material-symbols-outlined text-[14px]" data-icon="wifi">wifi</span>
+<span class="text-xs font-bold tracking-wide uppercase">Online</span>
+</div>
+<div class="flex items-center gap-1.5 bg-green-50 text-secondary px-3 py-1.5 rounded-full border border-green-100">
+<span class="material-symbols-outlined text-[14px]" data-icon="cloud_done">cloud_done</span>
+<span class="text-xs font-bold tracking-wide uppercase">All Synced</span>
+</div>
+</div>
+<!-- Profile -->
+<button class="flex items-center gap-3 hover:bg-slate-50 p-1.5 rounded-full transition-all duration-300 border border-transparent hover:border-slate-200">
+<img alt="Dr. Amarjeet Kaur" class="w-10 h-10 rounded-full border-2 border-white shadow-sm object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyY5j_daiDqQnTeC4vDXmHy9YTF4L1JZLPWvUlC0MGfZI6MYAsJWaXLr1kvM9fGb34EsGd7GfGjuyDl7uo3lzfG3iYSqgxKTpX2dd2dXyUn13psAnWNsHtXp_x5Us17E-t7nvkfS1OfM5-9tD-p5Az1y8zj1bBBJrKj_7NDLGPfSMvTJIeQH8wtcCeJen7w43q_QZtqtNMUKrGQWnj3qM0YmZmtbiLOYMkw55n0mvKt2O2A0G7zrK3jWJOUHp4a-gcXwbtoGfsvpw"/>
+<span class="hidden sm:block text-sm font-semibold text-slate-700 pr-2">Dr. Amarjeet Kaur</span>
+</button>
+<!-- Mobile Menu Toggle -->
+<button class="lg:hidden p-2 text-slate-500 hover:bg-slate-100 rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-24 md:pt-32">
+<!-- Hero Section -->
+<section class="max-w-7xl mx-auto px-4 md:px-8 pb-20 pt-10 lg:pt-20">
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-16 items-center">
+<!-- Hero Content -->
+<div class="flex flex-col gap-8 xl:col-span-5 order-2 xl:order-1 relative z-10 animate-fade-in-up">
+<div class="inline-flex items-center gap-2 bg-blue-50 text-primary px-4 py-2 rounded-full w-fit border border-blue-100">
+<span class="material-symbols-outlined text-[18px]" data-icon="bolt">bolt</span>
+<span class="text-sm font-bold tracking-wide uppercase">Learning Made Fun, Learning Made Yours</span>
+</div>
+<h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-slate-900 leading-[1.1] tracking-tight">
+                        Transform Your Educational Journey
+                    </h1>
+<p class="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl">
+                        Learn offline, study in your language, and achieve your dreams with our gamified learning platform designed for lifelong learners.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4 pt-4">
+<button class="flex items-center justify-center gap-2 bg-primary hover:bg-blue-700 text-white px-8 py-4 rounded-xl text-base font-semibold shadow-lg shadow-blue-500/30 transition-all duration-300 hover:-translate-y-0.5 relative overflow-hidden btn-interactive">
+<div class="absolute inset-0 shimmer-effect pointer-events-none"></div>
+<span class="material-symbols-outlined relative z-10" data-icon="play_arrow" data-weight="fill" style='font-variation-settings: "FILL" 1;'>play_arrow</span>
+<span class="relative z-10">Start Learning</span>
+</button>
+<button class="flex items-center justify-center gap-2 bg-white border-2 border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700 px-8 py-4 rounded-xl text-base font-semibold shadow-sm transition-all duration-300 btn-interactive">
+<span class="material-symbols-outlined text-slate-500" data-icon="person">person</span>
+                            Teacher Login
+                        </button>
+</div>
+<!-- App Install Banner (Floating) -->
+<div class="mt-4 bg-white rounded-2xl p-5 flex items-center justify-between shadow-soft border border-slate-100 max-w-md hover:shadow-md transition-shadow">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-2xl" data-icon="download">download</span>
+</div>
+<div>
+<h4 class="text-base font-bold text-slate-900">Install eduNext App</h4>
+<p class="text-sm text-slate-500 mt-0.5">Access lessons offline anytime</p>
+</div>
+</div>
+<button class="bg-slate-900 hover:bg-slate-800 text-white px-5 py-2.5 rounded-lg text-sm font-semibold shadow-sm transition-colors btn-interactive">
+                            Install
+                        </button>
+</div>
+</div>
+<!-- Hero Image -->
+<div class="xl:col-span-7 order-1 xl:order-2 relative animate-fade-in">
+<div class="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200/50 aspect-[4/3] xl:aspect-[16/10]">
+<img alt="Students collaborating in a bright modern learning space" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLuFZSq5rivzIeGFbNdpVjqSovOCt6yrQZePvLyxzVFNG-Vk7RkrUnRcjamXZBnvuE5pj0YvIE5u6Jaefc1afBiLDvigNXW_XtQVdRdWRPiwuzanDao0FR4mpGvnkUQuoh1aGTR5MVhmZm0MtyOf3Cz1VQ_55Yst7JSz0YSAN-IdWC_CkgdIgsSvm2RYWJAxPAYTsTj1Yq3k_lksqGrATPQg19hWHRS8Q-R8IfWYbWFi-m1JgNKHm9ktA14"/>
+<div class="absolute inset-0 bg-gradient-to-tr from-slate-900/20 to-transparent"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Statistics Section (Subtle supporting data) -->
+<section class="max-w-7xl mx-auto px-4 md:px-8 py-12 border-y border-slate-200/60 bg-white/50 animate-on-scroll" id="stats">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-slate-200/60">
+<div class="flex flex-col items-center justify-center text-center">
+<span class="text-3xl font-extrabold text-slate-900 mb-1">500+</span>
+<span class="text-sm font-medium text-slate-500 uppercase tracking-wider">Active Students</span>
+</div>
+<div class="flex flex-col items-center justify-center text-center">
+<span class="text-3xl font-extrabold text-slate-900 mb-1">50+</span>
+<span class="text-sm font-medium text-slate-500 uppercase tracking-wider">Interactive Lessons</span>
+</div>
+<div class="flex flex-col items-center justify-center text-center">
+<span class="text-3xl font-extrabold text-slate-900 mb-1">100+</span>
+<span class="text-sm font-medium text-slate-500 uppercase tracking-wider">Skill Quizzes</span>
+</div>
+<div class="flex flex-col items-center justify-center text-center">
+<span class="text-3xl font-extrabold text-slate-900 mb-1">3</span>
+<span class="text-sm font-medium text-slate-500 uppercase tracking-wider">Supported Languages</span>
+</div>
+</div>
+</section>
+<!-- Core Features / A Complete Learning Ecosystem -->
+<section class="section-padding bg-slate-50 relative overflow-hidden" id="features">
+<!-- Decorative Background Gradients -->
+<div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+<div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-blue-100/40 blur-3xl mix-blend-multiply"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-indigo-50/40 blur-3xl mix-blend-multiply"></div>
+</div>
+<div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
+<div class="text-center mb-16 max-w-3xl mx-auto animate-on-scroll">
+<h2 class="text-sm font-bold tracking-widest text-primary uppercase mb-3">Core Platform</h2>
+<h3 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">A Complete Learning Ecosystem</h3>
+<p class="text-lg text-slate-600 leading-relaxed">Everything you need to master new skills, stay engaged, and track your progress in one unified platform.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"><!-- Feature 1: Course Learning -->
+<div class="glass-card rounded-2xl p-8 flex flex-col h-full premium-hover shadow-soft animate-on-scroll">
+<div class="w-10 h-10 rounded-xl bg-[#1E293B] flex items-center justify-center mb-6 shadow-sm">
+<span class="material-symbols-outlined text-white text-xl">menu_book</span>
+</div>
+<h4 class="text-xl font-bold text-slate-800 mb-2">Curated Course Catalog</h4>
+<p class="text-slate-500 text-sm leading-relaxed mb-6">Access hundreds of premium courses structured for optimal knowledge retention and practical application.</p>
+<div class="mt-auto flex gap-4">
+<div class="w-[45%] aspect-[4/3] rounded-xl overflow-hidden shadow-sm border border-slate-100">
+<img alt="Course preview" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0BiHmhGodcSPK3KFNfoxIYXVet1tnPWhkJ6puue6SLkoCLHghWGPBazGKsDJzsNKyNm3Zy--yU1p_Grvla5c-VfPL3A5bj5n-Hu7SPmZIg8tCH6TYIpcFxuzQxt3RrhCgWs3t0e7pnyYe0m1sMaTHVnUivop5gTfIdjIIV9IUVPLbC17Yzhi90ytHnWi3Avp7oeHbwSVRw-ixFBP8gaq67VRyJO7_EY7Vk3UunFdYJcLRC0a8qnfwqIVZ-VD9tlVOMjJtZyzHr90"/>
+</div>
+<div class="w-[45%] aspect-[4/3] rounded-xl overflow-hidden shadow-sm border border-slate-100">
+<img alt="Course preview" class="w-full h-full object-cover" onerror="this.src='https://lh3.googleusercontent.com/aida/AP1WRLuFZSq5rivzIeGFbNdpVjqSovOCt6yrQZePvLyxzVFNG-Vk7RkrUnRcjamXZBnvuE5pj0YvIE5u6Jaefc1afBiLDvigNXW_XtQVdRdWRPiwuzanDao0FR4mpGvnkUQuoh1aGTR5MVhmZm0MtyOf3Cz1VQ_55Yst7JSz0YSAN-IdWC_CkgdIgsSvm2RYWJAxPAYTsTj1Yq3k_lksqGrATPQg19hWHRS8Q-R8IfWYbWFi-m1JgNKHm9ktA14'" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFqT3K2wM1r2Dq3f4R5W1R3n5T7G7H1W2D8H9J8G2F6W4E3G2H5G2W3R4F7H1W2D8H9J8G2F6W4E3G2H5G2W3R4F7H1W2D8H9J8G2F6W4E3G2H5G2W3R4F7H1"/>
+</div>
+</div>
+</div>
+<!-- Feature 2: Progress Tracking -->
+<div class="glass-card rounded-2xl p-8 flex flex-col h-full premium-hover shadow-soft animate-on-scroll" style="transition-delay: 100ms;">
+<div class="w-10 h-10 rounded-xl bg-[#4ADE80] flex items-center justify-center mb-6 shadow-sm">
+<span class="material-symbols-outlined text-slate-800 text-xl font-bold" data-icon="check_circle">check_circle</span>
+</div>
+<h4 class="text-xl font-bold text-slate-800 mb-2">Progress Tracking</h4>
+<p class="text-slate-500 text-sm leading-relaxed mb-8">Stay on top of assignments with visual completion metrics.</p>
+<div class="mt-auto">
+<div class="flex justify-between items-center mb-3">
+<span class="text-xs font-semibold text-slate-600">Weekly Goal</span>
+<span class="text-xs font-bold text-green-600">80%</span>
+</div>
+<div class="w-full bg-slate-100 rounded-full h-2 shadow-inner">
+<div class="bg-green-600 h-2 rounded-full shadow-sm" style="width: 80%"></div>
+</div>
+</div>
+</div>
+<!-- Feature 3: Community Doubts -->
+<div class="glass-card rounded-2xl p-8 flex flex-col h-full premium-hover shadow-soft animate-on-scroll" style="transition-delay: 200ms;">
+<div class="w-10 h-10 rounded-xl bg-[#1E3A8A] flex items-center justify-center mb-6 shadow-sm">
+<span class="material-symbols-outlined text-white text-xl">forum</span>
+</div>
+<h4 class="text-xl font-bold text-slate-800 mb-2">Community Doubts</h4>
+<p class="text-slate-500 text-sm leading-relaxed mb-6">Resolve queries fast with peer-to-peer discussions.</p>
+<div class="mt-auto flex items-center">
+<div class="flex -space-x-3">
+<img alt="User" class="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm relative z-30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3avFcegkXdCn5hdenbeEBXz4Dx8G7kSxumE7asL8208aGmjEGPF5CsijSeXMsWsZ4yNhQBI4ECGPNEcAAptVccdrVAj4nTJUe2Wl7fvMouay5eQda4bJmg-7r9sPgdCeVV-9bQEVSD9JHfc40Gr6-i8w_lpMgMcCPmuxITBwjv3Nq54fC4IaEhL19gaMKV7JXFaM_c1xX3EdlLJgfCFABxJliuBzoX02_C6818izvK2iSlY94U52j8WEsMwYTOm4oNqyW38lipXs"/>
+<img alt="User" class="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm relative z-20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYuC90npXidiCtz81qTXGyVyLKq_0DkARB1rkL4PFxO0Wxqiy_SSUtx-D22cLdS7ZLmLvns4WW2WRvvLEfH1KS0UGb_4srDbCAloEVqf_dT6vBQcNseHIPlb7FISgjWlIAifAb3lbTYqel0ClABdh0XavztYni_DVgaIsM4gmNLcV6PAPA4Tn1ZGAB7pd7s_ru1NOwXDoGUM6HcH7UFGlOaHnQ5PgjcZSDPkjpsrDdW_sJkP32ddDvmitRK_pOHw1FuWRPAnGeauI"/>
+<img alt="User" class="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm relative z-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwZR3GKGO1oSrJWM1bz9CPZBo4qU67mSr11xQG7hqFJPMW68p2Ck6hHfADrhesIv9dg2vLxh4PxNX_m31XIjCDXOCEKFOyCPXxZNoe2pTtN5PD64j0NB7agebbljPaWFyiXKo5fY9xwbL7v21EajkbB-54pmChF7WXs4AIvs1PqkXDqy2Vjk8PwYYz0y_dB8xJOiOI0YyXZPVEtEIXNZpV5-Z0VzQ_YrgmbV-dBcaXFnnV4z_D24wClezpA73yftEM_8SIu3h9a-I"/>
+<div class="w-10 h-10 rounded-full bg-slate-100 border-2 border-white flex items-center justify-center text-[11px] font-bold text-slate-600 shadow-sm relative z-0">+2k</div>
+</div>
+</div>
+</div>
+<!-- Feature 4: Offline Support -->
+<div class="glass-card rounded-2xl p-8 flex flex-col h-full premium-hover shadow-soft animate-on-scroll" style="transition-delay: 300ms;">
+<div class="w-10 h-10 rounded-xl bg-[#475569] flex items-center justify-center mb-6 shadow-sm">
+<span class="material-symbols-outlined text-white text-xl">offline_pin</span>
+</div>
+<h4 class="text-xl font-bold text-slate-800 mb-2">Offline Support</h4>
+<p class="text-slate-500 text-sm leading-relaxed">Download modules and study anywhere, anytime.</p>
+</div>
+<!-- Feature 5: Multi-Language -->
+<div class="col-span-1 md:col-span-2 lg:col-span-2 rounded-2xl p-8 shadow-xl flex flex-col h-full relative overflow-hidden premium-hover animate-on-scroll bg-gradient-to-br from-[#0F172A] via-[#1E3A8A] to-[#2563EB]" style="transition-delay: 400ms;">
+<div class="absolute inset-0 opacity-40 mix-blend-overlay">
+<img alt="Globe" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7NB1I9SajTGVbaHj_kp3-RbBJ7UdFj-LKNf0ohfQI4l2IrHaljhcHRvTzvzUF9HlLEvfs8Td-1y2NEtFC4Y75r_EKsATT4D1Q61vZYHgbczRKvQzn1UsDqOMkxxKHjx3hPMstROPCUfWiaxxAnHq-f9ceLLwbtmqK8cX-bMS6qJhwl3F8MOKcwronMcPQeFmhZHwHqc-7NxOoypaQsz7goYCmESbmmb8C7ZB6RLqipJLj-MpOoLUIgPySNeJqU9zlrxgejL00BqE"/>
+</div>
+<div class="relative z-10 h-full flex flex-col justify-center">
+<div class="w-10 h-10 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center mb-6 shadow-sm">
+<span class="material-symbols-outlined text-white text-xl">translate</span>
+</div>
+<h4 class="text-2xl font-bold text-white mb-2">Multi-Language</h4>
+<p class="text-blue-100/90 text-base leading-relaxed max-w-md">Break barriers. Learn in your native language with precise translations.</p>
+</div>
+</div></div>
+<!-- Wide Feature: Teacher Analytics -->
+<div class="mt-8 glass-card rounded-3xl p-8 lg:p-12 shadow-soft flex flex-col lg:flex-row items-center gap-12 premium-hover animate-on-scroll">
+<div class="flex-1 max-w-2xl">
+<div class="w-14 h-14 rounded-2xl bg-orange-50 text-orange-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl" data-icon="monitoring">monitoring</span>
+</div>
+<h4 class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-4 tracking-tight">Teacher Analytics &amp; Engagement</h4>
+<p class="text-lg text-slate-600 leading-relaxed">Empower educators with clear visibility into student participation and module completion rates.</p>
+</div>
+<div class="flex-1 w-full bg-slate-50/80 rounded-2xl p-8 border border-slate-100/50 shadow-inner">
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-xl" data-icon="group">group</span>
+</div>
+<div class="flex-grow">
+<div class="h-3 bg-slate-200 rounded-full w-full overflow-hidden shadow-inner">
+<div class="h-full bg-primary rounded-full shadow-sm" style="width: 90%"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-secondary shadow-sm">
+<span class="material-symbols-outlined text-xl" data-icon="check_circle">check_circle</span>
+</div>
+<div class="flex-grow">
+<div class="h-3 bg-slate-200 rounded-full w-3/4 overflow-hidden shadow-inner">
+<div class="h-full bg-secondary rounded-full shadow-sm" style="width: 75%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="section-padding bg-white border-t border-slate-100 animate-on-scroll">
+<div class="max-w-4xl mx-auto px-4 md:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">Frequently Asked Questions</h2>
+<p class="text-lg text-slate-600">Everything you need to know about EduNext</p>
+</div>
+<div class="space-y-4">
+<!-- FAQ Items -->
+<details class="group bg-slate-50 border border-slate-200/60 rounded-2xl p-6 hover:bg-white hover:border-slate-300 hover:shadow-soft transition-all duration-300">
+<summary class="flex justify-between items-center cursor-pointer list-none focus:outline-none">
+<h3 class="text-lg font-bold text-slate-800 group-hover:text-primary transition-colors">How does EduNext work for rural students?</h3>
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-transform duration-300 group-open:rotate-180" data-icon="expand_more">expand_more</span>
+</summary>
+<div class="mt-4 text-slate-600 text-base leading-relaxed animate-fade-in">
+EduNext is designed to support learning in areas with limited internet access. Students can download course materials for offline study, access content in multiple languages, and continue learning at their own pace. The platform aims to make quality education more accessible regardless of location.
+</div>
+</details>
+<details class="group bg-slate-50 border border-slate-200/60 rounded-2xl p-6 hover:bg-white hover:border-slate-300 hover:shadow-soft transition-all duration-300">
+<summary class="flex justify-between items-center cursor-pointer list-none focus:outline-none">
+<h3 class="text-lg font-bold text-slate-800 group-hover:text-primary transition-colors">What subjects and languages are available?</h3>
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-transform duration-300 group-open:rotate-180" data-icon="expand_more">expand_more</span>
+</summary>
+<div class="mt-4 text-slate-600 text-base leading-relaxed animate-fade-in">
+EduNext supports a variety of academic and skill-based courses, including technology, science, mathematics, and language learning. Content can be delivered in multiple languages to help learners study in the language they are most comfortable with.
+</div>
+</details>
+<details class="group bg-slate-50 border border-slate-200/60 rounded-2xl p-6 hover:bg-white hover:border-slate-300 hover:shadow-soft transition-all duration-300">
+<summary class="flex justify-between items-center cursor-pointer list-none focus:outline-none">
+<h3 class="text-lg font-bold text-slate-800 group-hover:text-primary transition-colors">How do teachers track student progress?</h3>
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-transform duration-300 group-open:rotate-180" data-icon="expand_more">expand_more</span>
+</summary>
+<div class="mt-4 text-slate-600 text-base leading-relaxed animate-fade-in">
+Teachers can monitor course completion, assignment submissions, quiz performance, participation levels, and learning activity through dedicated dashboards. This helps educators identify students who may need additional support and guidance.
+</div>
+</details>
+<details class="group bg-slate-50 border border-slate-200/60 rounded-2xl p-6 hover:bg-white hover:border-slate-300 hover:shadow-soft transition-all duration-300">
+<summary class="flex justify-between items-center cursor-pointer list-none focus:outline-none">
+<h3 class="text-lg font-bold text-slate-800 group-hover:text-primary transition-colors">What is the Streak Pot and how does it work?</h3>
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-transform duration-300 group-open:rotate-180" data-icon="expand_more">expand_more</span>
+</summary>
+<div class="mt-4 text-slate-600 text-base leading-relaxed animate-fade-in">
+The Streak Pot is a gamified motivation feature that encourages consistent learning. Students earn progress through daily participation and course completion, while schools and communities can track collective learning milestones and achievements.
+</div>
+</details>
+<details class="group bg-slate-50 border border-slate-200/60 rounded-2xl p-6 hover:bg-white hover:border-slate-300 hover:shadow-soft transition-all duration-300">
+<summary class="flex justify-between items-center cursor-pointer list-none focus:outline-none">
+<h3 class="text-lg font-bold text-slate-800 group-hover:text-primary transition-colors">Can students use this without smartphones?</h3>
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-transform duration-300 group-open:rotate-180" data-icon="expand_more">expand_more</span>
+</summary>
+<div class="mt-4 text-slate-600 text-base leading-relaxed animate-fade-in">
+Yes. EduNext is accessible through laptops, desktops, and shared digital learning environments. Downloadable resources and offline support help learners continue studying even when personal devices or internet connectivity are limited.
+</div>
+</details>
+<details class="group bg-slate-50 border border-slate-200/60 rounded-2xl p-6 hover:bg-white hover:border-slate-300 hover:shadow-soft transition-all duration-300">
+<summary class="flex justify-between items-center cursor-pointer list-none focus:outline-none">
+<h3 class="text-lg font-bold text-slate-800 group-hover:text-primary transition-colors">How do mentors and apprenticeships work?</h3>
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-transform duration-300 group-open:rotate-180" data-icon="expand_more">expand_more</span>
+</summary>
+<div class="mt-4 text-slate-600 text-base leading-relaxed animate-fade-in">
+EduNext connects learners with mentors, practical learning opportunities, and apprenticeship programs. These experiences help students apply classroom knowledge to real-world projects, develop professional skills, and explore career pathways.
+</div>
+</details>
+<details class="group bg-slate-50 border border-slate-200/60 rounded-2xl p-6 hover:bg-white hover:border-slate-300 hover:shadow-soft transition-all duration-300">
+<summary class="flex justify-between items-center cursor-pointer list-none focus:outline-none">
+<h3 class="text-lg font-bold text-slate-800 group-hover:text-primary transition-colors">Is EduNext free to use?</h3>
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-transform duration-300 group-open:rotate-180" data-icon="expand_more">expand_more</span>
+</summary>
+<div class="mt-4 text-slate-600 text-base leading-relaxed animate-fade-in">
+The core learning features of EduNext are designed to remain accessible to learners. Access policies may vary depending on the institution, organization, or educational program using the platform.
+</div>
+</details>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-16 px-4 md:px-8 bg-slate-50 border-t border-slate-200">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
+<!-- Brand -->
+<div class="flex flex-col gap-6 md:col-span-1">
+<a class="flex items-center gap-3 hover:opacity-90 transition-opacity" href="#">
+<img alt="EduNext Logo" class="h-8 object-contain grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all" src="https://lh3.googleusercontent.com/aida/AP1WRLuE3BfhtD0TfTtO8HCqR0zLcKYzyEGVGfLWmFUKNMSyhtTYCjzMZmWZAEv-KIa7qVzvARjle94cdrMVCxcJuPyI9dag6LsRDPDNxhSlLCXtnP7yhxAj5M1K3im1QEdjuF39FQ5xe24yF_pq32iohW2QeespKPbYTOMiaaOXBphn60KyIBRAM3MOQvmo4QaqPSOiDFJwtm3rpuc0rkRCb5NAQA5HoSP9YHeRte0WkIRoMMxA2Tbn-mI_gMg"/>
+</a>
+<p class="text-sm text-slate-500 leading-relaxed">
+                    © 2027 EduNext Premium.<br/>Empowering lifelong learners globally.
+                </p>
+</div>
+<!-- Links -->
+<div class="md:col-span-3 flex flex-wrap gap-x-12 gap-y-6 md:justify-end items-center">
+<a class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors" href="#">About Us</a>
+<a class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors" href="#">Contact Us</a>
+<a class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+<script>
+    // Intersection Observer for scroll animations
+    document.addEventListener("DOMContentLoaded", function() {
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+    });
+</script>
+</body></html>

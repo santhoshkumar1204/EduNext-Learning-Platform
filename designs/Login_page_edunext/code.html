@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduNext - Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "on-surface-variant": "#43474e",
+                "on-surface": "#191c1e",
+                "secondary": "#006e2f",
+                "surface-container": "#eceef0",
+                "on-primary-container": "#86a0cd",
+                "tertiary-fixed-dim": "#adc6ff",
+                "on-tertiary-container": "#6a9dff",
+                "on-background": "#191c1e",
+                "on-tertiary-fixed-variant": "#004395",
+                "on-primary-fixed": "#001b3c",
+                "tertiary-container": "#003374",
+                "on-secondary-container": "#007432",
+                "primary-fixed": "#d6e3ff",
+                "inverse-surface": "#2d3133",
+                "on-tertiary-fixed": "#001a42",
+                "on-secondary-fixed-variant": "#005321",
+                "tertiary-fixed": "#d8e2ff",
+                "surface-container-low": "#f2f4f6",
+                "on-error": "#ffffff",
+                "inverse-primary": "#adc7f7",
+                "secondary-container": "#6bff8f",
+                "primary-container": "#1a365d",
+                "surface-container-lowest": "#ffffff",
+                "surface-tint": "#455f88",
+                "surface": "#f7f9fb",
+                "secondary-fixed-dim": "#4ae176",
+                "secondary-fixed": "#6bff8f",
+                "surface-variant": "#e0e3e5",
+                "tertiary": "#001f4b",
+                "on-primary": "#ffffff",
+                "primary-fixed-dim": "#adc7f7",
+                "surface-container-highest": "#e0e3e5",
+                "on-secondary": "#ffffff",
+                "error": "#ba1a1a",
+                "on-secondary-fixed": "#002109",
+                "error-container": "#ffdad6",
+                "on-primary-fixed-variant": "#2d476f",
+                "surface-dim": "#d8dadc",
+                "surface-container-high": "#e6e8ea",
+                "inverse-on-surface": "#eff1f3",
+                "on-error-container": "#93000a",
+                "background": "#f7f9fb",
+                "on-tertiary": "#ffffff",
+                "outline": "#74777f",
+                "primary": "#002045",
+                "surface-bright": "#f7f9fb",
+                "outline-variant": "#c4c6cf",
+                "brand-green": "#16A34A",
+                "brand-blue": "#2563EB",
+                "brand-purple": "#8B5CF6"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "base": "8px",
+                "margin-desktop": "40px",
+                "margin-mobile": "16px",
+                "gutter": "24px",
+                "container-max": "1280px"
+        },
+        "fontFamily": {
+                "label-sm": [
+                        "Inter"
+                ],
+                "headline-lg-mobile": [
+                        "Inter"
+                ],
+                "headline-lg": [
+                        "Inter"
+                ],
+                "headline-md": [
+                        "Inter"
+                ],
+                "label-md": [
+                        "Inter"
+                ],
+                "headline-xl": [
+                        "Inter"
+                ],
+                "body-md": [
+                        "Inter"
+                ],
+                "body-lg": [
+                        "Inter"
+                ]
+        },
+        "fontSize": {
+                "label-sm": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "fontWeight": "500"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "28px",
+                        {
+                                "lineHeight": "36px",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "label-md": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-xl": [
+                        "48px",
+                        {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+  .carousel-slide { opacity: 0; transition: opacity 0.8s ease-in-out; }
+  .carousel-slide.active { opacity: 1; z-index: 1; }
+</style>
+</head>
+<body class="bg-surface text-on-surface font-body-md h-screen w-screen overflow-hidden antialiased">
+<div class="flex h-full w-full">
+<!-- Left Panel: Visual Storytelling Carousel -->
+<div class="hidden lg:flex lg:w-1/2 relative bg-primary items-end justify-center overflow-hidden" id="carousel-container">
+<!-- Image Carousel -->
+<div class="absolute inset-0 w-full h-full">
+<!-- Slide 1 -->
+<img alt="Online Learning" class="carousel-slide absolute inset-0 w-full h-full object-cover object-center active" src="https://lh3.googleusercontent.com/aida/AP1WRLunzvgK1vIu2WkNl3s8ucgFMxeI6DbeasKZTyFT8TAuGTBvIh8zogfFnTrwKJLAqf4bUNf4zdJl2scjV_Scz3a9NUQXRAwVVKWQaHxYXuckHDVHTsxPF6aJL8v3kPdH20HBbbzarb0BZD7J1_FPwtBo3i5nQLmvXv_S5V7EJOTX5qmgR9w0J9AYXFyOgGeOeflCT3t7iSrZ7TlaZ4eDf3LL8EL-WNHtDoHrfGoLSqn0jDIZqgjKhzxtWh8"/>
+<!-- Slide 2 -->
+<img alt="Student Collaboration" class="carousel-slide absolute inset-0 w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida/AP1WRLsCyB9OlbHf-No9thlgWOUWmUASNOs1dgrO6-yeG02v8tT-mx7LfywAr2vewiuekG_O63Tc-Vq8ctt3pU1c0Lb6R46ckTqe4IvDBqhDZ3IHcF6ZPGgt413jWLXCYCB-a2SH3gImxWzPfGHDEcpk2SSAzQdAMtroX9IlUUgDewOn4k1iNvr7Ytj2uEuPp0vEjG5DF8XFvDwKi6HlLRLl5BEV0Er3qJOtd4KT6gZrBqleYuOxdhCXjj3bJsQ"/>
+<!-- Slide 3 -->
+<img alt="Teacher Mentorship" class="carousel-slide absolute inset-0 w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida/AP1WRLu2dLpGg-gpt8OZe-ySq_bzOJdE8tSO1zDapzWDV4S43Y5ZbTGbTD5yeTZ0pxA2WvGg6Xs5-bGvQJy7QyB-bTushHdt3VG6wtTdJYI-ARGoEq5ndsUa5yaSn17Syg4Y-QgIOc3aKdnPg1aoZqJVwWGJ5dPKuWSdtm2336SpcTfTq6bkELUXAyHq4KfFYnvZcnrh0asC4g8bBmfgoMsRK1JSWVuVen2NFIup_Qh5wLYnN3pD79Up2j5XAqU"/>
+<!-- Slide 4 -->
+<img alt="Offline Learning Accessibility" class="carousel-slide absolute inset-0 w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida/AP1WRLuxAv2jdd6F0NHF07ey8J1brTaLm40lYZ4Og5IRyOVQurOCEJrHV7Q0uhqnm6v37UJNVKtMYZiZiw0Nw9F5dYVhXSFEYOjbwAY8txV4JCBodUq1eHsn-qkNMkx8zgAyJ9ExaA73zqDaIW4L3ezCYjQIHgD6QoRV2gwn5yT3OBzW6KKJ7wRMUcF6WRpJdEe_ioFWBzZ_OOTDTiGufWEDG67TvlLKlFFWpmzgOsTqYipjXKWaxIf5V2K24g"/>
+</div>
+<!-- Glassmorphism Gradient Overlay -->
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent z-10 pointer-events-none"></div>
+<!-- Storytelling Overlay & Indicators -->
+<div class="relative z-20 w-full p-12 flex flex-col items-center pb-10">
+<div class="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl p-6 mb-8 text-center max-w-md shadow-2xl">
+<h3 class="text-white font-headline-md text-headline-md mb-2">Learning Designed Around You</h3>
+<p class="text-white/80 font-body-md text-body-md">Empowering your educational journey anytime, anywhere.</p>
+</div>
+<!-- Visual Indicators -->
+<div class="flex gap-2">
+<div class="w-8 h-1.5 rounded-full bg-brand-green transition-all"></div>
+<div class="w-2 h-1.5 rounded-full bg-white/50 transition-all"></div>
+<div class="w-2 h-1.5 rounded-full bg-white/50 transition-all"></div>
+<div class="w-2 h-1.5 rounded-full bg-white/50 transition-all"></div>
+</div>
+</div>
+</div>
+<!-- Right Panel: Authentication Form -->
+<div class="w-full lg:w-1/2 flex flex-col items-center bg-surface overflow-y-auto px-6 py-12 lg:px-12 relative" id="auth-card" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s ease-out, transform 0.6s ease-out;">
+<!-- Role Switcher -->
+<div class="w-full max-w-md flex justify-end mb-8">
+<div class="inline-flex bg-surface-variant rounded-lg p-1">
+<button class="px-4 py-1.5 rounded-md bg-white text-on-surface font-label-md text-label-md shadow-sm transition-all hover:bg-surface-container-lowest">Student</button>
+<button class="px-4 py-1.5 rounded-md text-on-surface-variant font-label-md text-label-md hover:text-on-surface transition-all">Teacher</button>
+</div>
+</div>
+<div class="w-full max-w-md flex-grow flex flex-col justify-center animate-fade-in">
+<!-- Mobile Logo (Hidden on Desktop) -->
+<div class="flex lg:hidden items-center justify-center gap-3 mb-8">
+<div class="w-12 h-12 bg-brand-green rounded-xl flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-white text-2xl" style='font-variation-settings: "FILL" 1;'>school</span>
+</div>
+<span class="font-headline-lg text-headline-lg text-primary">EduNext</span>
+</div>
+<div class="mb-8 text-center lg:text-left">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-2">Welcome back</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Please enter your details to sign in.</p>
+</div>
+<!-- Tab Switcher (Sign In / Create Account) -->
+<div class="flex border-b border-outline-variant mb-8">
+<button class="flex-1 pb-3 font-label-md text-label-md text-brand-green border-b-2 border-brand-green transition-colors">Sign In</button>
+<button class="flex-1 pb-3 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors border-b-2 border-transparent hover:border-outline-variant">Create Account</button>
+</div>
+<!-- Google Sign In -->
+<button class="w-full flex items-center justify-center gap-3 py-3 px-4 bg-white border border-outline-variant rounded-xl text-on-surface font-label-md text-label-md hover:bg-surface-container-low transition-all duration-200 shadow-sm hover:shadow active:scale-[0.98]">
+<svg class="w-5 h-5" fill="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M22.56 12.25C22.56 11.47 22.49 10.72 22.36 10H12V14.26H17.92C17.67 15.63 16.89 16.8 15.72 17.58V20.34H19.29C21.37 18.42 22.56 15.6 22.56 12.25Z" fill="#4285F4"></path>
+<path d="M12 23C14.97 23 17.46 22.02 19.29 20.34L15.72 17.58C14.73 18.24 13.48 18.65 12 18.65C9.13 18.65 6.7 16.71 5.81 14.12H2.14V16.97C3.96 20.59 7.69 23 12 23Z" fill="#34A853"></path>
+<path d="M5.81 14.12C5.58 13.44 5.45 12.73 5.45 12C5.45 11.27 5.58 10.56 5.81 9.88V7.03H2.14C1.39 8.52 0.95 10.21 0.95 12C0.95 13.79 1.39 15.48 2.14 16.97L5.81 14.12Z" fill="#FBBC05"></path>
+<path d="M12 5.35C13.62 5.35 15.07 5.91 16.21 7.01L19.38 3.84C17.45 2.04 14.97 1 12 1C7.69 1 3.96 3.41 2.14 7.03L5.81 9.88C6.7 7.29 9.13 5.35 12 5.35Z" fill="#EA4335"></path>
+</svg>
+                    Continue with Google
+                </button>
+<!-- Divider -->
+<div class="flex items-center my-6">
+<div class="flex-grow h-px bg-outline-variant/50"></div>
+<span class="px-4 font-label-sm text-label-sm text-outline uppercase tracking-wider">or</span>
+<div class="flex-grow h-px bg-outline-variant/50"></div>
+</div>
+<!-- Form -->
+<form class="space-y-5" onsubmit="event.preventDefault();">
+<!-- Email -->
+<div>
+<label class="block font-label-md text-label-md text-primary mb-1.5" for="email">Email Address</label>
+<div class="relative group">
+<span class="absolute inset-y-0 left-0 flex items-center pl-4 text-outline group-focus-within:text-brand-green transition-colors">
+<span class="material-symbols-outlined text-lg">mail</span>
+</span>
+<input class="w-full pl-11 pr-4 py-3 bg-white border border-outline-variant rounded-xl text-on-surface focus:ring-2 focus:ring-brand-green/20 focus:border-brand-green transition-all outline-none hover:border-outline shadow-sm" id="email" placeholder="student@example.com" type="email"/>
+</div>
+</div>
+<!-- Password -->
+<div>
+<label class="block font-label-md text-label-md text-primary mb-1.5" for="password">Password</label>
+<div class="relative group">
+<span class="absolute inset-y-0 left-0 flex items-center pl-4 text-outline group-focus-within:text-brand-green transition-colors">
+<span class="material-symbols-outlined text-lg">lock</span>
+</span>
+<input class="w-full pl-11 pr-4 py-3 bg-white border border-outline-variant rounded-xl text-on-surface focus:ring-2 focus:ring-brand-green/20 focus:border-brand-green transition-all outline-none hover:border-outline shadow-sm" id="password" placeholder="••••••••" type="password"/>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="w-4 h-4 rounded border-outline-variant text-brand-green focus:ring-brand-green/50 transition-colors cursor-pointer" type="checkbox"/>
+<span class="font-label-md text-label-md text-on-surface-variant group-hover:text-primary transition-colors">Remember me</span>
+</label>
+<a class="font-label-md text-label-md text-brand-blue hover:text-blue-700 transition-colors" href="#">Forgot Password?</a>
+</div>
+<!-- Submit -->
+<button class="w-full py-3.5 px-4 bg-brand-green text-white rounded-xl font-label-md text-label-md shadow-lg shadow-brand-green/20 hover:shadow-xl hover:bg-green-700 active:scale-[0.98] transition-all duration-200 mt-4" type="submit">
+                        Sign In
+                    </button>
+</form>
+<!-- Trust Indicators -->
+<div class="mt-12 grid grid-cols-2 gap-y-3 gap-x-4">
+<div class="flex items-center gap-2 text-on-surface-variant/80 font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-brand-green">check_circle</span>
+<span class="">Offline Learning</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant/80 font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-brand-green">check_circle</span>
+<span class="">Multi-Language Learning</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant/80 font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-brand-green">check_circle</span>
+<span class="">Community Support</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant/80 font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-brand-green">check_circle</span>
+<span class="">Adaptive Learning</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Inline script for simple animations if needed later -->
+<script>
+        // Placeholder for future Framer Motion-like entry animations
+        document.addEventListener("DOMContentLoaded", () => {
+            const rightPanel = document.querySelector('.w-full.lg\\:w-1\\/2');
+            rightPanel.style.opacity = '0';
+            rightPanel.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                rightPanel.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                rightPanel.style.opacity = '1';
+                rightPanel.style.transform = 'translateY(0)';
+            }, 100);
+
+            // Simple Carousel Logic
+            const slides = document.querySelectorAll('.carousel-slide');
+            const indicators = document.querySelectorAll('#carousel-container .flex.gap-2 > div');
+            let currentSlide = 0;
+
+            function nextSlide() {
+                slides[currentSlide].classList.remove('active');
+                indicators[currentSlide].className = 'w-2 h-1.5 rounded-full bg-white/50 transition-all';
+                
+                currentSlide = (currentSlide + 1) % slides.length;
+                
+                slides[currentSlide].classList.add('active');
+                indicators[currentSlide].className = 'w-8 h-1.5 rounded-full bg-brand-green transition-all';
+            }
+
+            setInterval(nextSlide, 5000);
+        });
+    </script>
+</body></html>

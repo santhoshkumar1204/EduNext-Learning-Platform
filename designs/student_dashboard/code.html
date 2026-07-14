@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduNext - Student Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "primary": "#16a34a",
+                "secondary": "#2563eb",
+                "accent": "#f59e0b",
+                "background": "#f8fafc",
+                "surface": "#ffffff",
+                "on-surface": "#0f172a",
+                "on-surface-variant": "#475569",
+                "outline": "#94a3b8",
+                "outline-variant": "#e2e8f0",
+                "surface-container-low": "#f1f5f9",
+                "surface-container": "#e2e8f0",
+                "error": "#ef4444",
+                
+                "on-tertiary-fixed-variant": "#004395",
+                "secondary-container": "#dbeafe",
+                "primary-container": "#dcfce7",
+                "tertiary-fixed-dim": "#adc6ff",
+                "on-secondary-fixed": "#002109",
+                "primary-fixed-dim": "#adc7f7",
+                "surface-variant": "#f1f5f9",
+                "inverse-on-surface": "#f8fafc",
+                "surface-container-highest": "#cbd5e1",
+                "surface-container-high": "#e2e8f0",
+                "on-primary-container": "#166534",
+                "tertiary-container": "#003374",
+                "on-secondary-fixed-variant": "#1d4ed8",
+                "primary-fixed": "#d6e3ff",
+                "on-tertiary-fixed": "#001a42",
+                "on-primary": "#ffffff",
+                "error-container": "#fee2e2",
+                "secondary-fixed-dim": "#60a5fa",
+                "on-secondary": "#ffffff",
+                "on-tertiary-container": "#eff6ff",
+                "surface-tint": "#f8fafc",
+                "on-tertiary": "#ffffff",
+                "surface-bright": "#ffffff",
+                "on-secondary-container": "#1e40af",
+                "on-primary-fixed-variant": "#15803d",
+                "tertiary-fixed": "#d8e2ff",
+                "surface-dim": "#e2e8f0",
+                "inverse-primary": "#4ade80",
+                "on-error": "#ffffff",
+                "on-background": "#0f172a",
+                "tertiary": "#001f4b",
+                "on-primary-fixed": "#14532d",
+                "surface-container-lowest": "#ffffff",
+                "secondary-fixed": "#93c5fd",
+                "on-error-container": "#991b1b",
+                "inverse-surface": "#1e293b"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "2xl": "1rem",
+                "3xl": "1.5rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "base": "8px",
+                "container-max": "1280px",
+                "margin-desktop": "40px",
+                "margin-mobile": "16px",
+                "gutter": "24px"
+        },
+        "fontFamily": {
+                "headline-lg": [
+                        "Inter"
+                ],
+                "label-sm": [
+                        "Inter"
+                ],
+                "headline-md": [
+                        "Inter"
+                ],
+                "headline-lg-mobile": [
+                        "Inter"
+                ],
+                "body-lg": [
+                        "Inter"
+                ],
+                "label-md": [
+                        "Inter"
+                ],
+                "headline-xl": [
+                        "Inter"
+                ],
+                "body-md": [
+                        "Inter"
+                ]
+        },
+        "fontSize": {
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "label-sm": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "fontWeight": "500"
+                        }
+                ],
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "28px",
+                        {
+                                "lineHeight": "36px",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-md": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-xl": [
+                        "48px",
+                        {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Custom Scrollbar for sidebar */
+        .sidebar-scroll::-webkit-scrollbar {
+            width: 4px;
+        }
+        .sidebar-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .sidebar-scroll::-webkit-scrollbar-thumb {
+            background: #e2e8f0;
+            border-radius: 4px;
+        }
+        .sidebar-scroll:hover::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+        }
+        
+        .shadow-soft {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        
+        .shadow-soft-lg {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+        }
+
+        /* Hero Carousel Animation */
+        @keyframes heroFade {
+            0% { opacity: 1; transform: scale(1); }
+            20% { opacity: 1; transform: scale(1.05); }
+            25% { opacity: 0; transform: scale(1.05); }
+            95% { opacity: 0; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        .hero-carousel-img {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            animation: heroFade 20s infinite;
+        }
+        .hero-carousel-img:nth-child(1) { animation-delay: 0s; }
+        .hero-carousel-img:nth-child(2) { animation-delay: 5s; }
+        .hero-carousel-img:nth-child(3) { animation-delay: 10s; }
+        .hero-carousel-img:nth-child(4) { animation-delay: 15s; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden flex h-screen">
+<!-- SideNavBar -->
+<nav class="bg-surface text-on-surface h-screen w-64 fixed left-0 top-0 hidden md:flex flex-col shadow-soft z-50 border-r border-outline-variant transition-all duration-300 bg-surface-container-low">
+<!-- User Profile Header -->
+<div class="p-5 border-b border-outline-variant">
+<div class="flex items-center gap-4 p-2 hover:bg-surface-container-low rounded-xl cursor-pointer transition-colors group">
+<div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-lg shadow-sm">
+                S
+            </div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-bold text-on-surface truncate group-hover:text-primary transition-colors">Santhoshkumar</p>
+</div>
+<span class="material-symbols-outlined text-outline text-sm group-hover:text-on-surface transition-colors">unfold_more</span>
+</div>
+</div>
+<!-- Navigation Scroll Area -->
+<div class="flex-1 overflow-y-auto sidebar-scroll py-6 px-4 flex flex-col gap-8">
+<!-- Main Navigation -->
+<div>
+<p class="px-3 text-[11px] font-bold text-outline uppercase tracking-widest mb-3">Menu</p>
+<ul class="flex flex-col gap-1">
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-primary bg-white shadow-sm font-bold transition-all border border-primary/10 shadow-md" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="text-sm">Dashboard</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-white hover:text-primary hover:shadow-sm font-medium transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">menu_book</span>
+<span class="text-sm">Courses</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-white hover:text-primary hover:shadow-sm font-medium transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">school</span>
+<span class="text-sm">My Courses</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-white hover:text-primary hover:shadow-sm font-medium transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">trending_up</span>
+<span class="text-sm">Progress &amp; Streaks</span>
+</a>
+</li>
+</ul>
+</div>
+<!-- Learning & Activities -->
+<div>
+<p class="px-3 text-[11px] font-bold text-outline uppercase tracking-widest mb-3">Activities</p>
+<ul class="flex flex-col gap-1">
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-white hover:text-primary hover:shadow-sm font-medium transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">quiz</span>
+<span class="text-sm">Quizzes</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-white hover:text-primary hover:shadow-sm font-medium transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">assignment</span>
+<span class="text-sm">Assignments</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-white hover:text-primary hover:shadow-sm font-medium transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">group_work</span>
+<span class="text-sm">Peer Challenges</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-white hover:text-primary hover:shadow-sm font-medium transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">local_fire_department</span>
+<span class="text-sm">Streak Pot</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-white hover:text-primary hover:shadow-sm font-medium transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">work</span>
+<span class="text-sm">My Apprenticeships</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-white hover:text-primary hover:shadow-sm font-medium transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">leaderboard</span>
+<span class="text-sm">Leaderboard</span>
+</a>
+</li>
+</ul>
+</div>
+<!-- Community & Resources -->
+<div>
+<p class="px-3 text-[11px] font-bold text-outline uppercase tracking-widest mb-3">Resources</p>
+<ul class="flex flex-col gap-1">
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-white hover:text-primary hover:shadow-sm font-medium transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">campaign</span>
+<span class="text-sm">Announcements</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-white hover:text-primary hover:shadow-sm font-medium transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">download</span>
+<span class="text-sm">Downloads</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-white hover:text-primary hover:shadow-sm font-medium transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">explore</span>
+<span class="text-sm">Career Find</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-white hover:text-primary hover:shadow-sm font-medium transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">forum</span>
+<span class="text-sm">Explore Community</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="mt-auto p-4 border-t border-outline-variant/50"><a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-error/10 hover:text-error font-medium transition-all" href="#"><span class="material-symbols-outlined text-[20px]">logout</span><span class="text-sm">Logout</span></a></div></nav>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col md:ml-64 w-full bg-background min-h-screen">
+<!-- TopNavBar -->
+<header class="bg-surface/90 text-on-surface docked full-width top-0 sticky z-40 backdrop-blur-lg border-b border-outline-variant/50 flex justify-between items-center w-full px-8 h-16 max-w-full"><div class="flex items-center gap-6 flex-1"><div class="relative w-full max-w-md focus-within:ring-2 focus-within:ring-primary/20 rounded-lg transition-all"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span><input class="pl-10 pr-4 py-2 rounded-lg bg-surface-container-low border-transparent focus:border-primary focus:bg-surface focus:ring-0 text-sm font-body-md w-full placeholder-outline transition-all" placeholder="Search courses, resources..." type="text"/></div></div><div class="flex items-center gap-4"><div class="relative group"><button class="w-10 h-10 rounded-lg flex items-center justify-center hover:bg-surface-container-low transition-colors text-on-surface-variant relative"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-2 right-2.5 w-2 h-2 bg-error rounded-full"></span></button><div class="absolute right-0 mt-2 w-80 bg-surface rounded-xl shadow-soft-lg border border-outline-variant opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 p-2"><div class="px-4 py-2 border-b border-outline-variant/50 mb-1"><p class="font-bold text-sm">Notifications</p></div><div class="flex flex-col gap-1"><div class="p-3 hover:bg-surface-container-low rounded-lg cursor-pointer transition-colors"><p class="text-sm font-semibold">New assignment uploaded</p><p class="text-xs text-on-surface-variant">Game Theory Foundations • 2h ago</p></div><div class="p-3 hover:bg-surface-container-low rounded-lg cursor-pointer transition-colors"><p class="text-sm font-semibold">Teacher replied to your doubt</p><p class="text-xs text-on-surface-variant">Cyber Security Essentials • 5h ago</p></div><div class="p-3 hover:bg-surface-container-low rounded-lg cursor-pointer transition-colors"><p class="text-sm font-semibold text-error">Assignment due tomorrow</p><p class="text-xs text-on-surface-variant">Network Analysis Report • 1d ago</p></div></div></div></div><div class="relative group"><div class="flex items-center gap-3 pl-4 border-l border-outline-variant/50 cursor-pointer"><div class="text-right hidden sm:block"><p class="text-sm font-bold text-on-surface">Santhosh</p><p class="text-[10px] font-bold text-primary uppercase tracking-wider">Level 4</p></div><div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-sm shadow-sm">S</div></div><div class="absolute right-0 mt-2 w-56 bg-surface rounded-xl shadow-soft-lg border border-outline-variant opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 p-2"><div class="flex flex-col gap-1"><a class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-all" href="#"><span class="material-symbols-outlined text-[20px]">person</span>My Profile</a><a class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-all" href="#"><span class="material-symbols-outlined text-[20px]">settings</span>Account Settings</a><a class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-all" href="#"><span class="material-symbols-outlined text-[20px]">language</span>Language</a><a class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-all" href="#"><span class="material-symbols-outlined text-[20px]">help</span>Help &amp; Support</a><div class="h-px bg-outline-variant/50 my-1"></div><a class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium text-error hover:bg-error/10 transition-all" href="#"><span class="material-symbols-outlined text-[20px]">logout</span>Logout</a></div></div></div></div></header>
+<!-- Main Canvas -->
+<main class="flex-1 overflow-y-auto p-6 md:p-8 space-y-8 max-w-7xl mx-auto w-full">
+<!-- Premium Hero Section -->
+<section class="rounded-3xl p-8 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 bg-gradient-to-r from-primary to-secondary shadow-soft-lg border-0 text-white"><div class="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div><div class="absolute bottom-0 left-0 w-64 h-64 bg-accent/20 rounded-full blur-2xl translate-y-1/3 -translate-x-1/4"></div><div class="relative z-10 flex flex-col gap-5 max-w-2xl w-full"><div class="flex items-center gap-3"><div class="inline-flex items-center gap-2 px-3 py-1.5 bg-white/20 backdrop-blur-md rounded-full w-fit border border-white/20"><span class="material-symbols-outlined text-sm text-accent" style="font-variation-settings: 'FILL' 1;">local_fire_department</span><span class="font-label-md text-xs font-semibold text-white">Learning Streak: 5 Days</span></div><div class="inline-flex items-center gap-2 px-3 py-1.5 bg-white/20 backdrop-blur-md rounded-full w-fit border border-white/20"><span class="material-symbols-outlined text-sm text-white">target</span><span class="font-label-md text-xs font-semibold text-white">Weekly Goal Progress: 3/5 hrs</span></div></div><div><p class="text-white/80 font-semibold text-sm uppercase tracking-wider mb-2">Current Learning Journey</p><h2 class="font-headline-xl text-4xl md:text-5xl font-extrabold tracking-tight mb-2">Welcome back, Santhosh</h2><p class="font-body-lg text-white/80 text-lg max-w-xl">Current Active Course: <strong>Game Theory Foundations</strong>. Ready to dive back in?</p></div><div class="mt-2 bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/10 w-full max-w-md"><div class="flex justify-between items-center mb-2"><span class="text-sm font-semibold">Game Theory Foundations</span><span class="text-xs text-white/80">Module 4</span></div><div class="w-full bg-white/20 rounded-full h-2 mb-3"><div class="bg-accent h-2 rounded-full w-[65%] shadow-[0_0_10px_rgba(245,158,11,0.5)]"></div></div><div class="flex items-center justify-between"><span class="text-xs text-white/80">65% Complete</span><button class="px-5 py-2 bg-white text-on-surface rounded-lg font-bold text-sm shadow-md hover:shadow-lg hover:bg-surface-container-low hover:-translate-y-0.5 transition-all flex items-center gap-2"><span>Continue Learning</span><span class="material-symbols-outlined text-[18px]">play_arrow</span></button></div></div></div><div class="relative z-10 w-full md:w-[400px] h-[280px] rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20 hidden lg:block transform rotate-2 hover:rotate-0 transition-transform duration-500">
+<img alt="Online Learning" class="hero-carousel-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoIfiYly-kB9gTCnCv4l6gpAmdHx9jhbksDmTEzCMxOgeBM5ktKt1Tu9jaJ-0MZFiUQ_T6L-uyXE4xs6czfwbuHMPsTXcTJufTb0CGm6-YFiG6KOi9wjtdze7QdB7OJVgH35SkR4r4ynmKLt7-p3NO62DuFlvPSu7Qi1Lfpu6q25eJJ6tVxDixIy7pO3vYQ46kh_lJjl9vHMPWHQ3uI-kcZsKBZjKycZkG7wEseBnWCDWD7iS8X4Wubb8KRO1ka83oQqCc1UnvV90"/>
+<img alt="Group Study" class="hero-carousel-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaLejT9LkpqoYxa1daSbBk83qvi20PXQw2q0dLfNy5wc_y6--JnkO0jP2R_1NtBxy0RlH4iVNTH6tx1H8TQapZqmZZwaSHvF98doiE4HRd8teR6yomUcnsmoDzMhcHPEEHBytbQbGpGCayuGHPrGPiI6WBcigBiNKTWZRrFvQnxotvOYLq1U8D5hQ8J8h2fAoM5EXENsgK2Js8W_vK9JDGph-12F0I_1iKQT_SPKx2dL9HvM9RQVyqZoNAsO0aWS1SFZePo-q4q8Y"/>
+<img alt="Taking Quiz" class="hero-carousel-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBle2KK9YrSpQYyL5l_M59yG7DqJiHlqmwhNzcQ16tjwYP05MIM4Bynwu1EjIvbsNavih9f-f3ou6XdQxC3_-2IJhtzDeonhRIZ1XnFgq9tbj0SJisVuuUIs5hLWY1y_5OXOXFHp7oCfbUvPN8R122b1WtpHXMCSHrk1Ao2QWMu2hPaYGPpePOKTHXxS3eX1MQmujT0eKdNSnLDiHJw1zDhJXGH6xkHnj3-BTwIk3MbBlHK37I_b9QEY8IgpXJt0clxNh5iZt2kt74"/>
+<img alt="Teacher Interaction" class="hero-carousel-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPHPWO0st4hsMIB44HdTXFsc5HkQThGggoLtiMYwaBWdvk6KsY9PplossxnnKhe-FQBTngMuP68GyLEWuQB1B6Da_QHARha5Hllp8zFym0Q0D-EQyIWdTqzswS-6bfxan6hxcbE84i9WbPK1RAWbB1OB-9EGviIXPAGt4tZE_BgyjYF3IfJZgXG9v0hdosUB4kTab0wAN2nILb5lDbi6v3nkJwFUHR-TirX9YwSwDJli5JA0-zuYy8g0YZhFm4rHzwuHrJgpaxwKo"/>
+</div></section>
+<!-- Quick Stats Grid -->
+<section>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+<!-- Stat Card 1 -->
+<div class="bg-surface rounded-2xl p-6 border border-outline-variant shadow-soft flex items-center justify-between hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+<div>
+<p class="font-medium text-sm text-on-surface-variant mb-2">Current Streak</p>
+<div class="flex items-baseline gap-1">
+<p class="font-headline-lg text-3xl font-extrabold text-on-surface">5</p>
+<span class="text-sm font-medium text-outline">days</span>
+</div>
+</div>
+<div class="w-12 h-12 rounded-full bg-accent/10 text-accent flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+</div>
+<!-- Stat Card 2 -->
+<div class="bg-surface rounded-2xl p-6 border border-outline-variant shadow-soft flex items-center justify-between hover:border-secondary/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+<div>
+<p class="font-medium text-sm text-on-surface-variant mb-2">Total Points</p>
+<p class="font-headline-lg text-3xl font-extrabold text-on-surface">150</p>
+</div>
+<div class="w-12 h-12 rounded-full bg-secondary/10 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">emoji_events</span>
+</div>
+</div>
+<!-- Stat Card 3 -->
+<div class="bg-surface rounded-2xl p-6 border border-outline-variant shadow-soft flex items-center justify-between hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+<div>
+<p class="font-medium text-sm text-on-surface-variant mb-2">Courses Enrolled</p>
+<p class="font-headline-lg text-3xl font-extrabold text-on-surface">12</p>
+</div>
+<div class="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">school</span>
+</div>
+</div>
+<!-- Stat Card 4 -->
+<div class="bg-surface rounded-2xl p-6 border border-outline-variant shadow-soft flex items-center justify-between hover:border-error/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+<div>
+<p class="font-medium text-sm text-on-surface-variant mb-2">Assignments Pending</p>
+<p class="font-headline-lg text-3xl font-extrabold text-on-surface">3</p>
+</div>
+<div class="w-12 h-12 rounded-full bg-error/10 text-error flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">assignment_late</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Recent Courses -->
+<section>
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-bold text-xl text-on-surface">Continue Learning</h3>
+<a class="text-sm font-semibold text-secondary hover:text-secondary/80 flex items-center gap-1 transition-colors" href="#">
+                View All Courses <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Course Card 1 -->
+<div class="bg-surface rounded-2xl overflow-hidden border border-outline-variant shadow-soft hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col group cursor-pointer"><div class="h-48 w-full relative overflow-hidden"><img alt="Game Theory Foundations" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPxoofeZ5Nfo6BvrLbIxmishZSbOUcwWRk1KYkEldbyqMA5ElkdicRy0BJJXUc2QX4JiNImlQZc6wzyugYzytJqdUvBe92c3ZvBTDt7WqMufNdMeeU51ZK87CixVwBArgak3Kz61_oOt2lQAtdEF2XXDcXeAMvWqN_KZFiw4VZ0Igq3HjeeWSTNM3zD3GQWcZnvquBMcM_3btSaExQY1YGE5BWMhBadgzLPJZ_SpO4Ch6cMybFELp1kTbZz_LftZD8E4xjm8kEwms"/><div class="absolute top-3 left-4"><span class="px-2.5 py-1 bg-primary text-white text-[10px] font-bold uppercase tracking-wider rounded-md shadow-sm">Strategy</span></div></div><div class="p-5 flex flex-col flex-grow"><div class="flex justify-between items-start mb-2"><h4 class="font-bold text-lg text-on-surface line-clamp-1 group-hover:text-primary transition-colors">Game Theory Foundations</h4></div><p class="text-xs text-on-surface-variant mb-4">Instructor: Dr. Sarah Jenkins</p><div class="flex items-center gap-4 mb-4 text-xs text-outline font-medium"><div class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span><span>12h 30m</span></div><div class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">menu_book</span><span>8/12 Lessons</span></div></div><div class="mt-auto space-y-3"><div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden"><div class="bg-primary h-1.5 rounded-full w-[65%] transition-all duration-1000"></div></div><div class="flex items-center justify-between"><span class="text-xs font-bold text-on-surface">65% Complete</span><button class="px-4 py-2 bg-secondary text-white rounded-lg text-xs font-bold hover:bg-secondary/80 transition-colors">Continue Learning</button></div></div></div></div>
+<!-- Course Card 2 -->
+<div class="bg-surface rounded-2xl overflow-hidden border border-outline-variant shadow-soft hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col group cursor-pointer"><div class="h-48 w-full relative overflow-hidden"><img alt="Cyber Security Essentials" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUhfWDgySdKFEDzJ402WULKGHuWr9EUxxviU9v7gVo7MihWwzSI0ME-3o4QBOTLj02S5v-4vGtY1E8xOAOZcIn7civ-jJJeWSaNTTRF6gvlZjfSCQAPCiIWeWO_nziztZvLNd7bGi9x6hhtIrLnyufNPZiYACLTRMR1SSyqUBkFZBgJrDPY9HqDm0HbWLPbNOVojtPV8aHi6szixkRGSLLckOeb76tguLEu3av66gzRAZ6AMHPy5F1Q5hKRvcghdCUPdAL2kedffg"/><div class="absolute top-3 left-4"><span class="px-2.5 py-1 bg-secondary text-white text-[10px] font-bold uppercase tracking-wider rounded-md shadow-sm">Security</span></div></div><div class="p-5 flex flex-col flex-grow"><div class="flex justify-between items-start mb-2"><h4 class="font-bold text-lg text-on-surface line-clamp-1 group-hover:text-primary transition-colors">Cyber Security Essentials</h4></div><p class="text-xs text-on-surface-variant mb-4">Instructor: Prof. Michael Chen</p><div class="flex items-center gap-4 mb-4 text-xs text-outline font-medium"><div class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span><span>18h 45m</span></div><div class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">menu_book</span><span>4/15 Lessons</span></div></div><div class="mt-auto space-y-3"><div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden"><div class="bg-secondary h-1.5 rounded-full w-[32%] transition-all duration-1000"></div></div><div class="flex items-center justify-between"><span class="text-xs font-bold text-on-surface">32% Complete</span><button class="px-4 py-2 bg-secondary text-white rounded-lg text-xs font-bold hover:bg-secondary/80 transition-colors">Continue Learning</button></div></div></div></div>
+<!-- Explore Card -->
+<div class="bg-surface-container-low rounded-2xl border-2 border-outline-variant border-dashed flex flex-col items-center justify-center text-center p-6 hover:bg-surface-container transition-all duration-300 hover:-translate-y-2 hover:shadow-lg cursor-pointer min-h-[280px] group">
+<div class="w-14 h-14 rounded-full bg-surface flex items-center justify-center text-primary shadow-sm mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[28px]">search</span>
+</div>
+<h4 class="font-bold text-lg text-on-surface mb-2">Explore Catalog</h4>
+<p class="text-sm text-on-surface-variant max-w-[200px]">Find your next course and learn something new today.</p>
+<button class="mt-4 px-4 py-2 bg-white border border-outline-variant rounded-lg text-sm font-semibold hover:bg-surface-container-low transition-colors">Browse Courses</button>
+</div>
+</div>
+</section>
+<!-- Lower Section Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Left Column: Assignments & Activity -->
+<div class="lg:col-span-2 space-y-8">
+<!-- Upcoming Assignments -->
+<section>
+<div class="flex items-center justify-between mb-5">
+<h3 class="font-bold text-lg text-on-surface">Upcoming Assignments</h3>
+<button class="text-sm font-semibold text-secondary hover:underline">View All</button>
+</div>
+<div class="bg-surface rounded-2xl p-1 border border-outline-variant shadow-soft hover:shadow-md transition-shadow duration-300">
+<!-- Assignment 1 -->
+<div class="flex items-center justify-between p-4 hover:bg-surface-container-low rounded-xl transition-colors group cursor-pointer border-b border-outline-variant/50 last:border-0">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-error/10 text-error flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<div>
+<h5 class="font-bold text-sm text-on-surface group-hover:text-primary transition-colors">Network Analysis Report</h5>
+<p class="text-xs text-on-surface-variant mt-0.5">Cyber Security Essentials</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-error">Due Tomorrow</p>
+<p class="text-xs text-outline mt-0.5">11:59 PM</p>
+</div>
+</div>
+<!-- Assignment 2 -->
+<div class="flex items-center justify-between p-4 hover:bg-surface-container-low rounded-xl transition-colors group cursor-pointer border-b border-outline-variant/50 last:border-0">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-accent/10 text-accent flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">assignment</span>
+</div>
+<div>
+<h5 class="font-bold text-sm text-on-surface group-hover:text-primary transition-colors">Strategic Matrix Essay</h5>
+<p class="text-xs text-on-surface-variant mt-0.5">Game Theory Foundations</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-on-surface">Oct 24</p>
+<p class="text-xs text-outline mt-0.5">5:00 PM</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Community Preview -->
+<section>
+<div class="flex items-center justify-between mb-5">
+<h3 class="font-bold text-lg text-on-surface">Community Discussions</h3>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<!-- Discussion 1 -->
+<a class="bg-surface rounded-2xl p-5 border border-outline-variant shadow-soft hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group block" href="#">
+<div class="flex items-center gap-2 mb-3">
+<span class="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded uppercase tracking-wide">Popular</span>
+<span class="text-xs text-outline font-medium">Cyber Security</span>
+</div>
+<h5 class="font-bold text-sm text-on-surface mb-2 group-hover:text-secondary transition-colors line-clamp-2">Can someone explain symmetric vs asymmetric encryption with real-world examples?</h5>
+<div class="flex items-center justify-between mt-4">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 bg-surface-container-high rounded-full flex items-center justify-center text-[10px] font-bold text-on-surface-variant">AK</div>
+<span class="text-xs font-medium text-on-surface-variant">Alex K.</span>
+</div>
+<div class="flex items-center gap-1 text-outline">
+<span class="material-symbols-outlined text-[14px]">chat_bubble</span>
+<span class="text-xs font-medium">12</span>
+</div>
+</div>
+</a>
+<!-- Discussion 2 -->
+<a class="bg-surface rounded-2xl p-5 border border-outline-variant shadow-soft hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group block" href="#">
+<div class="flex items-center gap-2 mb-3">
+<span class="px-2 py-0.5 bg-secondary/10 text-secondary text-[10px] font-bold rounded uppercase tracking-wide">Recent Doubt</span>
+<span class="text-xs text-outline font-medium">Game Theory</span>
+</div>
+<h5 class="font-bold text-sm text-on-surface mb-2 group-hover:text-secondary transition-colors line-clamp-2">Stuck on the Nash Equilibrium calculation for Question 3. Any hints?</h5>
+<div class="flex items-center justify-between mt-4">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 bg-surface-container-high rounded-full flex items-center justify-center text-[10px] font-bold text-on-surface-variant">MS</div>
+<span class="text-xs font-medium text-on-surface-variant">Maria S.</span>
+</div>
+<div class="flex items-center gap-1 text-outline">
+<span class="material-symbols-outlined text-[14px]">chat_bubble</span>
+<span class="text-xs font-medium">4</span>
+</div>
+</div>
+</a>
+</div>
+</section>
+</div>
+<!-- Right Column: Widgets -->
+<div class="flex flex-col gap-6">
+<!-- Downloads Sync Card -->
+<section class="bg-surface rounded-2xl p-5 border border-outline-variant shadow-soft hover:shadow-md transition-shadow duration-300">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-bold text-base text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-primary">cloud_done</span>
+                        Offline Materials
+                    </h3>
+</div>
+<div class="p-4 bg-surface-container-low rounded-xl mb-4 flex items-center gap-4">
+<div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined">folder_zip</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Game Theory Ch.1-3</p>
+<p class="text-xs text-on-surface-variant">142 MB • Synced 2h ago</p>
+</div>
+</div>
+<button class="w-full py-2 bg-white border border-outline-variant text-on-surface rounded-lg text-sm font-semibold hover:bg-surface-container-low transition-colors">Manage Downloads</button>
+</section>
+<!-- Cardboard VR Secondary Widget -->
+<section class="bg-gradient-to-br from-surface to-surface-container-low rounded-2xl p-5 border border-outline-variant shadow-soft hover:shadow-md transition-shadow duration-300 flex flex-col items-center text-center">
+<div class="w-12 h-12 bg-white rounded-full mb-3 flex items-center justify-center shadow-sm text-secondary">
+<span class="material-symbols-outlined text-[24px]">view_in_ar</span>
+</div>
+<h4 class="font-bold text-sm text-on-surface mb-1">Make your own VR</h4>
+<p class="text-xs text-on-surface-variant mb-4 px-2">Build a Google Cardboard headset for immersive learning.</p>
+<button class="w-full py-2 bg-secondary/10 text-secondary rounded-lg text-sm font-semibold hover:bg-secondary/20 transition-colors flex items-center justify-center gap-2">
+                    Start Tutorial
+                </button>
+</section>
+</div>
+</div>
+</main>
+</div>
+</body></html>

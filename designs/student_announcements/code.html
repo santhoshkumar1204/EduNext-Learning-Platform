@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduNext - Announcements</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#2d476f",
+                        "primary-fixed-dim": "#adc7f7",
+                        "on-error": "#ffffff",
+                        "secondary": "#006e2f",
+                        "on-secondary-container": "#007432",
+                        "on-tertiary-fixed-variant": "#004395",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#e0e3e5",
+                        "surface-bright": "#f7f9fb",
+                        "outline-variant": "#c4c6cf",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#eceef0",
+                        "outline": "#74777f",
+                        "primary": "#002045",
+                        "secondary-fixed": "#6bff8f",
+                        "on-background": "#191c1e",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f2f4f6",
+                        "surface": "#f7f9fb",
+                        "surface-container-high": "#e6e8ea",
+                        "on-secondary-fixed-variant": "#005321",
+                        "inverse-surface": "#2d3133",
+                        "tertiary-fixed": "#d8e2ff",
+                        "tertiary": "#001f4b",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#003374",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#4ae176",
+                        "secondary-container": "#6bff8f",
+                        "surface-tint": "#455f88",
+                        "on-surface-variant": "#43474e",
+                        "on-tertiary-container": "#6a9dff",
+                        "surface-container-highest": "#e0e3e5",
+                        "primary-container": "#1a365d",
+                        "inverse-primary": "#adc7f7",
+                        "background": "#f7f9fb",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#191c1e",
+                        "on-primary-fixed": "#001b3c",
+                        "on-error-container": "#93000a",
+                        "on-primary-container": "#86a0cd",
+                        "surface-dim": "#d8dadc",
+                        "on-tertiary-fixed": "#001a42",
+                        "on-secondary-fixed": "#002109",
+                        "primary-fixed": "#d6e3ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "gutter": "24px",
+                        "base": "8px",
+                        "margin-mobile": "16px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-card {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md text-body-md antialiased selection:bg-primary-fixed selection:text-on-primary-fixed flex">
+<!-- SideNavBar -->
+<aside class="flex flex-col h-screen fixed left-0 top-0 py-base px-4 overflow-y-auto docked left-0 h-screen w-72 bg-surface-container-low dark:bg-surface-container-highest shadow-none z-50">
+<!-- Header -->
+<div class="flex items-center gap-4 px-4 py-6 mb-4">
+<div class="w-10 h-10 rounded-xl bg-primary-container text-on-primary-container flex items-center justify-center font-headline-md text-headline-md shadow-sm">
+                E
+            </div>
+<div>
+<h2 class="font-headline-md text-headline-md font-black text-primary dark:text-primary-fixed-dim">EduNext</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Learning Portal</p>
+</div>
+</div>
+<!-- Navigation Tabs -->
+<nav class="flex flex-col gap-1 w-full pb-8">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-highest dark:hover:bg-on-primary-fixed-variant transition-all duration-200 scale-95 active:scale-90 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-highest dark:hover:bg-on-primary-fixed-variant transition-all duration-200 scale-95 active:scale-90 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">school</span>
+                Courses
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-highest dark:hover:bg-on-primary-fixed-variant transition-all duration-200 scale-95 active:scale-90 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">local_library</span>
+                My Courses
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-highest dark:hover:bg-on-primary-fixed-variant transition-all duration-200 scale-95 active:scale-90 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">trending_up</span>
+                Progress &amp; Streaks
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-highest dark:hover:bg-on-primary-fixed-variant transition-all duration-200 scale-95 active:scale-90 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">quiz</span>
+                Quizzes
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-highest dark:hover:bg-on-primary-fixed-variant transition-all duration-200 scale-95 active:scale-90 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">assignment</span>
+                Assignments
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-highest dark:hover:bg-on-primary-fixed-variant transition-all duration-200 scale-95 active:scale-90 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">groups</span>
+                Peer Challenges
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-highest dark:hover:bg-on-primary-fixed-variant transition-all duration-200 scale-95 active:scale-90 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">local_fire_department</span>
+                Streak Pot
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-highest dark:hover:bg-on-primary-fixed-variant transition-all duration-200 scale-95 active:scale-90 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">work_outline</span>
+                My Apprenticeships
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-highest dark:hover:bg-on-primary-fixed-variant transition-all duration-200 scale-95 active:scale-90 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">leaderboard</span>
+                Leaderboard
+            </a>
+<!-- ACTIVE ITEM -->
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container dark:bg-on-secondary-fixed-variant text-on-secondary-container dark:text-secondary-fixed rounded-xl font-label-md text-label-md hover:bg-surface-container-highest dark:hover:bg-on-primary-fixed-variant transition-all duration-200 scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">campaign</span>
+                Announcements
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-highest dark:hover:bg-on-primary-fixed-variant transition-all duration-200 scale-95 active:scale-90 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">download</span>
+                Downloads
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-highest dark:hover:bg-on-primary-fixed-variant transition-all duration-200 scale-95 active:scale-90 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">explore</span>
+                Career Find
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-highest dark:hover:bg-on-primary-fixed-variant transition-all duration-200 scale-95 active:scale-90 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">forum</span>
+                Explore Community
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-highest dark:hover:bg-on-primary-fixed-variant transition-all duration-200 scale-95 active:scale-90 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">view_in_ar</span>
+                Cardboard VR
+            </a>
+</nav>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-72 flex-1 min-h-screen flex flex-col relative w-[calc(100%-18rem)]">
+<!-- TopNavBar -->
+<nav class="flex justify-between items-center w-full px-margin-desktop py-4 sticky top-0 bg-surface/80 dark:bg-inverse-surface/80 backdrop-blur-xl shadow-sm z-40 docked full-width font-body-md text-body-md">
+<!-- Search Bar (on_left) -->
+<div class="relative w-96 group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full bg-surface-container-highest/50 border-none rounded-full py-2.5 pl-12 pr-4 text-on-surface focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary-fixed-dim transition-all outline-none font-body-md text-body-md placeholder:text-outline shadow-sm inset-0" placeholder="Search announcements, courses, or users..." type="text"/>
+</div>
+<!-- Actions & Profile -->
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 rounded-full bg-surface-container-highest hover:bg-primary-container/20 transition-colors flex items-center justify-center text-on-surface-variant scale-98 active:opacity-80 relative">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-secondary-fixed shadow-[0_0_8px_rgba(107,255,143,0.5)] border border-surface"></span>
+</button>
+<button class="w-10 h-10 rounded-full bg-surface-container-highest hover:bg-primary-container/20 transition-colors flex items-center justify-center text-on-surface-variant scale-98 active:opacity-80">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">settings</span>
+</button>
+<div class="h-8 w-[1px] bg-outline-variant mx-2"></div>
+<button class="w-10 h-10 rounded-full overflow-hidden border-2 border-transparent hover:border-primary-fixed transition-all scale-98 active:opacity-80">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a young male student or professional wearing a smart casual light blue shirt against a neutral background. The lighting is soft and studio-quality, conveying a friendly, approachable, and academic mood suitable for an EdTech profile picture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOBi0sE8nkImQmNkJTykDbGa9ikOilMp5VLPgQaImP8xyunS9NDIiZ5vNNV_cyXHKPVaFRXrzU75j6vGgLL85w5xPccXGLaQeB3PCrbN7rPdKNZCronJ9oeBpFT8bAcDt9pRfg_8R2zs22ure9fiosK-Z5w64cbhi6-2crQizYmaCEsNuORJxmp1ppcj4yhM43MeHBqV1TRqIDRxAA8YGHh6K2qcQxx9QfhDNdBb3usUjTVCYleij4ghzR7WJDO5zoUEmoqBEw8eI"/>
+</button>
+</div>
+</nav>
+<!-- Page Content -->
+<div class="p-margin-desktop space-y-10 max-w-container-max mx-auto w-full">
+<!-- Header Section -->
+<header class="flex flex-col md:flex-row md:justify-between md:items-end gap-6 border-b border-outline-variant/30 pb-8">
+<div class="space-y-2">
+<div class="flex items-center gap-4">
+<h1 class="font-headline-xl text-headline-xl text-primary tracking-tight">Announcements</h1>
+<span class="bg-secondary-fixed/20 text-on-secondary-fixed px-3 py-1 rounded-full font-label-md text-label-md flex items-center gap-1.5 border border-secondary-fixed/30 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed animate-pulse"></span>
+                            12 New Updates
+                        </span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">Stay updated with course, assignment, community, and platform updates. Never miss a critical milestone in your learning journey.</p>
+</div>
+<button class="flex items-center gap-2 px-5 py-2.5 bg-surface-container-highest hover:bg-surface-variant text-primary font-label-md text-label-md rounded-lg transition-all shadow-sm border border-outline-variant/20 group">
+<span class="material-symbols-outlined text-[20px] group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 0;">done_all</span>
+                    Mark All Read
+                </button>
+</header>
+<!-- Quick Summary Panel (Bento Grid Style) -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<div class="glass-card rounded-xl p-5 shadow-sm hover:-translate-y-1 transition-all duration-300 flex items-center gap-4 group">
+<div class="w-12 h-12 rounded-xl bg-secondary-fixed/10 text-on-secondary-fixed flex items-center justify-center group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">mark_email_unread</span>
+</div>
+<div>
+<div class="font-headline-md text-headline-md text-primary leading-none mb-1">3</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Unread</div>
+</div>
+</div>
+<div class="glass-card rounded-xl p-5 shadow-sm hover:-translate-y-1 transition-all duration-300 flex items-center gap-4 group">
+<div class="w-12 h-12 rounded-xl bg-primary-fixed/30 text-on-primary-fixed flex items-center justify-center group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">assignment</span>
+</div>
+<div>
+<div class="font-headline-md text-headline-md text-primary leading-none mb-1">2</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Assignments Due</div>
+</div>
+</div>
+<div class="glass-card rounded-xl p-5 shadow-sm hover:-translate-y-1 transition-all duration-300 flex items-center gap-4 group">
+<div class="w-12 h-12 rounded-xl bg-tertiary-fixed/40 text-on-tertiary-fixed flex items-center justify-center group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">event</span>
+</div>
+<div>
+<div class="font-headline-md text-headline-md text-primary leading-none mb-1">1</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Upcoming Event</div>
+</div>
+</div>
+<div class="glass-card rounded-xl p-5 shadow-sm hover:-translate-y-1 transition-all duration-300 flex items-center gap-4 group">
+<div class="w-12 h-12 rounded-xl bg-surface-tint/10 text-primary flex items-center justify-center group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">forum</span>
+</div>
+<div>
+<div class="font-headline-md text-headline-md text-primary leading-none mb-1">5</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Community Mentions</div>
+</div>
+</div>
+</section>
+<!-- Filters & Feed Layout -->
+<section class="flex flex-col gap-6">
+<!-- Filter Chips -->
+<div class="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
+<button class="px-4 py-2 rounded-full bg-primary text-on-primary font-label-md text-label-md whitespace-nowrap shadow-sm">All Updates</button>
+<button class="px-4 py-2 rounded-full bg-surface-container-highest hover:bg-surface-variant text-on-surface font-label-md text-label-md whitespace-nowrap transition-colors border border-outline-variant/20">Course Updates</button>
+<button class="px-4 py-2 rounded-full bg-surface-container-highest hover:bg-surface-variant text-on-surface font-label-md text-label-md whitespace-nowrap transition-colors border border-outline-variant/20">Assignments</button>
+<button class="px-4 py-2 rounded-full bg-surface-container-highest hover:bg-surface-variant text-on-surface font-label-md text-label-md whitespace-nowrap transition-colors border border-outline-variant/20">Community</button>
+<button class="px-4 py-2 rounded-full bg-surface-container-highest hover:bg-surface-variant text-on-surface font-label-md text-label-md whitespace-nowrap transition-colors border border-outline-variant/20">Events</button>
+<button class="px-4 py-2 rounded-full bg-surface-container-highest hover:bg-surface-variant text-on-surface font-label-md text-label-md whitespace-nowrap transition-colors border border-outline-variant/20">System</button>
+<div class="w-px h-8 bg-outline-variant/40 mx-1"></div>
+<button class="px-4 py-2 rounded-full bg-secondary-fixed/10 hover:bg-secondary-fixed/20 text-on-secondary-fixed font-label-md text-label-md whitespace-nowrap transition-colors border border-secondary-fixed/30 flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-fixed"></span> Unread
+                    </button>
+</div>
+<!-- Feed List -->
+<div class="space-y-4">
+<!-- Item 1: Unread Assignment -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 border-l-[6px] border-l-secondary-fixed shadow-sm hover:shadow-md transition-all duration-300 p-6 relative group overflow-hidden">
+<!-- Unread Glow Overlay -->
+<div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-secondary-fixed/5 to-transparent pointer-events-none"></div>
+<!-- Top Meta -->
+<div class="flex justify-between items-start mb-4 relative z-10">
+<div class="flex items-center gap-3">
+<span class="bg-primary-fixed/50 text-on-primary-fixed px-3 py-1 rounded-md font-label-sm text-label-sm border border-primary-fixed flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">assignment</span> Assignment
+                                </span>
+<span class="text-on-surface-variant font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span> 2 hours ago
+                                </span>
+</div>
+<button class="text-outline hover:text-primary transition-colors p-1 rounded-full hover:bg-surface-variant">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+<!-- Content -->
+<div class="relative z-10">
+<h3 class="font-headline-md text-headline-md text-primary mb-2 group-hover:text-primary-container transition-colors">New Assignment Posted: Machine Learning Fundamentals</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex items-center gap-2">
+<span class="font-medium text-on-surface">Dr. Amarjeet Kaur</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="text-error font-medium bg-error-container/50 px-2 py-0.5 rounded text-sm">Due in 5 Days</span>
+</p>
+<div class="flex items-center gap-3">
+<button class="bg-primary hover:bg-primary-container text-on-primary px-5 py-2 rounded-lg font-label-md text-label-md transition-colors shadow-sm flex items-center gap-2">
+                                    View Assignment <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+<button class="bg-transparent hover:bg-surface-variant text-primary px-5 py-2 rounded-lg font-label-md text-label-md transition-colors">
+                                    Mark as Read
+                                </button>
+</div>
+</div>
+</article>
+<!-- Item 2: Unread Course Material -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 border-l-[6px] border-l-secondary-fixed shadow-sm hover:shadow-md transition-all duration-300 p-6 relative group overflow-hidden">
+<div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-secondary-fixed/5 to-transparent pointer-events-none"></div>
+<div class="flex justify-between items-start mb-4 relative z-10">
+<div class="flex items-center gap-3">
+<span class="bg-tertiary-fixed/50 text-on-tertiary-fixed px-3 py-1 rounded-md font-label-sm text-label-sm border border-tertiary-fixed flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">menu_book</span> Course Update
+                                </span>
+<span class="text-on-surface-variant font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span> 5 hours ago
+                                </span>
+</div>
+<button class="text-outline hover:text-primary transition-colors p-1 rounded-full hover:bg-surface-variant">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+<div class="relative z-10">
+<h3 class="font-headline-md text-headline-md text-primary mb-2 group-hover:text-primary-container transition-colors">Course Material Updated: Cyber Security Essentials</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex items-center gap-2">
+<span class="font-medium text-on-surface">Prof. Sarah Jenkins</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="text-primary font-medium bg-primary-fixed/30 px-2 py-0.5 rounded text-sm">New Notes Added - Module 4</span>
+</p>
+<div class="flex items-center gap-3">
+<button class="bg-surface-container hover:bg-surface-variant border border-outline-variant/50 text-primary px-5 py-2 rounded-lg font-label-md text-label-md transition-colors shadow-sm flex items-center gap-2">
+                                    Open Course <span class="material-symbols-outlined text-[18px]">open_in_new</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Item 3: Read Community Mention -->
+<article class="bg-surface-bright rounded-xl border border-surface-variant shadow-sm p-6 opacity-80 hover:opacity-100 transition-opacity">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<span class="bg-surface-container-high text-on-surface px-3 py-1 rounded-md font-label-sm text-label-sm border border-outline-variant/30 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">forum</span> Community
+                                </span>
+<span class="text-on-surface-variant font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span> Yesterday, 2:30 PM
+                                </span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Community Discussion Trending: Strategic Thinking in Game Theory</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex items-center gap-2">
+<span class="bg-surface-variant px-2 py-0.5 rounded text-sm">24 New Replies</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span>Mentioned by @alex_student</span>
+</p>
+<div class="flex items-center gap-3">
+<button class="bg-surface-container hover:bg-surface-variant border border-outline-variant/50 text-primary px-5 py-2 rounded-lg font-label-md text-label-md transition-colors shadow-sm">
+                                Join Discussion
+                            </button>
+</div>
+</article>
+<!-- Item 4: Upcoming Live Session -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 shadow-sm hover:shadow-md transition-shadow p-6 group">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<span class="bg-tertiary-container/10 text-tertiary-container px-3 py-1 rounded-md font-label-sm text-label-sm border border-tertiary-container/30 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">videocam</span> Event
+                                </span>
+<span class="text-on-surface-variant font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span> Yesterday
+                                </span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2 group-hover:text-primary-container transition-colors">Upcoming Live Session: Advanced Data Analytics Q&amp;A</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-tertiary-container">event_upcoming</span>
+<span class="font-medium text-tertiary-container">Tomorrow, 5:00 PM EST</span>
+</p>
+<div class="flex items-center gap-3">
+<button class="bg-primary hover:bg-primary-container text-on-primary px-5 py-2 rounded-lg font-label-md text-label-md transition-colors shadow-sm flex items-center gap-2">
+                                Register <span class="material-symbols-outlined text-[18px]">how_to_reg</span>
+</button>
+</div>
+</article>
+<!-- Item 5: System Notification -->
+<article class="bg-surface-bright rounded-xl border border-surface-variant shadow-sm p-6 opacity-80 hover:opacity-100 transition-opacity">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<span class="bg-surface-variant text-on-surface px-3 py-1 rounded-md font-label-sm text-label-sm border border-outline-variant/30 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">settings_system_daydream</span> System
+                                </span>
+<span class="text-on-surface-variant font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span> Oct 12
+                                </span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Profile Completion Reminder</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                            Your profile is currently 85% complete. Adding your professional experience helps peers connect with you.
+                        </p>
+<div class="flex items-center gap-3">
+<button class="bg-surface-container hover:bg-surface-variant border border-outline-variant/50 text-primary px-5 py-2 rounded-lg font-label-md text-label-md transition-colors shadow-sm">
+                                Complete Profile
+                            </button>
+</div>
+</article>
+</div>
+</section>
+<!-- Footer Spacer -->
+<div class="h-20"></div>
+</div>
+</main>
+</body></html>

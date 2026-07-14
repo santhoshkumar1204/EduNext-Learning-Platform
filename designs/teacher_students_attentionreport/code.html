@@ -1,0 +1,534 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>EduNext - Attention Reports</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "error-container": "#ffdad6",
+                      "primary-fixed": "#7ffb9f",
+                      "background": "#f8f9fb",
+                      "on-surface": "#191c1e",
+                      "surface-variant": "#e1e2e4",
+                      "surface-container": "#edeef0",
+                      "on-tertiary-container": "#fffbff",
+                      "secondary": "#405f91",
+                      "surface-container-low": "#f3f4f6",
+                      "on-primary": "#ffffff",
+                      "inverse-on-surface": "#f0f1f3",
+                      "inverse-primary": "#62de85",
+                      "inverse-surface": "#2e3132",
+                      "surface": "#f8f9fb",
+                      "on-secondary-fixed": "#001b3d",
+                      "on-secondary-container": "#315182",
+                      "on-error-container": "#93000a",
+                      "on-secondary": "#ffffff",
+                      "on-primary-container": "#f7fff3",
+                      "tertiary-container": "#645efb",
+                      "surface-container-high": "#e7e8ea",
+                      "primary-container": "#008740",
+                      "outline": "#6e7a6d",
+                      "secondary-container": "#a6c5fe",
+                      "on-tertiary-fixed": "#0f0069",
+                      "primary": "#006b31",
+                      "on-background": "#191c1e",
+                      "on-secondary-fixed-variant": "#264778",
+                      "on-tertiary-fixed-variant": "#3323cc",
+                      "tertiary-fixed-dim": "#c3c0ff",
+                      "surface-bright": "#f8f9fb",
+                      "surface-dim": "#d9dadc",
+                      "surface-container-lowest": "#ffffff",
+                      "secondary-fixed": "#d6e3ff",
+                      "on-error": "#ffffff",
+                      "primary-fixed-dim": "#62de85",
+                      "tertiary-fixed": "#e2dfff",
+                      "on-primary-fixed": "#00210b",
+                      "surface-container-highest": "#e1e2e4",
+                      "on-surface-variant": "#3e4a3e",
+                      "outline-variant": "#bdcabb",
+                      "tertiary": "#4b41e1",
+                      "surface-tint": "#006d33",
+                      "secondary-fixed-dim": "#a9c7ff",
+                      "on-primary-fixed-variant": "#005225",
+                      "error": "#ba1a1a",
+                      "on-tertiary": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-md": "1.5rem",
+                      "stack-sm": "0.5rem",
+                      "container-max": "1280px",
+                      "margin-mobile": "1rem",
+                      "stack-lg": "2.5rem",
+                      "gutter": "1.5rem"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "label-bold": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-bold": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "500"
+                              }
+                      ]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-filled {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex">
+<!-- SideNavBar (Shared Component) -->
+<nav class="fixed left-0 top-0 h-screen w-64 bg-surface dark:bg-inverse-surface border-r border-outline-variant dark:border-outline flex flex-col py-6 overflow-y-auto z-20">
+<div class="px-6 mb-8">
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary dark:text-inverse-primary">EduNext</h1>
+<p class="text-on-surface-variant text-label-sm font-label-sm mt-1">Teacher Dashboard</p>
+</div>
+<div class="px-4 mb-6">
+<button class="w-full bg-primary text-on-primary py-3 px-4 rounded-full font-label-bold text-label-bold flex items-center justify-center gap-2 hover:bg-primary/90 transition-colors">
+<span class="material-symbols-outlined">add</span>
+                Create New Course
+            </button>
+</div>
+<div class="flex-1">
+<ul class="space-y-1">
+<li class=""><a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant font-medium hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors rounded-r-full mr-4" href="#"><span class="material-symbols-outlined" data-icon="dashboard">dashboard</span> <span class="font-label-bold text-label-bold">Dashboard</span></a></li>
+<li class=""><a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant font-medium hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors rounded-r-full mr-4" href="#"><span class="material-symbols-outlined" data-icon="menu_book">menu_book</span> <span class="font-label-bold text-label-bold">Courses</span></a></li>
+<!-- Active Tab: Students (since we are on a Student Profile page) -->
+<li class=""><a class="flex items-center gap-3 px-4 py-3 text-primary dark:text-inverse-primary font-bold border-r-4 border-primary dark:border-inverse-primary bg-primary-container/10 hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors" href="#"><span class="material-symbols-outlined icon-filled" data-icon="group">group</span> <span class="font-label-bold text-label-bold">Students</span></a></li>
+<li class=""><a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant font-medium hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors rounded-r-full mr-4" href="#"><span class="material-symbols-outlined" data-icon="analytics">analytics</span> <span class="font-label-bold text-label-bold">Learning Analytics</span></a></li>
+<li class=""><a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant font-medium hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors rounded-r-full mr-4" href="#"><span class="material-symbols-outlined" data-icon="visibility">visibility</span> <span class="font-label-bold text-label-bold">Attention Analytics</span></a></li>
+<li class=""></li>
+<li class=""><a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant font-medium hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors rounded-r-full mr-4" href="#"><span class="material-symbols-outlined" data-icon="quiz">quiz</span> <span class="font-label-bold text-label-bold">Quizzes</span></a></li>
+<li class=""><a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant font-medium hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors rounded-r-full mr-4" href="#"><span class="material-symbols-outlined" data-icon="assignment">assignment</span> <span class="font-label-bold text-label-bold">Assignments</span></a></li>
+<li class=""><a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant font-medium hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors rounded-r-full mr-4" href="#"><span class="material-symbols-outlined" data-icon="forum">forum</span> <span class="font-label-bold text-label-bold">Community</span></a></li>
+<li class=""><a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant font-medium hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors rounded-r-full mr-4" href="#"><span class="material-symbols-outlined" data-icon="campaign">campaign</span> <span class="font-label-bold text-label-bold">Announcements</span></a></li>
+<li class=""><a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant font-medium hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors rounded-r-full mr-4" href="#"><span class="material-symbols-outlined" data-icon="school">school</span> <span class="font-label-bold text-label-bold">Apprenticeships</span></a></li>
+<li class=""><a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant font-medium hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors rounded-r-full mr-4" href="#"><span class="material-symbols-outlined" data-icon="description">description</span> <span class="font-label-bold text-label-bold">Reports</span></a></li>
+</ul>
+</div>
+<div class="mt-auto border-t border-outline-variant pt-4">
+<ul class="space-y-1">
+<li class=""><a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors rounded-r-full mr-4" href="#"><span class="material-symbols-outlined" data-icon="settings">settings</span> <span class="font-label-bold text-label-bold">Settings</span></a></li>
+<li class=""><a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors rounded-r-full mr-4" href="#"><span class="material-symbols-outlined" data-icon="logout">logout</span> <span class="font-label-bold text-label-bold">Logout</span></a></li>
+</ul>
+</div>
+<!-- Teacher Profile Snippet at bottom of nav -->
+<div class="flex items-center gap-3 px-6 mt-6 pb-2">
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden flex-shrink-0">
+<img alt="Dr. Amarjeet Kaur profile picture" class="w-full h-full object-cover" data-alt="A professional headshot of a female educator, Dr. Amarjeet Kaur, wearing glasses and a blazer. She is smiling warmly in a bright, modern office setting. The lighting is soft and natural, emphasizing a modern corporate and academic aesthetic. The mood is approachable and intelligent." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBftl58g012nNp4NT-baYhupv4NGYGAn1nCDffq-6jcTHLtHlRhxuCVf7qhAc2GuiQE7BIB7_Bgj9466nngaGxrmFnnv3QD6rrzLNalB-gc8GLzbhaEd9sXFHNTxIRCnho2h8Q1HbDq2bu6JzlGteHtAgqEnoyaXY18Y0TbqD1rNUEuTZNlRin2BcBqhHjdo7S5Xf3RCGWsWwft4o7D0HGWEgOVx6oYKpIwBab_XPiRchpmKEHOJGyhgz1MHaZvCbejz3QpKeOYT-g">
+</div>
+<div class="min-w-0">
+<p class="font-label-bold text-label-bold text-on-surface truncate">Dr. Amarjeet Kaur</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">amarjeet@edunext.edu</p>
+</div>
+</div>
+</nav>
+<!-- Main Content Wrapper -->
+<div class="flex-1 ml-64 flex flex-col min-h-screen">
+<!-- TopAppBar (Shared Component) -->
+<header class="bg-background dark:bg-background border-b border-outline-variant dark:border-outline docked full-width top-0 sticky z-10 h-20 px-gutter flex justify-between items-center w-full">
+<div class="flex-1 flex items-center">
+<!-- Search Bar on left as per JSON -->
+<div class="relative w-full max-w-md hidden md:block">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline">search</span>
+</div>
+<input class="block w-full pl-10 pr-3 py-2 border border-outline-variant rounded-full leading-5 bg-surface-container-lowest placeholder-on-surface-variant focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary sm:text-sm font-body-md text-on-surface" placeholder="Search courses, students, reports..." type="text">
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container transition-colors relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-1.5 right-1.5 block h-2 w-2 rounded-full bg-error ring-2 ring-background"></span>
+</button>
+<button class="p-2 rounded-full text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<button class="p-2 rounded-full text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined" data-icon="apps">apps</span>
+</button>
+</div>
+</header>
+<!-- Page Content -->
+<main class="flex-1 p-gutter bg-surface-bright overflow-y-auto">
+<div class="max-w-container-max mx-auto space-y-stack-lg">
+<!-- Student Profile Header (Context) -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 flex flex-col md:flex-row items-start md:items-center gap-6 relative overflow-hidden">
+<!-- Subtle background decoration -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary-fixed opacity-10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4 pointer-events-none"></div>
+<div class="w-24 h-24 rounded-full border-4 border-surface shadow-sm overflow-hidden flex-shrink-0 z-10">
+<img alt="Alex Mercer profile" class="w-full h-full object-cover" data-alt="A portrait of a male college student, Alex Mercer, wearing a casual grey hoodie. He is standing in a brightly lit university library with bookshelves blurred in the background. The aesthetic is clean, academic, and modern, utilizing soft natural light and a neutral color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAv_kNLypR_nq8xAuuaiUDti9HKFwY_7RItP8GQAGz1VIiwDNVIBbi51BLrxr4Bn1v43bf_P71PtyebUqcsYOdXvKw1ZsGVq5Eoftw6cZyIN6fP5gLG7C-YVQ1ookid4VCQYuezFTuZlJTz11zBBUB-BTeVE-89_q_mChjE7WV-KnjEJ4xw-Hz-gatQQ0d-Qayqi5B1ttUbRzSaOg4KzSHyUes5ZvkrhPBqWx_hCHfx-Zg-hS5f-zdM50F8soMR4xwwgdTMqf8RVv8">
+</div>
+<div class="flex-1 z-10">
+<div class="flex flex-col md:flex-row md:items-center gap-3 md:gap-6 mb-2">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Alex Mercer</h2>
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-label-sm font-label-bold bg-primary-container text-on-primary-container w-max">
+                                Status: Enrolled
+                            </span>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Student ID</p>
+<p class="font-label-bold text-label-bold text-on-surface mt-1">#EDX-2023-441</p>
+</div>
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Major</p>
+<p class="font-label-bold text-label-bold text-on-surface mt-1">Computer Science</p>
+</div>
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Year</p>
+<p class="font-label-bold text-label-bold text-on-surface mt-1">Sophomore</p>
+</div>
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Overall GPA</p>
+<p class="font-label-bold text-label-bold text-primary mt-1">3.8 / 4.0</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Contextual Tabs -->
+<div class="border-b border-outline-variant">
+<nav aria-label="Tabs" class="-mb-px flex space-x-8">
+<a class="border-transparent text-on-surface-variant hover:text-on-surface hover:border-outline-variant whitespace-nowrap py-4 px-1 border-b-2 font-label-bold text-label-bold transition-colors" href="#">
+                            Overview
+                        </a>
+<a class="border-transparent text-on-surface-variant hover:text-on-surface hover:border-outline-variant whitespace-nowrap py-4 px-1 border-b-2 font-label-bold text-label-bold transition-colors" href="#">
+                            Academic Records
+                        </a>
+<!-- Active Tab -->
+<a aria-current="page" class="border-primary text-primary whitespace-nowrap py-4 px-1 border-b-2 font-label-bold text-label-bold flex items-center gap-2" href="#">
+<span class="material-symbols-outlined icon-filled text-[20px]">visibility</span>
+                            Attention Reports
+                        </a>
+<a class="border-transparent text-on-surface-variant hover:text-on-surface hover:border-outline-variant whitespace-nowrap py-4 px-1 border-b-2 font-label-bold text-label-bold transition-colors" href="#">
+                            Submissions
+                        </a>
+</nav>
+</div>
+<!-- Filters Area -->
+<div class="flex flex-col sm:flex-row gap-4 items-center justify-between bg-surface-container-lowest p-4 rounded-lg border border-outline-variant">
+<div class="flex flex-1 gap-4 w-full sm:w-auto">
+<div class="relative flex-1 sm:max-w-xs">
+<label class="sr-only" for="course-filter">Filter by Course</label>
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline-variant text-[20px]">menu_book</span>
+</div>
+<select class="block w-full pl-10 pr-10 py-2 text-body-md font-body-md border-outline-variant rounded-md bg-surface-container-lowest text-on-surface focus:ring-primary focus:border-primary appearance-none cursor-pointer" id="course-filter">
+<option>All Enrolled Courses</option>
+<option>CS101: Intro to Programming</option>
+<option>MATH201: Linear Algebra</option>
+<option>PHY105: Physics I</option>
+</select>
+<div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+<span class="material-symbols-outlined text-outline-variant">expand_more</span>
+</div>
+</div>
+<div class="relative flex-1 sm:max-w-xs">
+<label class="sr-only" for="date-filter">Date Range</label>
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline-variant text-[20px]">calendar_today</span>
+</div>
+<select class="block w-full pl-10 pr-10 py-2 text-body-md font-body-md border-outline-variant rounded-md bg-surface-container-lowest text-on-surface focus:ring-primary focus:border-primary appearance-none cursor-pointer" id="date-filter">
+<option>Last 30 Days</option>
+<option>Last 7 Days</option>
+<option>This Semester</option>
+<option>Custom Range...</option>
+</select>
+<div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+<span class="material-symbols-outlined text-outline-variant">expand_more</span>
+</div>
+</div>
+</div>
+<button class="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2 bg-surface-container text-on-surface font-label-bold text-label-bold rounded-md hover:bg-surface-container-high transition-colors border border-outline-variant">
+<span class="material-symbols-outlined text-[20px]">download</span>
+                        Export Report
+                    </button>
+</div>
+<!-- Bento Grid Layout for Dashboard Data -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- KPI Card: Avg Attention Score (Spans 4 cols) -->
+<div class="md:col-span-4 bg-surface-container-lowest border border-outline-variant rounded-xl p-6 flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-[100px] text-primary">center_focus_strong</span>
+</div>
+<div>
+<h3 class="font-label-bold text-label-bold text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">psychology</span>
+                                Avg. Attention Score
+                            </h3>
+<div class="mt-4 flex items-baseline gap-2">
+<span class="font-headline-lg text-[48px] leading-tight font-bold text-on-surface">82</span>
+<span class="text-body-md text-on-surface-variant">/ 100</span>
+</div>
+<div class="mt-2 flex items-center gap-2 text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+<span class="">+4% from last month</span>
+</div>
+</div>
+<div class="mt-6">
+<div class="w-full bg-surface-variant rounded-full h-2.5">
+<div class="bg-primary h-2.5 rounded-full" style="width: 82%"></div>
+</div>
+<div class="flex justify-between mt-2 text-label-sm font-label-sm text-on-surface-variant">
+<span class="">Low Focus</span>
+<span class="">High Focus</span>
+</div>
+</div>
+</div>
+<!-- Blink & Fatigue Analysis (Spans 4 cols) -->
+<div class="md:col-span-4 bg-surface-container-lowest border border-outline-variant rounded-xl p-6 flex flex-col gap-6">
+<div>
+<h3 class="font-label-bold text-label-bold text-on-surface-variant mb-4">Physical Indicators</h3>
+<div class="flex items-center justify-between p-3 bg-surface rounded-lg border border-outline-variant/50">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Avg. Blink Rate</p>
+<p class="font-label-bold text-label-bold text-on-surface">14 / min</p>
+</div>
+</div>
+<span class="text-label-sm font-label-sm px-2 py-1 bg-surface-container-high rounded text-on-surface-variant">Normal</span>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-end mb-2">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Fatigue Index</p>
+<p class="font-label-bold text-label-bold text-on-surface">Low</p>
+</div>
+<!-- Segmented Bar for Fatigue -->
+<div class="flex h-3 w-full rounded-full overflow-hidden gap-1">
+<div class="bg-primary-fixed w-1/3"></div>
+<div class="bg-surface-variant w-1/3"></div>
+<div class="bg-surface-variant w-1/3"></div>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-2">Optimal learning state detected in 85% of sessions.</p>
+</div>
+</div>
+<!-- Emotion Analysis Summary (Spans 4 cols) -->
+<div class="md:col-span-4 bg-surface-container-lowest border border-outline-variant rounded-xl p-6">
+<h3 class="font-label-bold text-label-bold text-on-surface-variant mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">mood</span>
+                            Emotion Analysis
+                        </h3>
+<div class="space-y-4">
+<!-- Focused -->
+<div>
+<div class="flex justify-between text-label-sm font-label-bold mb-1">
+<span class="text-primary flex items-center gap-1"><div class="w-2 h-2 rounded-full bg-primary"></div> Focused</span>
+<span class="text-on-surface">60%</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-1.5">
+<div class="bg-primary h-1.5 rounded-full" style="width: 60%"></div>
+</div>
+</div>
+<!-- Neutral -->
+<div>
+<div class="flex justify-between text-label-sm font-label-bold mb-1">
+<span class="text-secondary flex items-center gap-1"><div class="w-2 h-2 rounded-full bg-secondary"></div> Neutral</span>
+<span class="text-on-surface">25%</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-1.5">
+<div class="bg-secondary h-1.5 rounded-full" style="width: 25%"></div>
+</div>
+</div>
+<!-- Confused -->
+<div>
+<div class="flex justify-between text-label-sm font-label-bold mb-1">
+<span class="text-tertiary flex items-center gap-1"><div class="w-2 h-2 rounded-full bg-tertiary"></div> Confused</span>
+<span class="text-on-surface">10%</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-1.5">
+<div class="bg-tertiary h-1.5 rounded-full" style="width: 10%"></div>
+</div>
+</div>
+<!-- Distracted -->
+<div>
+<div class="flex justify-between text-label-sm font-label-bold mb-1">
+<span class="text-error flex items-center gap-1"><div class="w-2 h-2 rounded-full bg-error"></div> Distracted</span>
+<span class="text-on-surface">5%</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-1.5">
+<div class="bg-error h-1.5 rounded-full" style="width: 5%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Chart: Session-wise Attention History (Spans 8 cols) -->
+<div class="md:col-span-8 bg-surface-container-lowest border border-outline-variant rounded-xl p-6 flex flex-col">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-label-bold text-label-bold text-on-surface-variant">Session-wise Attention History</h3>
+<button class="text-primary hover:bg-primary-container/20 p-1 rounded transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<!-- Chart Placeholder Area using CSS Grid/Flex for structure -->
+<div class="flex-1 relative min-h-[250px] w-full flex items-end justify-between px-2 pt-8 pb-6 border-b border-l border-outline-variant">
+<!-- Y-Axis Labels -->
+<div class="absolute left-[-30px] top-0 bottom-6 flex flex-col justify-between text-label-sm text-outline font-label-sm h-full pb-[10%]">
+<span class="">100</span>
+<span class="">75</span>
+<span class="">50</span>
+<span class="">25</span>
+</div>
+<!-- Grid Lines -->
+<div class="absolute inset-0 left-0 border-b border-outline-variant/30 top-[25%] w-full pointer-events-none"></div>
+<div class="absolute inset-0 left-0 border-b border-outline-variant/30 top-[50%] w-full pointer-events-none"></div>
+<div class="absolute inset-0 left-0 border-b border-outline-variant/30 top-[75%] w-full pointer-events-none"></div>
+<!-- Line Chart SVG Path Simulation (Using Tailwind path for visual representation) -->
+<svg class="absolute inset-0 h-full w-full left-[1px] bottom-[24px] pointer-events-none overflow-visible" preserveAspectRatio="none" viewBox="0 0 100 100">
+<!-- Gradient fill under line -->
+<defs>
+<linearGradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#006b31" stop-opacity="0.2"></stop>
+<stop offset="100%" stop-color="#006b31" stop-opacity="0"></stop>
+</linearGradient>
+</defs>
+<path d="M0,40 L15,30 L30,45 L45,20 L60,35 L75,15 L90,25 L100,10 L100,100 L0,100 Z" fill="url(#chartGradient)"></path>
+<!-- The Line -->
+<path d="M0,40 L15,30 L30,45 L45,20 L60,35 L75,15 L90,25 L100,10" fill="none" stroke="#006b31" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<!-- Data Points -->
+<circle cx="15" cy="30" fill="#ffffff" r="2" stroke="#006b31" stroke-width="1.5"></circle>
+<circle cx="30" cy="45" fill="#ffffff" r="2" stroke="#006b31" stroke-width="1.5"></circle>
+<circle cx="45" cy="20" fill="#ffffff" r="2" stroke="#006b31" stroke-width="1.5"></circle>
+<circle cx="60" cy="35" fill="#ffffff" r="2" stroke="#006b31" stroke-width="1.5"></circle>
+<circle cx="75" cy="15" fill="#ffffff" r="2" stroke="#006b31" stroke-width="1.5"></circle>
+<circle cx="90" cy="25" fill="#ffffff" r="2" stroke="#006b31" stroke-width="1.5"></circle>
+</svg>
+<!-- X-Axis Labels -->
+<div class="absolute bottom-[-24px] left-0 w-full flex justify-between text-label-sm text-outline font-label-sm px-2">
+<span class="">Oct 1</span>
+<span class="">Oct 8</span>
+<span class="">Oct 15</span>
+<span class="">Oct 22</span>
+<span class="">Oct 29</span>
+</div>
+</div>
+</div>
+<!-- Analysis List: Most vs Least Focused (Spans 4 cols) -->
+<div class="md:col-span-4 bg-surface-container-lowest border border-outline-variant rounded-xl p-6 flex flex-col">
+<h3 class="font-label-bold text-label-bold text-on-surface-variant mb-4">Content Analysis</h3>
+<div class="space-y-6 flex-1">
+<!-- High Focus List -->
+<div>
+<h4 class="text-label-sm font-label-bold text-primary flex items-center gap-1 mb-3">
+<span class="material-symbols-outlined text-[16px]">arrow_upward</span>
+                                    Most Focused Lessons
+                                </h4>
+<ul class="space-y-3">
+<li class="flex justify-between items-center bg-surface p-2 rounded border border-outline-variant/30">
+<div class="truncate pr-2">
+<p class="font-label-bold text-label-sm text-on-surface truncate">Algorithms &amp; Data Structures</p>
+<p class="font-label-sm text-[10px] text-on-surface-variant">CS101 • Oct 12</p>
+</div>
+<span class="font-label-bold text-label-sm text-primary bg-primary-container/20 px-2 py-0.5 rounded">94%</span>
+</li>
+<li class="flex justify-between items-center bg-surface p-2 rounded border border-outline-variant/30">
+<div class="truncate pr-2">
+<p class="font-label-bold text-label-sm text-on-surface truncate">Matrix Transformations</p>
+<p class="font-label-sm text-[10px] text-on-surface-variant">MATH201 • Oct 18</p>
+</div>
+<span class="font-label-bold text-label-sm text-primary bg-primary-container/20 px-2 py-0.5 rounded">89%</span>
+</li>
+</ul>
+</div>
+<hr class="border-outline-variant border-dashed">
+<!-- Low Focus List -->
+<div>
+<h4 class="text-label-sm font-label-bold text-error flex items-center gap-1 mb-3">
+<span class="material-symbols-outlined text-[16px]">arrow_downward</span>
+                                    Least Focused Lessons
+                                </h4>
+<ul class="space-y-3">
+<li class="flex justify-between items-center bg-surface p-2 rounded border border-outline-variant/30">
+<div class="truncate pr-2">
+<p class="font-label-bold text-label-sm text-on-surface truncate">Ethics in Computing (Guest Lecture)</p>
+<p class="font-label-sm text-[10px] text-on-surface-variant">CS101 • Oct 05</p>
+</div>
+<span class="font-label-bold text-label-sm text-error bg-error-container/40 px-2 py-0.5 rounded">62%</span>
+</li>
+<li class="flex justify-between items-center bg-surface p-2 rounded border border-outline-variant/30">
+<div class="truncate pr-2">
+<p class="font-label-bold text-label-sm text-on-surface truncate">Kinematics Review</p>
+<p class="font-label-sm text-[10px] text-on-surface-variant">PHY105 • Oct 22</p>
+</div>
+<span class="font-label-bold text-label-sm text-error bg-error-container/40 px-2 py-0.5 rounded">68%</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div> <!-- End Bento Grid -->
+</div>
+</main>
+</div>
+
+
+</body></html>

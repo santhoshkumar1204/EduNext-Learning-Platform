@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduNext - Create Course: Lesson Content</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#d9dadc",
+                        "inverse-surface": "#2e3132",
+                        "surface-container-high": "#e7e8ea",
+                        "inverse-on-surface": "#f0f1f3",
+                        "surface-variant": "#e1e2e4",
+                        "on-tertiary-container": "#fffbff",
+                        "on-surface-variant": "#3e4a3e",
+                        "secondary": "#405f91",
+                        "on-tertiary-fixed-variant": "#3323cc",
+                        "outline-variant": "#bdcabb",
+                        "surface": "#f8f9fb",
+                        "surface-container": "#edeef0",
+                        "primary-container": "#008740",
+                        "secondary-container": "#a6c5fe",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#62de85",
+                        "on-secondary-container": "#315182",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#191c1e",
+                        "on-tertiary-fixed": "#0f0069",
+                        "background": "#f8f9fb",
+                        "tertiary-fixed": "#e2dfff",
+                        "on-primary-fixed-variant": "#005225",
+                        "primary": "#006b31",
+                        "surface-bright": "#f8f9fb",
+                        "surface-container-low": "#f3f4f6",
+                        "on-surface": "#191c1e",
+                        "tertiary-fixed-dim": "#c3c0ff",
+                        "tertiary-container": "#645efb",
+                        "surface-tint": "#006d33",
+                        "secondary-fixed-dim": "#a9c7ff",
+                        "primary-fixed": "#7ffb9f",
+                        "on-primary-fixed": "#00210b",
+                        "primary-fixed-dim": "#62de85",
+                        "on-secondary-fixed-variant": "#264778",
+                        "surface-container-highest": "#e1e2e4",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "tertiary": "#4b41e1",
+                        "on-secondary-fixed": "#001b3d",
+                        "outline": "#6e7a6d",
+                        "on-error": "#ffffff",
+                        "on-primary-container": "#f7fff3",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#d6e3ff",
+                        "on-primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "1.5rem",
+                        "stack-md": "1.5rem",
+                        "stack-lg": "2.5rem",
+                        "margin-mobile": "1rem",
+                        "stack-sm": "0.5rem",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "label-bold": ["Inter"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-bold": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background min-h-screen font-body-md">
+<!-- TopAppBar -->
+<header class="bg-background text-primary font-headline-lg font-bold docked full-width top-0 sticky border-b border-outline-variant flex justify-between items-center w-full px-gutter h-20 ml-64 max-w-[calc(100%-16rem)] z-50">
+<div class="flex items-center gap-4">
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary">EduNext</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="hover:bg-surface-container-low p-2 rounded-full transition-opacity active:opacity-80 flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="hover:bg-surface-container-low p-2 rounded-full transition-opacity active:opacity-80 flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<button class="hover:bg-surface-container-low p-2 rounded-full transition-opacity active:opacity-80 flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="apps">apps</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden border border-outline-variant">
+<img alt="Dr. Amarjeet Kaur" class="w-full h-full object-cover" data-alt="A professional headshot of an Indian female educator in a modern office. Bright, high-key lighting creates a positive, approachable mood. She is wearing a smart casual blazer and smiling gently. The background is slightly blurred showing modern corporate office environment with glass and white walls." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJdBGs4AcOyb3mmA9thOGON0N5zajuK7wH3yHiRf3_V998S3HsP3YSLhYyGcjAlA_spCMRZUkBtkruH_S0VcpBVsbwdLdUKb4Lagc9SeFE5z0k3Xj1PoVMep9E98GGW0uxCZcsNOTZy0nvXc-aIWsYVvJy6PIDNakppLxEUoNI9-j0Pgf8k3hUXQ6w8o7vHNXolgsCgsHfEZGsK3HV64_L15qbmU2qZG34BSA2PSfPsSOAafUiZevnoQs_0zYPw8CFu3iWraWCW3w"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<nav class="bg-surface fixed left-0 top-0 h-screen w-64 border-r border-outline-variant flex flex-col h-full py-6 overflow-y-auto z-40">
+<div class="px-6 mb-8">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary">EduNext</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Teacher Dashboard</p>
+</div>
+<div class="px-4 mb-6">
+<button class="w-full bg-primary text-on-primary font-label-bold text-label-bold py-3 rounded-lg hover:bg-surface-tint transition-colors shadow-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                Create New Course
+            </button>
+</div>
+<ul class="flex-1 space-y-1">
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-bold text-label-bold">Dashboard</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-primary font-bold border-r-4 border-primary bg-primary-container/10 active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="font-label-bold text-label-bold">Courses</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-bold text-label-bold">Students</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-bold text-label-bold">Learning Analytics</span>
+</a>
+</li>
+</ul>
+<div class="mt-auto border-t border-outline-variant pt-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-bold text-label-bold">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label-bold text-label-bold">Logout</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="ml-64 p-gutter max-w-container-max mx-auto">
+<!-- Page Header & Stepper -->
+<div class="mb-stack-lg">
+<h2 class="font-headline-lg text-headline-lg font-bold text-on-surface mb-2">Create New Course</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Upload learning materials for your predefined lessons.</p>
+<!-- Stepper Component -->
+<div class="flex items-center justify-between relative">
+<div class="absolute left-0 top-1/2 -translate-y-1/2 w-full h-1 bg-surface-variant rounded-full z-0"></div>
+<div class="absolute left-0 top-1/2 -translate-y-1/2 w-2/3 h-1 bg-primary rounded-full z-0"></div>
+<div class="relative z-10 flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-bold shadow-md">
+<span class="material-symbols-outlined text-xl" data-icon="check">check</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Basic Info</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-bold shadow-md">
+<span class="material-symbols-outlined text-xl" data-icon="check">check</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Syllabus</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-bold shadow-md ring-4 ring-primary-container/20">
+                        3
+                    </div>
+<span class="font-label-sm text-label-sm text-primary font-bold">Content</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-surface-variant text-on-surface-variant flex items-center justify-center font-label-bold border-2 border-outline-variant bg-surface">
+                        4
+                    </div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Review</span>
+</div>
+</div>
+</div>
+<!-- Content Area: Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Left Sidebar: Lesson List -->
+<div class="lg:col-span-4 flex flex-col gap-4">
+<div class="bg-surface rounded-xl border border-outline-variant p-5">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-on-surface mb-4">Module 1: Foundations</h3>
+<div class="space-y-3">
+<!-- Active Lesson Item -->
+<button class="w-full text-left bg-surface-container-low border-l-4 border-primary p-4 rounded-r-lg hover:bg-surface-container transition-colors shadow-sm relative">
+<div class="flex justify-between items-start mb-2">
+<span class="font-label-bold text-label-bold text-on-surface">1.1 Introduction to AI</span>
+</div>
+<div class="flex gap-2 text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="videocam">videocam</span>
+<span class="material-symbols-outlined text-sm" data-icon="picture_as_pdf">picture_as_pdf</span>
+</div>
+</button>
+<!-- Inactive Lesson Item -->
+<button class="w-full text-left bg-surface border border-transparent p-4 rounded-lg hover:bg-surface-container-low transition-colors">
+<div class="flex justify-between items-start mb-2">
+<span class="font-body-md text-body-md text-on-surface-variant">1.2 Neural Networks Basics</span>
+</div>
+<div class="flex gap-2 text-outline-variant">
+<span class="material-symbols-outlined text-sm opacity-50" data-icon="videocam">videocam</span>
+<span class="material-symbols-outlined text-sm opacity-50" data-icon="article">article</span>
+</div>
+</button>
+</div>
+</div>
+</div>
+<!-- Right Area: Upload Canvas -->
+<div class="lg:col-span-8">
+<div class="bg-surface rounded-xl border border-outline-variant p-6 h-full flex flex-col">
+<div class="mb-6 pb-4 border-b border-outline-variant flex justify-between items-center">
+<div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-on-surface">1.1 Introduction to AI</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Upload primary and supplementary materials for this lesson.</p>
+</div>
+<span class="px-3 py-1 bg-surface-container text-on-surface-variant rounded-full font-label-sm text-label-sm border border-outline-variant">Draft</span>
+</div>
+<div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Video Upload Card -->
+<div class="col-span-full border border-dashed border-outline-variant rounded-xl bg-surface-container-low p-6 flex flex-col items-center justify-center text-center hover:bg-surface-container transition-colors cursor-pointer group">
+<div class="w-16 h-16 rounded-full bg-surface-variant flex items-center justify-center text-secondary mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl" data-icon="cloud_upload">cloud_upload</span>
+</div>
+<span class="font-label-bold text-label-bold text-on-surface mb-1">Drag &amp; drop main video file</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">MP4, WebM (Max 2GB)</span>
+</div>
+<!-- Secondary Resources Grid -->
+<div class="border border-outline-variant rounded-xl p-4 flex items-center gap-4 bg-surface hover:shadow-sm transition-shadow">
+<div class="w-12 h-12 rounded-lg bg-error-container text-on-error-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined" data-icon="picture_as_pdf">picture_as_pdf</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-label-bold text-label-bold text-on-surface truncate">Lecture_Slides.pdf</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">2.4 MB • Uploaded</p>
+</div>
+<button class="text-error hover:bg-error-container/50 p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="delete">delete</span>
+</button>
+</div>
+<button class="border border-dashed border-outline-variant rounded-xl p-4 flex items-center justify-center gap-2 bg-surface-container-low hover:bg-surface-container transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="font-label-bold text-label-bold">Add Document / PPT</span>
+</button>
+</div>
+<!-- Actions -->
+<div class="mt-8 pt-6 border-t border-outline-variant flex justify-between items-center">
+<button class="px-6 py-2 border border-outline-variant rounded-lg font-label-bold text-label-bold text-on-surface hover:bg-surface-container-low transition-colors">
+                            Back to Syllabus
+                        </button>
+<button class="px-6 py-2 bg-primary text-on-primary rounded-lg font-label-bold text-label-bold hover:bg-surface-tint transition-colors shadow-sm">
+                            Save &amp; Continue
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

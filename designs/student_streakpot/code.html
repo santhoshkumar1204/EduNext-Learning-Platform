@@ -1,0 +1,567 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>EduNext - My Quizzes</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config from Style Guidance -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#c4c6cf",
+                    "outline": "#74777f",
+                    "on-tertiary-fixed-variant": "#004395",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "on-surface-variant": "#43474e",
+                    "surface-container-high": "#e6e8ea",
+                    "on-surface": "#191c1e",
+                    "on-primary-fixed": "#001b3c",
+                    "secondary-fixed": "#6bff8f",
+                    "on-tertiary-fixed": "#001a42",
+                    "on-secondary-fixed": "#002109",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-primary-container": "#86a0cd",
+                    "inverse-surface": "#2d3133",
+                    "surface-container": "#eceef0",
+                    "secondary-fixed-dim": "#4ae176",
+                    "tertiary-fixed": "#d8e2ff",
+                    "surface-container-highest": "#e0e3e5",
+                    "tertiary": "#001f4b",
+                    "surface-dim": "#d8dadc",
+                    "on-tertiary-container": "#6a9dff",
+                    "surface-tint": "#455f88",
+                    "surface-variant": "#e0e3e5",
+                    "on-primary-fixed-variant": "#2d476f",
+                    "inverse-primary": "#adc7f7",
+                    "on-background": "#191c1e",
+                    "tertiary-fixed-dim": "#adc6ff",
+                    "primary-fixed": "#d6e3ff",
+                    "on-error": "#ffffff",
+                    "on-secondary-container": "#007432",
+                    "error-container": "#ffdad6",
+                    "surface-container-low": "#f2f4f6",
+                    "error": "#ba1a1a",
+                    "primary-container": "#1a365d",
+                    "on-primary": "#ffffff",
+                    "surface": "#f7f9fb",
+                    "background": "#f7f9fb",
+                    "secondary": "#006e2f",
+                    "on-tertiary": "#ffffff",
+                    "primary": "#002045",
+                    "tertiary-container": "#003374",
+                    "primary-fixed-dim": "#adc7f7",
+                    "surface-bright": "#f7f9fb",
+                    "on-secondary-fixed-variant": "#005321",
+                    "on-secondary": "#ffffff",
+                    "secondary-container": "#6bff8f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "40px",
+                    "gutter": "24px",
+                    "base": "8px",
+                    "margin-mobile": "16px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-xl": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-md": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                    "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                    "headline-xl": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                    "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                    "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                    "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                    "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                    "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .glass-card {
+            background-color: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-4px);
+            background-color: rgba(255, 255, 255, 0.85);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+        }
+        
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md h-screen overflow-hidden flex flex-col antialiased">
+<!-- TopNavBar -->
+<nav class="bg-surface/80 dark:bg-surface/80 backdrop-blur-xl docked full-width top-0 bg-surface-container/70 backdrop-blur-md shadow-sm shadow-sm flex justify-between items-center w-full px-margin-desktop py-base z-50 transition-all flex-shrink-0">
+<!-- Brand/Logo -->
+<div class="flex items-center gap-4">
+<!-- Mobile Menu Toggle (Visible only on mobile) -->
+<button aria-label="Toggle Menu" class="md:hidden text-primary p-2 rounded-full hover:bg-primary-container/20 transition-colors">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<div class="font-headline-md text-headline-md text-primary dark:text-primary-fixed tracking-tight font-extrabold flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-container" data-icon="school" style="font-variation-settings: 'FILL' 1;">school</span>
+                EduNext
+            </div>
+</div>
+<!-- Search Bar -->
+<div class="hidden md:flex flex-1 max-w-md mx-8">
+<div class="relative w-full group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors" data-icon="search">search</span>
+<input class="w-full bg-surface-container-lowest border-outline-variant text-on-surface pl-10 pr-4 py-2 rounded-full focus:ring-2 focus:ring-primary focus:border-primary transition-all font-body-md text-body-md shadow-sm" placeholder="Search courses, quizzes..." type="text">
+</div>
+</div>
+<!-- Trailing Actions & Profile -->
+<div class="flex items-center gap-2 md:gap-4">
+<button aria-label="notifications" class="p-2 rounded-full text-on-surface-variant hover:bg-primary-container/20 transition-colors hidden md:block">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button aria-label="help" class="p-2 rounded-full text-on-surface-variant hover:bg-primary-container/20 transition-colors hidden md:block">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<button aria-label="settings" class="p-2 rounded-full text-on-surface-variant hover:bg-primary-container/20 transition-colors hidden md:block">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<!-- Profile Image -->
+<div class="h-10 w-10 rounded-full overflow-hidden border-2 border-surface-container shadow-sm cursor-pointer ml-2 hover:border-primary transition-colors">
+<img alt="User Profile" class="h-full w-full object-cover" data-alt="A professional headshot of a young adult learner, well-lit, friendly expression, looking directly at the camera. The background is a soft, blurred modern office environment. High resolution, 8k, photorealistic style typical of premium SaaS user avatars." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvN2vysKaT3DOExYSyuaeIEfIacGToEnr3_kExKy0Pgeoxd1UaUvtkr-x75j-y6lzaC_H7kmf8MTsVqZixy2f0pKX1jI1Tnil4ny4d-ScEIRDOZ-QF4a-jzlLiRhEf2j6YxCouT0JpP5l39UxnZnRNunVy_IBDxb3FDViijhNi4H9nLUZyuvIg3XF1eZjvE3F5mye1b59ndR5GjvrIlpWMTKO3neJNUDXKo6pYW6R2r23MizN_NDCOIl9KZAir-4Mo0lNeFeL9kqU">
+</div>
+</div>
+</nav>
+<div class="flex flex-1 overflow-hidden relative">
+<!-- SideNavBar (Hidden on Mobile, Visible on md+) -->
+<aside class="hidden md:flex flex-col h-full py-base px-4 gap-2 overflow-y-auto bg-surface-container-low/90 dark:bg-surface-container-lowest/10 backdrop-blur-xl h-screen w-64 docked left-0 bg-surface-container-low dark:bg-surface-container-lowest shadow-md flex-shrink-0 z-40 border-r border-surface-variant">
+<div class="flex-1 py-4 flex flex-col gap-1">
+<!-- Navigation Links -->
+<!-- Active Item: Quizzes -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest rounded-xl font-label-md text-label-md transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                    Dashboard
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest rounded-xl font-label-md text-label-md transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+                    Courses
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest rounded-xl font-label-md text-label-md transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="local_library">local_library</span>
+                    My Courses
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest rounded-xl font-label-md text-label-md transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
+                    Progress &amp; Streaks
+                </a>
+<!-- ACTIVE NAV ITEM -->
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container rounded-xl font-bold font-label-md text-label-md transition-colors shadow-sm" href="#" style="transform: scale(0.98);">
+<span class="material-symbols-outlined" data-icon="quiz" style="font-variation-settings: 'FILL' 1;">quiz</span>
+                    Quizzes
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest rounded-xl font-label-md text-label-md transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+                    Assignments
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest rounded-xl font-label-md text-label-md transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+                    Peer Challenges
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest rounded-xl font-label-md text-label-md transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="workspace_premium">workspace_premium</span>
+                    Streak Pot
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest rounded-xl font-label-md text-label-md transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="work">work</span>
+                    My Apprenticeships
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest rounded-xl font-label-md text-label-md transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
+                    Leaderboard
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest rounded-xl font-label-md text-label-md transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="campaign">campaign</span>
+                    Announcements
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest rounded-xl font-label-md text-label-md transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+                    Downloads
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest rounded-xl font-label-md text-label-md transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+                    Career Find
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest rounded-xl font-label-md text-label-md transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="forum">forum</span>
+                    Explore Community
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest rounded-xl font-label-md text-label-md transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="view_in_ar">view_in_ar</span>
+                    Cardboard VR
+                </a>
+</div>
+<!-- Footer Links -->
+<div class="mt-auto pt-4 border-t border-surface-variant flex flex-col gap-1 pb-4">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest rounded-xl font-label-md text-label-md transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+                    Support
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest rounded-xl font-label-md text-label-md transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                    Sign Out
+                </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 overflow-y-auto bg-surface-container-lowest relative w-full hide-scrollbar">
+<!-- Page Header Container -->
+<div class="px-margin-mobile md:px-margin-desktop py-8 max-w-container-max mx-auto">
+<!-- 1. Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+<div>
+<h1 class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-primary mb-2">My Quizzes</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Practice, revise, and strengthen concepts through adaptive assessments.</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-3">
+<button class="bg-surface-container-lowest border border-outline-variant text-primary font-label-md text-label-md py-3 px-6 rounded-full hover:bg-surface-container transition-colors shadow-sm flex items-center justify-center gap-2 whitespace-nowrap">
+<span class="material-symbols-outlined text-[20px]" data-icon="auto_awesome">auto_awesome</span>
+                            Generate Revision Quiz
+                        </button>
+<button class="bg-gradient-to-b from-primary to-primary-container text-on-primary font-label-md text-label-md py-3 px-6 rounded-full hover:shadow-md hover:scale-[1.02] transition-all flex items-center justify-center gap-2 whitespace-nowrap">
+<span class="material-symbols-outlined text-[20px]" data-icon="bolt">bolt</span>
+                            Take Quick Practice
+                        </button>
+</div>
+</div>
+<!-- 2. Summary Row (6 Stats) -->
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-10">
+<div class="glass-card p-4 rounded-xl flex flex-col justify-between h-full">
+<div class="flex items-center justify-between mb-2">
+<span class="material-symbols-outlined text-primary/60" data-icon="task_alt">task_alt</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1">Quizzes Completed</p>
+<p class="font-headline-lg text-headline-lg text-primary">42</p>
+</div>
+</div>
+<div class="glass-card p-4 rounded-xl flex flex-col justify-between h-full">
+<div class="flex items-center justify-between mb-2">
+<span class="material-symbols-outlined text-primary/60" data-icon="analytics">analytics</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1">Avg Score</p>
+<p class="font-headline-lg text-headline-lg text-primary">87%</p>
+</div>
+</div>
+<div class="glass-card p-4 rounded-xl flex flex-col justify-between h-full">
+<div class="flex items-center justify-between mb-2">
+<span class="material-symbols-outlined text-primary/60" data-icon="emoji_events">emoji_events</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1">Best Score</p>
+<p class="font-headline-lg text-headline-lg text-primary">95%</p>
+</div>
+</div>
+<div class="glass-card p-4 rounded-xl flex flex-col justify-between h-full">
+<div class="flex items-center justify-between mb-2">
+<span class="material-symbols-outlined text-primary/60" data-icon="history">history</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1">Total Attempts</p>
+<p class="font-headline-lg text-headline-lg text-primary">128</p>
+</div>
+</div>
+<div class="glass-card p-4 rounded-xl flex flex-col justify-between h-full relative overflow-hidden">
+<div class="absolute -right-4 -top-4 w-16 h-16 bg-secondary/10 rounded-full blur-xl"></div>
+<div class="flex items-center justify-between mb-2 relative z-10">
+<span class="material-symbols-outlined text-secondary" data-icon="favorite">favorite</span>
+</div>
+<div class="relative z-10">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1">Learning Health</p>
+<div class="flex items-center gap-2">
+<p class="font-headline-md text-headline-md text-primary">Good</p>
+<span class="bg-secondary-container text-on-secondary-container text-xs px-2 py-0.5 rounded-full font-semibold">Healthy</span>
+</div>
+</div>
+</div>
+<div class="glass-card p-4 rounded-xl flex flex-col justify-between h-full relative overflow-hidden border-error-container">
+<div class="absolute -right-4 -top-4 w-16 h-16 bg-error/10 rounded-full blur-xl"></div>
+<div class="flex items-center justify-between mb-2 relative z-10">
+<span class="material-symbols-outlined text-error" data-icon="warning">warning</span>
+</div>
+<div class="relative z-10">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1">Weak Concepts</p>
+<div class="flex items-center gap-2">
+<p class="font-headline-md text-headline-md text-error">2</p>
+<span class="bg-error-container text-on-error-container text-xs px-2 py-0.5 rounded-full font-semibold">Needs Review</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 3. Subject Filters -->
+<div class="flex items-center gap-2 overflow-x-auto hide-scrollbar pb-4 mb-8 -mx-margin-mobile px-margin-mobile md:mx-0 md:px-0 border-b border-surface-variant/50">
+<button class="bg-primary text-on-primary font-label-md text-label-md py-2 px-4 rounded-full whitespace-nowrap flex-shrink-0 shadow-sm transition-transform active:scale-95">All Subjects</button>
+<button class="bg-surface text-on-surface border border-outline-variant hover:bg-surface-container font-label-md text-label-md py-2 px-4 rounded-full whitespace-nowrap flex-shrink-0 transition-colors">Programming</button>
+<button class="bg-surface text-on-surface border border-outline-variant hover:bg-surface-container font-label-md text-label-md py-2 px-4 rounded-full whitespace-nowrap flex-shrink-0 transition-colors">Machine Learning</button>
+<button class="bg-surface text-on-surface border border-outline-variant hover:bg-surface-container font-label-md text-label-md py-2 px-4 rounded-full whitespace-nowrap flex-shrink-0 transition-colors">Cyber Security</button>
+<button class="bg-surface text-on-surface border border-outline-variant hover:bg-surface-container font-label-md text-label-md py-2 px-4 rounded-full whitespace-nowrap flex-shrink-0 transition-colors">Data Analytics</button>
+<button class="bg-surface text-on-surface border border-outline-variant hover:bg-surface-container font-label-md text-label-md py-2 px-4 rounded-full whitespace-nowrap flex-shrink-0 transition-colors">Game Theory</button>
+<button class="bg-surface text-on-surface border border-outline-variant hover:bg-surface-container font-label-md text-label-md py-2 px-4 rounded-full whitespace-nowrap flex-shrink-0 transition-colors">Mathematics</button>
+</div>
+<!-- Bento Grid Layout for Main Content Area -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+<!-- Left Column: Main Quizzes Area (8 cols) -->
+<div class="lg:col-span-8 flex flex-col gap-8">
+<!-- 5. Available Quizzes (Premium Cards) -->
+<section>
+<div class="flex items-center justify-between mb-6">
+<h2 class="font-headline-md text-headline-md text-primary">Available Quizzes</h2>
+<button class="text-primary font-label-md text-label-md hover:underline flex items-center gap-1">
+                                    View All
+                                    <span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Quiz Card 1 -->
+<div class="glass-card rounded-2xl overflow-hidden flex flex-col group cursor-pointer h-full border border-surface-variant">
+<div class="h-40 w-full relative overflow-hidden bg-surface-variant">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+<img alt="Cyber Security Thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AP1WRLu8XW4ONJNgSpPcgA3w6OW-NuBJrIiJWBWavD7vH8-bBpz_ArKZx55bOz_OuAZPOEVJx6EsyOtnWdDXi7NB-njliitEVNUAe7yIF7jLfAeqixQ-G08s0Zlgs4zK0u5WAKHMzb3P_wn_5P2XYl9WPoR_Tj55rr4yWb24-Mg1ZdxHtO5YWfI4AH7q-24jdlH9j5DX_OBwqaz5TuGVEVElKTaNpKRB-0TTbagVg14FrqsOdoEHL65drgihcA">
+<div class="absolute bottom-3 left-4 z-20 flex gap-2">
+<span class="bg-surface-container-lowest/90 backdrop-blur-sm text-primary font-label-sm text-[10px] px-2 py-1 rounded-md uppercase tracking-wider font-bold">10 Qs</span>
+<span class="bg-surface-container-lowest/90 backdrop-blur-sm text-primary font-label-sm text-[10px] px-2 py-1 rounded-md uppercase tracking-wider font-bold flex items-center gap-1"><span class="material-symbols-outlined text-[12px]" data-icon="schedule">schedule</span> 15 Mins</span>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<h3 class="font-headline-md text-[20px] leading-tight text-primary mb-2 group-hover:text-tertiary-container transition-colors">Cyber Security Fundamentals</h3>
+<p class="font-body-md text-[14px] text-on-surface-variant mb-4 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="person">person</span> Prof Michael Chen
+                                        </p>
+<div class="mt-auto">
+<p class="font-label-sm text-label-sm text-outline mb-2">Topics Covered:</p>
+<div class="flex flex-wrap gap-2">
+<span class="bg-surface-container text-on-surface text-xs px-2.5 py-1 rounded-full">Authentication</span>
+<span class="bg-surface-container text-on-surface text-xs px-2.5 py-1 rounded-full">Network Security</span>
+<span class="bg-surface-container text-on-surface text-xs px-2.5 py-1 rounded-full">Threat Detection</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Quiz Card 2 -->
+<div class="glass-card rounded-2xl overflow-hidden flex flex-col group cursor-pointer h-full border border-surface-variant">
+<div class="h-40 w-full relative overflow-hidden bg-surface-variant">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+<img alt="Game Theory Thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAhFS8SjHMmrtfIPv06aKp4EwTam8s4kilq35Yzy3GYC-3pIOwOO4b1MxQm_zKRVc1bjFALGxYYwqnpoL7lNfa47ZlJy5YAzMDp1TQpcCbpCoPKx9WEB7gG5OkhO39yNTEyFkSTK4Ej1cArQeA1MNrpHbWzW6aklGChiNgM6BRTKjjQ92nApZwXCTsEfu-7IgTo5hHojEqX1_zSLammcMFkgCqHvxsYCTPpvvu7X4Zc3J4FrsxLLPlQTvuXAj33ttH2fjhjG0q9nM">
+<div class="absolute bottom-3 left-4 z-20 flex gap-2">
+<span class="bg-surface-container-lowest/90 backdrop-blur-sm text-primary font-label-sm text-[10px] px-2 py-1 rounded-md uppercase tracking-wider font-bold">12 Qs</span>
+<span class="bg-surface-container-lowest/90 backdrop-blur-sm text-primary font-label-sm text-[10px] px-2 py-1 rounded-md uppercase tracking-wider font-bold flex items-center gap-1"><span class="material-symbols-outlined text-[12px]" data-icon="schedule">schedule</span> 20 Mins</span>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<h3 class="font-headline-md text-[20px] leading-tight text-primary mb-2 group-hover:text-tertiary-container transition-colors">Game Theory Strategy</h3>
+<p class="font-body-md text-[14px] text-on-surface-variant mb-4 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="person">person</span> Dr. Sarah Jenkins
+                                        </p>
+<div class="mt-auto">
+<p class="font-label-sm text-label-sm text-outline mb-2">Topics Covered:</p>
+<div class="flex flex-wrap gap-2">
+<span class="bg-surface-container text-on-surface text-xs px-2.5 py-1 rounded-full">Nash Equilibrium</span>
+<span class="bg-surface-container text-on-surface text-xs px-2.5 py-1 rounded-full">Zero-Sum Games</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Quiz Card 3 -->
+<div class="glass-card rounded-2xl overflow-hidden flex flex-col group cursor-pointer h-full border border-surface-variant">
+<div class="h-40 w-full relative overflow-hidden bg-surface-variant">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+<img alt="Python Fundamentals Thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5nyRcJBvesP2Ftl3h5nlRYWEhPOJaBZ547IATjN4Ya9vOb3KGohBsYGu9WV_I5puHDpoCYnmshCvzNQUDEKzsk8Iv5OcBZ2fzXHO5qk5YXeQK_Cp5YjwPkFklCqYE8y53C2iO86tPdwZMMPCMoiDuPeQoz2NYX7Hl0ig-0VZiGks5xjQ98CTqvaa_lwU42t1sdQ5F_DkyFpz-BzFblD8ml-wLKOi9qVsNrqOqbh5Lt-YWU2LiXOraflcRJmAkFve__SFORGquS_E">
+<div class="absolute bottom-3 left-4 z-20 flex gap-2">
+<span class="bg-surface-container-lowest/90 backdrop-blur-sm text-primary font-label-sm text-[10px] px-2 py-1 rounded-md uppercase tracking-wider font-bold">15 Qs</span>
+<span class="bg-surface-container-lowest/90 backdrop-blur-sm text-primary font-label-sm text-[10px] px-2 py-1 rounded-md uppercase tracking-wider font-bold flex items-center gap-1"><span class="material-symbols-outlined text-[12px]" data-icon="schedule">schedule</span> 10 Mins</span>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<h3 class="font-headline-md text-[20px] leading-tight text-primary mb-2 group-hover:text-tertiary-container transition-colors">Python Fundamentals</h3>
+<p class="font-body-md text-[14px] text-on-surface-variant mb-4 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="person">person</span> Prof. Alan Turing
+                                        </p>
+<div class="mt-auto">
+<p class="font-label-sm text-label-sm text-outline mb-2">Topics Covered:</p>
+<div class="flex flex-wrap gap-2">
+<span class="bg-surface-container text-on-surface text-xs px-2.5 py-1 rounded-full">Loops</span>
+<span class="bg-surface-container text-on-surface text-xs px-2.5 py-1 rounded-full">Lists</span>
+<span class="bg-surface-container text-on-surface text-xs px-2.5 py-1 rounded-full">Logic</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Empty state or Promo slot to keep grid balanced -->
+<div class="glass-card rounded-2xl p-6 border-dashed border-2 border-outline-variant flex flex-col items-center justify-center text-center bg-surface-container-low/30 h-full min-h-[280px]">
+<span class="material-symbols-outlined text-[48px] text-outline mb-4">add_circle</span>
+<h3 class="font-headline-md text-[18px] text-primary mb-2">Want more practice?</h3>
+<p class="font-body-md text-on-surface-variant text-[14px] mb-4 max-w-[200px]">Unlock additional premium quizzes in the course catalog.</p>
+<button class="bg-primary-container text-on-primary-container font-label-md px-4 py-2 rounded-full hover:bg-primary hover:text-on-primary transition-colors">Browse Catalog</button>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Sidebar content (4 cols) -->
+<div class="lg:col-span-4 flex flex-col gap-6">
+<!-- 4. Adaptive Quiz Actions -->
+<div class="bg-surface-container-lowest rounded-2xl p-5 border border-surface-variant shadow-sm">
+<h3 class="font-headline-md text-[18px] text-primary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="rocket_launch">rocket_launch</span>
+                                Quick Actions
+                            </h3>
+<div class="grid grid-cols-2 gap-3">
+<button class="flex flex-col items-center justify-center p-3 rounded-xl bg-surface hover:bg-surface-container transition-colors border border-outline-variant/30 text-center group">
+<div class="w-10 h-10 rounded-full bg-primary-container/10 text-primary flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit_document">edit_document</span>
+</div>
+<span class="font-label-sm text-[13px] text-on-surface">Practice Quiz</span>
+</button>
+<button class="flex flex-col items-center justify-center p-3 rounded-xl bg-surface hover:bg-surface-container transition-colors border border-outline-variant/30 text-center group">
+<div class="w-10 h-10 rounded-full bg-tertiary-container/10 text-tertiary flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[20px]" data-icon="autorenew">autorenew</span>
+</div>
+<span class="font-label-sm text-[13px] text-on-surface">Revision Quiz</span>
+</button>
+<button class="flex flex-col items-center justify-center p-3 rounded-xl bg-surface hover:bg-surface-container transition-colors border border-outline-variant/30 text-center group">
+<div class="w-10 h-10 rounded-full bg-secondary-container/20 text-secondary flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[20px]" data-icon="psychology">psychology</span>
+</div>
+<span class="font-label-sm text-[13px] text-on-surface">Adaptive Quiz</span>
+</button>
+<button class="flex flex-col items-center justify-center p-3 rounded-xl bg-surface hover:bg-surface-container transition-colors border border-outline-variant/30 text-center group">
+<div class="w-10 h-10 rounded-full bg-error-container/20 text-error flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[20px]" data-icon="swords">swords</span>
+</div>
+<span class="font-label-sm text-[13px] text-on-surface">Challenge Quiz</span>
+</button>
+</div>
+</div>
+<!-- 7. Learning Barrier Insights -->
+<div class="bg-error-container/30 rounded-2xl p-5 border border-error-container/50 shadow-sm relative overflow-hidden">
+<div class="absolute -right-10 -top-10 w-32 h-32 bg-error/5 rounded-full blur-2xl"></div>
+<h3 class="font-headline-md text-[18px] text-on-surface mb-1 flex items-center gap-2 relative z-10">
+<span class="material-symbols-outlined text-error" data-icon="troubleshoot">troubleshoot</span>
+                                Needs Attention
+                            </h3>
+<p class="font-body-md text-[13px] text-on-surface-variant mb-4 relative z-10">We noticed you struggling with these concepts.</p>
+<div class="flex flex-col gap-3 relative z-10">
+<div class="bg-surface-container-lowest p-3 rounded-xl shadow-sm border border-error/10 border-l-4 border-l-error">
+<p class="font-label-md text-[14px] text-on-surface mb-1">Weak Area: Nash Equilibrium</p>
+<button class="text-primary font-label-sm text-[12px] flex items-center gap-1 hover:underline">
+<span class="material-symbols-outlined text-[14px]" data-icon="play_circle">play_circle</span> Watch concept explanation
+                                    </button>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded-xl shadow-sm border border-error/10 border-l-4 border-l-error">
+<p class="font-label-md text-[14px] text-on-surface mb-1">Weak Area: Network Authentication</p>
+<button class="text-primary font-label-sm text-[12px] flex items-center gap-1 hover:underline">
+<span class="material-symbols-outlined text-[14px]" data-icon="assignment_turn_in">assignment_turned_in</span> Take revision quiz
+                                    </button>
+</div>
+</div>
+</div>
+<!-- 6. Recommended For You -->
+<div class="bg-surface-container-lowest rounded-2xl p-5 border border-surface-variant shadow-sm">
+<h3 class="font-headline-md text-[18px] text-primary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary/70" data-icon="recommend">recommend</span>
+                                Recommended Next
+                            </h3>
+<div class="flex flex-col gap-3">
+<a class="flex items-center gap-3 p-3 rounded-xl hover:bg-surface-container transition-colors group" href="#">
+<div class="w-10 h-10 rounded-lg bg-tertiary-container/20 flex items-center justify-center flex-shrink-0 text-tertiary group-hover:bg-tertiary group-hover:text-on-tertiary transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="sync">sync</span>
+</div>
+<div>
+<p class="font-label-md text-[14px] text-on-surface group-hover:text-primary transition-colors">Revision Quiz: Nash Eq.</p>
+<p class="font-body-md text-[12px] text-outline">Strengthen your weak area</p>
+</div>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-xl hover:bg-surface-container transition-colors group" href="#">
+<div class="w-10 h-10 rounded-lg bg-primary-container/20 flex items-center justify-center flex-shrink-0 text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit_document">edit_document</span>
+</div>
+<div>
+<p class="font-label-md text-[14px] text-on-surface group-hover:text-primary transition-colors">Practice: Authentication</p>
+<p class="font-body-md text-[12px] text-outline">Based on recent activity</p>
+</div>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-xl hover:bg-surface-container transition-colors group" href="#">
+<div class="w-10 h-10 rounded-lg bg-secondary-container/30 flex items-center justify-center flex-shrink-0 text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="fact_check">fact_check</span>
+</div>
+<div>
+<p class="font-label-md text-[14px] text-on-surface group-hover:text-primary transition-colors">Concept Check: Python</p>
+<p class="font-body-md text-[12px] text-outline">Keep your streak alive</p>
+</div>
+</a>
+</div>
+</div>
+<!-- 8. Recent Activity -->
+<div class="bg-surface-container-low rounded-2xl p-5 border border-surface-variant/50">
+<h3 class="font-headline-md text-[16px] text-on-surface mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-outline" data-icon="schedule">schedule</span>
+                                Recent Activity
+                            </h3>
+<div class="relative pl-3 border-l-2 border-surface-variant flex flex-col gap-5 ml-2">
+<div class="relative">
+<div class="absolute -left-[19px] top-1 w-3 h-3 rounded-full bg-secondary ring-4 ring-surface-container-low"></div>
+<p class="font-label-md text-[13px] text-on-surface">Completed Cyber Security Quiz</p>
+<p class="font-body-md text-[12px] text-outline mt-0.5">Scored <span class="text-secondary font-semibold">88%</span> • 2 hours ago</p>
+</div>
+<div class="relative">
+<div class="absolute -left-[19px] top-1 w-3 h-3 rounded-full bg-secondary ring-4 ring-surface-container-low"></div>
+<p class="font-label-md text-[13px] text-on-surface">Completed Game Theory Quiz</p>
+<p class="font-body-md text-[12px] text-outline mt-0.5">Scored <span class="text-secondary font-semibold">92%</span> • Yesterday</p>
+</div>
+<div class="relative">
+<div class="absolute -left-[19px] top-1 w-3 h-3 rounded-full bg-primary ring-4 ring-surface-container-low"></div>
+<p class="font-label-md text-[13px] text-on-surface">Retook Authentication Quiz</p>
+<p class="font-body-md text-[12px] text-outline mt-0.5">Improved <span class="text-primary font-semibold">+15%</span> • 2 days ago</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom padding for scrolling -->
+<div class="h-20 md:h-12 w-full"></div>
+</div>
+</main>
+</div>
+</body></html>

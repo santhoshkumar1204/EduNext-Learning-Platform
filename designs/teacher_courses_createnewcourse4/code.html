@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Create Course - Download Permissions</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#d9dadc",
+                        "inverse-surface": "#2e3132",
+                        "surface-container-high": "#e7e8ea",
+                        "inverse-on-surface": "#f0f1f3",
+                        "surface-variant": "#e1e2e4",
+                        "on-tertiary-container": "#fffbff",
+                        "on-surface-variant": "#3e4a3e",
+                        "secondary": "#405f91",
+                        "on-tertiary-fixed-variant": "#3323cc",
+                        "outline-variant": "#bdcabb",
+                        "surface": "#f8f9fb",
+                        "surface-container": "#edeef0",
+                        "primary-container": "#008740",
+                        "secondary-container": "#a6c5fe",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#62de85",
+                        "on-secondary-container": "#315182",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#191c1e",
+                        "on-tertiary-fixed": "#0f0069",
+                        "background": "#f8f9fb",
+                        "tertiary-fixed": "#e2dfff",
+                        "on-primary-fixed-variant": "#005225",
+                        "primary": "#006b31",
+                        "surface-bright": "#f8f9fb",
+                        "surface-container-low": "#f3f4f6",
+                        "on-surface": "#191c1e",
+                        "tertiary-fixed-dim": "#c3c0ff",
+                        "tertiary-container": "#645efb",
+                        "surface-tint": "#006d33",
+                        "secondary-fixed-dim": "#a9c7ff",
+                        "primary-fixed": "#7ffb9f",
+                        "on-primary-fixed": "#00210b",
+                        "primary-fixed-dim": "#62de85",
+                        "on-secondary-fixed-variant": "#264778",
+                        "surface-container-highest": "#e1e2e4",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "tertiary": "#4b41e1",
+                        "on-secondary-fixed": "#001b3d",
+                        "outline": "#6e7a6d",
+                        "on-error": "#ffffff",
+                        "on-primary-container": "#f7fff3",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#d6e3ff",
+                        "on-primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "1.5rem",
+                        "stack-md": "1.5rem",
+                        "stack-lg": "2.5rem",
+                        "margin-mobile": "1rem",
+                        "stack-sm": "0.5rem",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "label-bold": ["Inter"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-bold": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #006b31;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #006b31;
+        }
+        .toggle-checkbox:focus + .toggle-label {
+            box-shadow: 0 0 0 2px rgba(0, 107, 49, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen font-body-md text-body-md antialiased">
+<!-- Top Navigation (Context: Creation Flow, so keeping shell minimal but present for "EduNext" branding) -->
+<header class="bg-background border-b border-outline-variant flex justify-between items-center w-full px-gutter h-20 sticky top-0 z-50">
+<div class="flex items-center gap-4">
+<a class="font-headline-lg text-headline-lg font-bold text-primary" href="#">EduNext</a>
+<span class="text-on-surface-variant ml-4 hidden md:inline">| Create New Course</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:bg-surface-container-low p-2 rounded-full transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-gutter py-12 md:py-16 grid grid-cols-1 md:grid-cols-[1fr_2fr_1fr] gap-8">
+<!-- Left: Empty or subtle contextual info -->
+<div class="hidden md:block">
+<div class="sticky top-28 text-on-surface-variant">
+<span class="material-symbols-outlined text-4xl mb-4 text-primary" data-icon="settings_suggest">settings_suggest</span>
+<h2 class="font-label-bold text-label-bold mb-2">Download Settings</h2>
+<p class="font-body-md text-body-md text-sm">Configure how students can interact with and save your course materials. Consider copyright and accessibility.</p>
+</div>
+</div>
+<!-- Center: Main Content Container -->
+<div class="w-full max-w-2xl mx-auto flex flex-col gap-stack-lg">
+<!-- Progress Stepper -->
+<div class="flex items-center justify-between relative mb-8">
+<!-- Line background -->
+<div class="absolute left-0 top-1/2 -translate-y-1/2 w-full h-[2px] bg-surface-variant -z-10"></div>
+<!-- Active Line -->
+<div class="absolute left-0 top-1/2 -translate-y-1/2 w-[75%] h-[2px] bg-primary -z-10 transition-all duration-300"></div>
+<!-- Step 1 -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-bold text-label-bold shadow-sm">
+<span class="material-symbols-outlined text-sm" data-icon="check">check</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant hidden md:block">Details</span>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-bold text-label-bold shadow-sm">
+<span class="material-symbols-outlined text-sm" data-icon="check">check</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant hidden md:block">Content</span>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-bold text-label-bold shadow-sm">
+<span class="material-symbols-outlined text-sm" data-icon="check">check</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant hidden md:block">Pricing</span>
+</div>
+<!-- Step 4 (Current) -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container border-2 border-primary flex items-center justify-center font-label-bold text-label-bold shadow-sm ring-4 ring-primary-container/20">
+                        4
+                    </div>
+<span class="font-label-sm text-label-sm text-primary hidden md:block">Permissions</span>
+</div>
+<!-- Step 5 -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface-variant border border-outline-variant flex items-center justify-center font-label-bold text-label-bold">
+                        5
+                    </div>
+<span class="font-label-sm text-label-sm text-on-surface-variant hidden md:block">Publish</span>
+</div>
+</div>
+<!-- Header -->
+<div class="text-center md:text-left">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background mb-4">Download Permissions</h1>
+<p class="text-on-surface-variant">Set the download and save permissions for students enrolled in this course.</p>
+</div>
+<!-- Permissions Form -->
+<div class="bg-surface rounded-xl border border-outline-variant p-6 flex flex-col gap-stack-md">
+<!-- Video Offline Download -->
+<div class="flex items-start justify-between py-4 border-b border-surface-variant last:border-0">
+<div class="flex-1 pr-4">
+<h3 class="font-label-bold text-label-bold text-on-background mb-1">Video Offline Download</h3>
+<p class="font-body-md text-body-md text-sm text-on-surface-variant">Allow students to download videos for offline viewing exclusively within the EduNext mobile app.</p>
+</div>
+<div class="relative inline-block w-12 align-middle select-none transition duration-200 ease-in mt-1">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer border-surface-variant focus:ring-0 focus:outline-none focus:ring-offset-0 z-10 transition-all duration-200" id="video_offline" name="video_offline" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-variant cursor-pointer transition-colors duration-200" for="video_offline"></label>
+</div>
+</div>
+<!-- Video Direct Download -->
+<div class="flex items-start justify-between py-4 border-b border-surface-variant last:border-0">
+<div class="flex-1 pr-4">
+<h3 class="font-label-bold text-label-bold text-on-background mb-1">Video Direct Download</h3>
+<p class="font-body-md text-body-md text-sm text-on-surface-variant">Permit students to download raw video files (.mp4) directly to their personal devices.</p>
+</div>
+<div class="relative inline-block w-12 align-middle select-none transition duration-200 ease-in mt-1">
+<input class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer border-surface-variant focus:ring-0 focus:outline-none focus:ring-offset-0 z-10 transition-all duration-200" id="video_direct" name="video_direct" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-variant cursor-pointer transition-colors duration-200" for="video_direct"></label>
+</div>
+</div>
+<!-- Materials Save to EduNext -->
+<div class="flex items-start justify-between py-4 border-b border-surface-variant last:border-0">
+<div class="flex-1 pr-4">
+<h3 class="font-label-bold text-label-bold text-on-background mb-1">Materials Save to EduNext</h3>
+<p class="font-body-md text-body-md text-sm text-on-surface-variant">Enable students to save PDFs and reading materials to their personal EduNext library.</p>
+</div>
+<div class="relative inline-block w-12 align-middle select-none transition duration-200 ease-in mt-1">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer border-surface-variant focus:ring-0 focus:outline-none focus:ring-offset-0 z-10 transition-all duration-200" id="materials_save" name="materials_save" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-variant cursor-pointer transition-colors duration-200" for="materials_save"></label>
+</div>
+</div>
+<!-- Materials Download to Device -->
+<div class="flex items-start justify-between py-4 border-b border-surface-variant last:border-0">
+<div class="flex-1 pr-4">
+<h3 class="font-label-bold text-label-bold text-on-background mb-1">Materials Download to Device</h3>
+<p class="font-body-md text-body-md text-sm text-on-surface-variant">Allow direct downloading of supplementary materials (PDFs, docs, zips) to personal storage.</p>
+</div>
+<div class="relative inline-block w-12 align-middle select-none transition duration-200 ease-in mt-1">
+<input class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer border-surface-variant focus:ring-0 focus:outline-none focus:ring-offset-0 z-10 transition-all duration-200" id="materials_download" name="materials_download" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-variant cursor-pointer transition-colors duration-200" for="materials_download"></label>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col-reverse md:flex-row justify-between items-center mt-4 gap-4">
+<button class="w-full md:w-auto px-6 py-3 rounded-lg border border-outline-variant text-on-surface hover:bg-surface-container-low transition-colors font-label-bold text-label-bold focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" type="button">
+                    Back to Pricing
+                </button>
+<button class="w-full md:w-auto px-8 py-3 rounded-lg bg-primary text-on-primary hover:bg-surface-tint transition-colors font-label-bold text-label-bold flex items-center justify-center gap-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" type="button">
+                    Save &amp; Continue
+                    <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Right: Spacer for grid -->
+<div class="hidden md:block"></div>
+</main>
+</body></html>

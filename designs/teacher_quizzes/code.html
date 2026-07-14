@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduNext - Quiz Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-fixed-variant": "#005225",
+                      "on-tertiary-fixed-variant": "#3323cc",
+                      "surface-container": "#edeef0",
+                      "inverse-primary": "#62de85",
+                      "secondary": "#405f91",
+                      "primary-fixed": "#7ffb9f",
+                      "on-surface": "#191c1e",
+                      "on-secondary-fixed-variant": "#264778",
+                      "tertiary-fixed-dim": "#c3c0ff",
+                      "surface-dim": "#d9dadc",
+                      "surface-container-highest": "#e1e2e4",
+                      "surface-tint": "#006d33",
+                      "on-secondary-container": "#315182",
+                      "on-primary-fixed": "#00210b",
+                      "on-error": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "inverse-surface": "#2e3132",
+                      "surface-variant": "#e1e2e4",
+                      "surface-bright": "#f8f9fb",
+                      "primary-container": "#008740",
+                      "on-error-container": "#93000a",
+                      "on-primary": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "surface-container-high": "#e7e8ea",
+                      "outline": "#6e7a6d",
+                      "primary-fixed-dim": "#62de85",
+                      "primary": "#006b31",
+                      "background": "#f8f9fb",
+                      "tertiary-fixed": "#e2dfff",
+                      "secondary-fixed-dim": "#a9c7ff",
+                      "tertiary": "#4b41e1",
+                      "surface-container-low": "#f3f4f6",
+                      "inverse-on-surface": "#f0f1f3",
+                      "error-container": "#ffdad6",
+                      "on-secondary-fixed": "#001b3d",
+                      "on-primary-container": "#f7fff3",
+                      "on-tertiary-fixed": "#0f0069",
+                      "on-tertiary-container": "#fffbff",
+                      "secondary-container": "#a6c5fe",
+                      "on-surface-variant": "#3e4a3e",
+                      "outline-variant": "#bdcabb",
+                      "on-background": "#191c1e",
+                      "on-tertiary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "tertiary-container": "#645efb",
+                      "secondary-fixed": "#d6e3ff",
+                      "surface": "#f8f9fb"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "1rem",
+                      "stack-md": "1.5rem",
+                      "stack-sm": "0.5rem",
+                      "gutter": "1.5rem",
+                      "stack-lg": "2.5rem",
+                      "container-max": "1280px"
+              },
+              "fontFamily": {
+                      "label-bold": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "label-bold": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "500"
+                              }
+                      ]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #d9dadc; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #6e7a6d; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased h-screen overflow-hidden flex">
+<!-- Shared Component: SideNavBar -->
+<aside class="fixed left-0 top-0 h-screen w-64 bg-surface border-r border-outline-variant flex flex-col z-20">
+<!-- Logo Area -->
+<div class="h-20 flex items-center px-6 border-b border-outline-variant border-opacity-50">
+<span class="font-headline-lg text-headline-lg font-bold text-primary">EduNext</span>
+</div>
+<!-- Navigation Tabs -->
+<nav class="flex flex-col h-full py-6 overflow-y-auto gap-1 px-2">
+<!-- Inactive Tabs -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium rounded-lg hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-bold text-label-bold">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium rounded-lg hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-label-bold text-label-bold">Courses</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium rounded-lg hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-bold text-label-bold">Students</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium rounded-lg hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-bold text-label-bold">Learning Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium rounded-lg hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">visibility</span>
+<span class="font-label-bold text-label-bold">Attention Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium rounded-lg hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">videocam</span>
+<span class="font-label-bold text-label-bold">Webcam Recordings</span>
+</a>
+<!-- Active Tab -->
+<a class="flex items-center gap-3 px-4 py-3 text-primary font-bold border-r-4 border-primary bg-primary-container/10 hover:bg-primary-container/20 transition-colors scale-95 duration-150 rounded-l-lg" href="#">
+<span class="material-symbols-outlined icon-fill">quiz</span>
+<span class="font-label-bold text-label-bold">Quizzes</span>
+</a>
+<!-- Inactive Tabs -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium rounded-lg hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="font-label-bold text-label-bold">Assignments</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium rounded-lg hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">forum</span>
+<span class="font-label-bold text-label-bold">Community</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium rounded-lg hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">campaign</span>
+<span class="font-label-bold text-label-bold">Announcements</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium rounded-lg hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-bold text-label-bold">Apprenticeships</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium rounded-lg hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-label-bold text-label-bold">Reports</span>
+</a>
+</nav>
+<!-- Footer Area -->
+<div class="mt-auto px-4 py-4 border-t border-outline-variant border-opacity-50">
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant font-medium rounded-lg hover:bg-surface-container-high transition-colors mb-1" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-bold text-label-bold">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant font-medium rounded-lg hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-bold text-label-bold">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Viewport Area -->
+<div class="flex-1 ml-64 flex flex-col h-screen overflow-hidden">
+<!-- Shared Component: TopAppBar -->
+<header class="flex justify-between items-center w-full px-gutter h-20 bg-background border-b border-outline-variant border-opacity-50 z-10 shrink-0">
+<!-- Search Bar (Left) -->
+<div class="relative w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface border border-outline-variant rounded-full py-2 pl-10 pr-4 text-body-md font-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all shadow-sm" placeholder="Search EduNext..." type="text"/>
+</div>
+<!-- Trailing Actions & Profile -->
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined">help</span>
+</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined">apps</span>
+</button>
+<div class="h-8 w-px bg-outline-variant mx-2"></div>
+<div class="flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity">
+<div class="flex flex-col items-end">
+<span class="font-label-bold text-label-bold text-on-surface">Dr. Amarjeet Kaur</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Teacher Dashboard</span>
+</div>
+<img alt="Dr. Amarjeet Kaur profile picture" class="w-10 h-10 rounded-full border border-outline-variant object-cover" data-alt="A professional headshot of a middle-aged female educator with short dark hair, wearing a neat blouse. The lighting is bright and studio-quality, set against a pristine, light-grey background that aligns perfectly with a clean, modern corporate UI style. The mood is confident and approachable." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBu-fxSra63b9FZSfcXOLfGKNm91ykl5AmDVvrioHXtIYYGC63QcWqtDl1g1sv9diOMdReHMWfC53T-DMELIHzb58yMFDSxa-mYo54kuUTWJzNfG7QfnlcyQyUw6AUbV3C8F4L8fd5--5KCd805cusrJiv1b2DALUJNc6aGgKE1UGujAHgqAQ4VqXRtVbPulpltbMzfuacPeHi8_QAQlrg9Y2raIP_Eav8H-HrQ05IHM4AfFjwGSpeNHLUfOd4rNuxroaPRDDo3EuM"/>
+</div>
+</div>
+</header>
+<!-- Canvas Area -->
+<main class="flex-1 overflow-y-auto px-gutter py-8 bg-background">
+<div class="max-w-[1280px] mx-auto flex flex-col gap-8">
+<!-- Page Header & Actions -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Quiz Management</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Create and manage assessments for your courses.</p>
+</div>
+<button class="flex items-center gap-2 bg-primary text-on-primary px-5 py-2.5 rounded-lg font-label-bold text-label-bold hover:bg-surface-tint shadow-sm transition-all transform active:scale-95">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                        Create Quiz
+                    </button>
+</div>
+<!-- Analytics Summary Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Stat Card 1 -->
+<div class="bg-surface border border-outline-variant rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="absolute right-0 top-0 w-24 h-24 bg-primary-container/10 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+<div class="flex items-center gap-3 mb-3">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">monitoring</span>
+</div>
+<span class="font-label-bold text-label-bold text-on-surface-variant">Average Score</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg text-on-surface">78.4%</span>
+<span class="font-label-sm text-label-sm text-primary flex items-center"><span class="material-symbols-outlined text-[14px]">arrow_upward</span> 2.1%</span>
+</div>
+</div>
+<!-- Stat Card 2 -->
+<div class="bg-surface border border-outline-variant rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="absolute right-0 top-0 w-24 h-24 bg-secondary-container/20 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+<div class="flex items-center gap-3 mb-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container/30 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">emoji_events</span>
+</div>
+<span class="font-label-bold text-label-bold text-on-surface-variant">Highest Score</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg text-on-surface">100%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">in 5 Quizzes</span>
+</div>
+</div>
+<!-- Stat Card 3 -->
+<div class="bg-surface border border-outline-variant rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="absolute right-0 top-0 w-24 h-24 bg-tertiary-container/10 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+<div class="flex items-center gap-3 mb-3">
+<div class="w-10 h-10 rounded-full bg-tertiary-container/20 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">group_add</span>
+</div>
+<span class="font-label-bold text-label-bold text-on-surface-variant">Total Attempts</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg text-on-surface">1,492</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">This Semester</span>
+</div>
+</div>
+<!-- Stat Card 4 -->
+<div class="bg-surface border border-outline-variant rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="absolute right-0 top-0 w-24 h-24 bg-error-container/30 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+<div class="flex items-center gap-3 mb-3">
+<div class="w-10 h-10 rounded-full bg-error-container/50 flex items-center justify-center text-error">
+<span class="material-symbols-outlined">warning</span>
+</div>
+<span class="font-label-bold text-label-bold text-on-surface-variant">Weak Topics</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface font-semibold truncate">Cellular Respiration</span>
+<span class="font-label-sm text-label-sm text-error flex items-center gap-1 mt-1"><span class="material-symbols-outlined text-[14px]">trending_down</span> 45% Avg Success</span>
+</div>
+</div>
+</section>
+<!-- Filters Section -->
+<section class="bg-surface p-4 rounded-xl border border-outline-variant shadow-sm flex flex-wrap gap-4 items-center justify-between">
+<div class="flex flex-wrap gap-3 flex-1">
+<!-- Search -->
+<div class="relative w-full md:w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">search</span>
+<input class="w-full bg-background border border-outline-variant rounded-lg py-1.5 pl-9 pr-3 text-body-md font-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary h-10" placeholder="Search quizzes..." type="text"/>
+</div>
+<!-- Filters -->
+<select class="bg-background border border-outline-variant text-on-surface text-body-md font-body-md rounded-lg focus:ring-primary focus:border-primary block p-2 h-10 min-w-[140px]">
+<option selected="">All Courses</option>
+<option value="bio101">Biology 101</option>
+<option value="chem201">Chemistry 201</option>
+</select>
+<select class="bg-background border border-outline-variant text-on-surface text-body-md font-body-md rounded-lg focus:ring-primary focus:border-primary block p-2 h-10 min-w-[140px]">
+<option selected="">All Lessons</option>
+<option value="l1">Lesson 1: Intro</option>
+<option value="l2">Lesson 2: Basics</option>
+</select>
+<select class="bg-background border border-outline-variant text-on-surface text-body-md font-body-md rounded-lg focus:ring-primary focus:border-primary block p-2 h-10 min-w-[120px]">
+<option selected="">Difficulty</option>
+<option value="easy">Easy</option>
+<option value="medium">Medium</option>
+<option value="hard">Hard</option>
+</select>
+<select class="bg-background border border-outline-variant text-on-surface text-body-md font-body-md rounded-lg focus:ring-primary focus:border-primary block p-2 h-10 min-w-[120px]">
+<option selected="">Status</option>
+<option value="published">Published</option>
+<option value="draft">Draft</option>
+</select>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface flex items-center gap-1 font-label-bold text-label-bold px-2 py-1 rounded hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-[18px]">filter_alt_off</span> Clear
+                    </button>
+</section>
+<!-- Quiz Cards Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<article class="bg-surface border border-outline-variant rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col">
+<div class="p-5 border-b border-outline-variant border-opacity-50">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-label-bold text-label-bold text-on-surface text-lg leading-tight line-clamp-2">Midterm Review: Cell Biology &amp; Genetics</h3>
+<span class="bg-primary-container/20 text-primary-container font-label-sm text-label-sm px-2.5 py-0.5 rounded border border-primary-container/30 whitespace-nowrap">Published</span>
+</div>
+<div class="flex flex-col gap-1 mt-3">
+<span class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">menu_book</span> Biology 101</span>
+<span class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">play_lesson</span> Week 4: Cellular Structures</span>
+</div>
+<div class="mt-4 inline-flex items-center gap-1 bg-surface-container-high px-2 py-1 rounded text-on-surface-variant font-label-sm text-label-sm">
+<div class="w-2 h-2 rounded-full bg-secondary"></div> Medium
+                            </div>
+</div>
+<div class="p-5 grid grid-cols-2 gap-4 bg-background/50 flex-1">
+<div>
+<span class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Questions</span>
+<span class="font-label-bold text-label-bold text-on-surface">25</span>
+</div>
+<div>
+<span class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Time Limit</span>
+<span class="font-label-bold text-label-bold text-on-surface">45 mins</span>
+</div>
+<div>
+<span class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Attempts</span>
+<span class="font-label-bold text-label-bold text-on-surface">142</span>
+</div>
+<div>
+<span class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Avg Score</span>
+<span class="font-label-bold text-label-bold text-primary">82%</span>
+</div>
+</div>
+<div class="p-3 border-t border-outline-variant border-opacity-50 flex justify-between bg-surface rounded-b-xl">
+<button class="p-2 text-on-surface-variant hover:text-primary hover:bg-primary-container/10 rounded transition-colors tooltip-trigger" title="Edit Quiz">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-secondary hover:bg-secondary-container/20 rounded transition-colors tooltip-trigger" title="View Analytics">
+<span class="material-symbols-outlined">bar_chart</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high rounded transition-colors tooltip-trigger" title="Duplicate">
+<span class="material-symbols-outlined">content_copy</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-error hover:bg-error-container/30 rounded transition-colors tooltip-trigger" title="Delete">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="bg-surface border border-outline-variant rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col">
+<div class="p-5 border-b border-outline-variant border-opacity-50">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-label-bold text-label-bold text-on-surface text-lg leading-tight line-clamp-2">Pop Quiz: Organic Nomenclature</h3>
+<span class="bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm px-2.5 py-0.5 rounded border border-outline-variant whitespace-nowrap">Draft</span>
+</div>
+<div class="flex flex-col gap-1 mt-3">
+<span class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">menu_book</span> Chemistry 201</span>
+<span class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">play_lesson</span> Week 2: Alkanes</span>
+</div>
+<div class="mt-4 inline-flex items-center gap-1 bg-surface-container-high px-2 py-1 rounded text-on-surface-variant font-label-sm text-label-sm">
+<div class="w-2 h-2 rounded-full bg-error"></div> Hard
+                            </div>
+</div>
+<div class="p-5 grid grid-cols-2 gap-4 bg-background/50 flex-1 opacity-70">
+<div>
+<span class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Questions</span>
+<span class="font-label-bold text-label-bold text-on-surface">10</span>
+</div>
+<div>
+<span class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Time Limit</span>
+<span class="font-label-bold text-label-bold text-on-surface">15 mins</span>
+</div>
+<div>
+<span class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Attempts</span>
+<span class="font-label-bold text-label-bold text-on-surface">-</span>
+</div>
+<div>
+<span class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Avg Score</span>
+<span class="font-label-bold text-label-bold text-on-surface">-</span>
+</div>
+</div>
+<div class="p-3 border-t border-outline-variant border-opacity-50 flex justify-between bg-surface rounded-b-xl">
+<button class="p-2 text-on-surface-variant hover:text-primary hover:bg-primary-container/10 rounded transition-colors tooltip-trigger" title="Edit Quiz">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="p-2 text-surface-dim cursor-not-allowed rounded transition-colors tooltip-trigger" disabled="" title="View Analytics (Not Available)">
+<span class="material-symbols-outlined">bar_chart</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high rounded transition-colors tooltip-trigger" title="Duplicate">
+<span class="material-symbols-outlined">content_copy</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-error hover:bg-error-container/30 rounded transition-colors tooltip-trigger" title="Delete">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</article>
+</section>
+</div>
+</main>
+</div>
+</body></html>

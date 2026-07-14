@@ -1,0 +1,593 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Teacher Profile - EduNext</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "error": "#ba1a1a",
+                      "tertiary-container": "#003374",
+                      "inverse-primary": "#adc7f7",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-fixed-variant": "#2d476f",
+                      "on-primary": "#ffffff",
+                      "surface-dim": "#d8dadc",
+                      "secondary": "#006e2f",
+                      "inverse-surface": "#2d3133",
+                      "secondary-fixed-dim": "#4ae176",
+                      "on-error-container": "#93000a",
+                      "on-primary-container": "#86a0cd",
+                      "error-container": "#ffdad6",
+                      "surface-container-low": "#f2f4f6",
+                      "on-primary-fixed": "#001b3c",
+                      "surface": "#f7f9fb",
+                      "on-tertiary-fixed-variant": "#004395",
+                      "surface-container-highest": "#e0e3e5",
+                      "outline": "#74777f",
+                      "surface-tint": "#455f88",
+                      "inverse-on-surface": "#eff1f3",
+                      "tertiary-fixed": "#d8e2ff",
+                      "primary-container": "#1a365d",
+                      "surface-bright": "#f7f9fb",
+                      "primary": "#002045",
+                      "surface-variant": "#e0e3e5",
+                      "surface-container-high": "#e6e8ea",
+                      "on-surface-variant": "#43474e",
+                      "secondary-container": "#6bff8f",
+                      "on-error": "#ffffff",
+                      "outline-variant": "#c4c6cf",
+                      "background": "#f7f9fb",
+                      "tertiary-fixed-dim": "#adc6ff",
+                      "on-tertiary": "#ffffff",
+                      "secondary-fixed": "#6bff8f",
+                      "primary-fixed-dim": "#adc7f7",
+                      "on-tertiary-container": "#6a9dff",
+                      "on-secondary-container": "#007432",
+                      "on-background": "#191c1e",
+                      "primary-fixed": "#d6e3ff",
+                      "on-secondary-fixed-variant": "#005321",
+                      "tertiary": "#001f4b",
+                      "on-secondary": "#ffffff",
+                      "surface-container": "#eceef0",
+                      "on-tertiary-fixed": "#001a42",
+                      "on-surface": "#191c1e",
+                      "on-secondary-fixed": "#002109",
+                      "brand-primary": "#1E3A8A",
+                      "brand-success": "#22C55E"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px",
+                      "round-eight": "8px"
+              },
+              "spacing": {
+                      "container-max": "1280px",
+                      "margin-mobile": "16px",
+                      "gutter": "24px",
+                      "margin-desktop": "40px",
+                      "base": "8px"
+              },
+              "fontFamily": {
+                      "headline-xl": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "headline-xl": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+</head>
+<body class="bg-surface text-on-background font-body-md antialiased pt-16">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/20 shadow-sm flex justify-between items-center h-16 px-margin-desktop max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md text-brand-primary tracking-tight font-bold">EduNext</div>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-on-surface-variant hover:text-brand-primary transition-colors hover:scale-95 duration-150" href="#">Dashboard</a>
+<a class="text-on-surface-variant hover:text-brand-primary transition-colors hover:scale-95 duration-150" href="#">Courses</a>
+<a class="text-on-surface-variant hover:text-brand-primary transition-colors hover:scale-95 duration-150" href="#">Students</a>
+<a class="text-on-surface-variant hover:text-brand-primary transition-colors hover:scale-95 duration-150" href="#">Resources</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden md:block bg-brand-primary text-on-primary font-label-md text-label-md px-4 py-2 rounded-full hover:scale-105 transition-transform shadow-md hover:shadow-lg">Create Class</button>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-variant border border-outline-variant/30 flex items-center justify-center">
+<img alt="Teacher Profile Picture" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLtcfQCO8OR19NtoZBPsbUho00UQp2tPpsaz5PjKHNHQyO0NrgVin0gM_QkKxppPa06u9Oy6dN9Oshmr3g6x8vyo5Ja10uavwQ46jcXr71ZAXNn1W_USOXXCDch2h9gX5wiTLD7bnO-mt2JcC_yYKhb6ZWmtDLW00d-t6pCxW52xfNwSwFNmqdt48Rr1BTqxmYXBx1ge4tEm1bdTz5yYU7jll1nPznGSmJ2Zzv_vuSw1hbzSds7bZ-caJ98">
+</div>
+<button class="md:hidden text-on-surface"><span class="material-symbols-outlined" data-icon="menu">menu</span></button>
+</div>
+</nav>
+<main class="max-w-container-max mx-auto pb-gutter">
+<!-- Header Section with Banner -->
+<div class="w-full bg-gradient-to-r from-[#1E3A8A] to-[#2563EB] h-32 md:h-48 relative"></div>
+<div class="px-margin-mobile md:px-margin-desktop -mt-16 md:-mt-20 relative z-10 flex flex-col gap-10 lg:gap-16">
+<!-- Profile Header Content -->
+<section class="bg-surface-container-lowest rounded-round-eight p-6 md:p-8 shadow-sm border border-outline-variant/20 flex flex-col md:flex-row gap-6 items-start md:items-center">
+<!-- Profile Photo -->
+<div class="relative w-32 h-32 md:w-40 md:h-40 shrink-0">
+<div class="w-full h-full rounded-full overflow-hidden border-4 border-surface-container-lowest shadow-md">
+<img alt="Prof. David Chen" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLtcfQCO8OR19NtoZBPsbUho00UQp2tPpsaz5PjKHNHQyO0NrgVin0gM_QkKxppPa06u9Oy6dN9Oshmr3g6x8vyo5Ja10uavwQ46jcXr71ZAXNn1W_USOXXCDch2h9gX5wiTLD7bnO-mt2JcC_yYKhb6ZWmtDLW00d-t6pCxW52xfNwSwFNmqdt48Rr1BTqxmYXBx1ge4tEm1bdTz5yYU7jll1nPznGSmJ2Zzv_vuSw1hbzSds7bZ-caJ98">
+</div>
+<button class="absolute bottom-2 right-2 w-8 h-8 bg-surface-container-lowest border border-outline-variant rounded-full flex items-center justify-center text-brand-primary shadow-sm hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="edit">edit</span>
+</button>
+</div>
+<!-- Profile Details -->
+<div class="flex-1 flex flex-col gap-3">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-3 flex-wrap">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-on-surface">Prof. David Chen</h1>
+<div class="flex gap-2">
+<span class="flex items-center gap-1 px-2.5 py-1 bg-brand-primary/10 text-brand-primary font-label-sm text-label-sm rounded-full">
+<span class="material-symbols-outlined text-[14px]">verified</span> Verified Educator
+                        </span>
+<span class="flex items-center gap-1 px-2.5 py-1 bg-[#F59E0B]/10 text-[#D97706] font-label-sm text-label-sm rounded-full">
+<span class="material-symbols-outlined text-[14px]">workspace_premium</span> Top Mentor
+                        </span>
+<span class="flex items-center gap-1 px-2.5 py-1 bg-[#10B981]/10 text-[#059669] font-label-sm text-label-sm rounded-full">
+<span class="material-symbols-outlined text-[14px]">forum</span> Community Contributor
+                        </span>
+</div>
+</div>
+<p class="font-body-lg text-on-surface-variant">Senior Educator &amp; Curriculum Architect</p>
+</div>
+<div class="flex flex-wrap gap-x-6 gap-y-2">
+<span class="flex items-center gap-1.5 font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">school</span> Global Tech University
+                </span>
+<span class="flex items-center gap-1.5 font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">work_history</span> 15+ Years Experience
+                </span>
+<span class="flex items-center gap-1.5 font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">calendar_today</span> Joined EduNext: Oct 2023
+                </span>
+</div>
+<div class="flex flex-wrap gap-2 mt-1">
+<span class="px-3 py-1 bg-surface-container-low border border-outline-variant/30 text-on-surface-variant font-label-sm rounded-full">Machine Learning</span>
+<span class="px-3 py-1 bg-surface-container-low border border-outline-variant/30 text-on-surface-variant font-label-sm rounded-full">AI Ethics</span>
+<span class="px-3 py-1 bg-surface-container-low border border-outline-variant/30 text-on-surface-variant font-label-sm rounded-full">Data Science</span>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col gap-3 w-full md:w-auto shrink-0">
+<button class="w-full bg-brand-primary text-on-primary font-label-md px-6 py-2.5 rounded-full hover:bg-brand-primary/90 transition-colors shadow-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">edit</span> Edit Profile
+            </button>
+<button class="w-full bg-surface-container-lowest border border-outline-variant text-on-surface font-label-md px-6 py-2.5 rounded-full hover:bg-surface-container-low transition-colors shadow-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">download</span> Download Report
+            </button>
+<button class="w-full bg-surface-container-lowest border border-outline-variant text-on-surface font-label-md px-6 py-2.5 rounded-full hover:bg-surface-container-low transition-colors shadow-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">settings</span> Account Settings
+            </button>
+</div>
+</section>
+<!-- Statistics Section -->
+<section class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-gutter">
+<div class="bg-surface-container-lowest rounded-round-eight p-5 shadow-sm border border-outline-variant/20 hover:-translate-y-1 transition-transform duration-300">
+<div class="font-label-md text-on-surface-variant mb-2">Courses Published</div>
+<div class="font-headline-xl text-on-surface">12</div>
+</div>
+<div class="bg-surface-container-lowest rounded-round-eight p-5 shadow-sm border border-outline-variant/20 hover:-translate-y-1 transition-transform duration-300">
+<div class="font-label-md text-on-surface-variant mb-2">Active Students</div>
+<div class="font-headline-xl text-on-surface">1,240</div>
+</div>
+<div class="bg-surface-container-lowest rounded-round-eight p-5 shadow-sm border border-outline-variant/20 hover:-translate-y-1 transition-transform duration-300">
+<div class="font-label-md text-on-surface-variant mb-2">Assignments Reviewed</div>
+<div class="font-headline-xl text-on-surface">4,520</div>
+</div>
+<div class="bg-surface-container-lowest rounded-round-eight p-5 shadow-sm border border-outline-variant/20 hover:-translate-y-1 transition-transform duration-300">
+<div class="font-label-md text-on-surface-variant mb-2">Community Contributions</div>
+<div class="font-headline-xl text-on-surface">350</div>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Left Column -->
+<div class="lg:col-span-2 flex flex-col gap-10">
+<!-- Quick Actions -->
+<section>
+<h2 class="font-headline-md text-on-surface mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined">bolt</span> Quick Actions
+                </h2>
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+<button class="flex flex-col items-center justify-center gap-3 p-4 bg-surface-container-lowest border border-outline-variant/20 rounded-round-eight hover:shadow-md hover:-translate-y-1 transition-all">
+<div class="w-12 h-12 rounded-full bg-brand-primary/10 flex items-center justify-center text-brand-primary">
+<span class="material-symbols-outlined">add_circle</span>
+</div>
+<span class="font-label-sm text-center">Create Course</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-3 p-4 bg-surface-container-lowest border border-outline-variant/20 rounded-round-eight hover:shadow-md hover:-translate-y-1 transition-all">
+<div class="w-12 h-12 rounded-full bg-brand-primary/10 flex items-center justify-center text-brand-primary">
+<span class="material-symbols-outlined">upload_file</span>
+</div>
+<span class="font-label-sm text-center">Upload Materials</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-3 p-4 bg-surface-container-lowest border border-outline-variant/20 rounded-round-eight hover:shadow-md hover:-translate-y-1 transition-all">
+<div class="w-12 h-12 rounded-full bg-brand-primary/10 flex items-center justify-center text-brand-primary">
+<span class="material-symbols-outlined">assignment_add</span>
+</div>
+<span class="font-label-sm text-center">Create Assignment</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-3 p-4 bg-surface-container-lowest border border-outline-variant/20 rounded-round-eight hover:shadow-md hover:-translate-y-1 transition-all">
+<div class="w-12 h-12 rounded-full bg-brand-primary/10 flex items-center justify-center text-brand-primary">
+<span class="material-symbols-outlined">fact_check</span>
+</div>
+<span class="font-label-sm text-center">Review Submissions</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-3 p-4 bg-surface-container-lowest border border-outline-variant/20 rounded-round-eight hover:shadow-md hover:-translate-y-1 transition-all">
+<div class="w-12 h-12 rounded-full bg-brand-primary/10 flex items-center justify-center text-brand-primary">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+<span class="font-label-sm text-center">View Analytics</span>
+</button>
+</div>
+</section>
+<!-- Current Active Courses -->
+<section>
+<h2 class="font-headline-md text-on-surface mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined">dashboard</span> Current Active Courses
+                </h2>
+<div class="flex flex-col gap-4">
+<!-- Course Card 1 -->
+<div class="bg-surface-container-lowest rounded-round-eight overflow-hidden shadow-sm border border-outline-variant/20 flex flex-col sm:flex-row hover:shadow-md transition-shadow">
+<div class="sm:w-1/3 h-48 sm:h-auto relative">
+<img alt="Advanced Machine Learning" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLudzgoiv_GW3U8HbxmfMarR2Tb17zfcet3bHOfdMOvjRvrxJ3wFf0MeJu-wsfk6BUt9sv-hsP9c6wvT6EOTqNRhLXVGNtYushMXnPV08LYq4QDdTBOD2F_cSqW03HnO2DWLH6WPV4KgLzGM6aAJADk7lgZ3MmCmm6cvZct_JWXV3U0koi92V70Mfp315iK0t6aehiOa0ImD2C5TJ7T_BPEC1iWxfL0UTrgp6XLVDTq6N_CzJ60">
+</div>
+<div class="p-5 flex-1 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline-md text-on-surface">Advanced Machine Learning</h3>
+<span class="flex items-center gap-1 font-label-sm text-on-surface bg-surface-container py-1 px-2 rounded-md">
+<span class="material-symbols-outlined text-[14px] text-[#F59E0B]">star</span> 4.9/5
+                                    </span>
+</div>
+<div class="flex gap-4 mb-4">
+<span class="font-label-sm text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">group</span> 245 Students</span>
+<span class="font-label-sm text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">assignment</span> 18 Assignments Pending</span>
+</div>
+<div class="flex flex-col gap-1 mb-4">
+<div class="flex justify-between font-label-sm text-on-surface-variant">
+<span>Course Progress (Avg)</span>
+<span class="text-brand-success font-bold">82%</span>
+</div>
+<div class="h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-brand-success rounded-full" style="width: 82%;"></div>
+</div>
+</div>
+</div>
+<div class="flex justify-end">
+<button class="bg-brand-primary text-on-primary font-label-md px-5 py-2 rounded-full hover:bg-brand-primary/90 transition-colors flex items-center gap-2">
+                                    Continue Managing <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Course Card 2 -->
+<div class="bg-surface-container-lowest rounded-round-eight overflow-hidden shadow-sm border border-outline-variant/20 flex flex-col sm:flex-row hover:shadow-md transition-shadow">
+<div class="sm:w-1/3 h-48 sm:h-auto relative">
+<img alt="Digital Marketing Strategy" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLvEz4f2enis6us2JrHbzLjUK9xXczmef_hZUVcd7Wb3KZivi4qcXTg5XTeqp21HdIUOMGFmd6uAsZFRwE6Tnhj7Be0jFR-eP16Phacynr-0XZL1jga7SJVeGaUlrDgE0WFygFrMCSX9H627o4g46pZTruLrYYqH82QqPptG15cKLTGLvg-aYSbbZQyF3KL1N0ZDy2boLqvJgJHp9f4L0_hGPYskTJf_Tp4Yga_yQgYcXxWuSqyN60tD7ow">
+</div>
+<div class="p-5 flex-1 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline-md text-on-surface">Digital Marketing Strategy</h3>
+<span class="flex items-center gap-1 font-label-sm text-on-surface bg-surface-container py-1 px-2 rounded-md">
+<span class="material-symbols-outlined text-[14px] text-[#F59E0B]">star</span> 4.8/5
+                                    </span>
+</div>
+<div class="flex gap-4 mb-4">
+<span class="font-label-sm text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">group</span> 180 Students</span>
+<span class="font-label-sm text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">assignment</span> 5 Assignments Pending</span>
+</div>
+<div class="flex flex-col gap-1 mb-4">
+<div class="flex justify-between font-label-sm text-on-surface-variant">
+<span>Course Progress (Avg)</span>
+<span class="text-brand-success font-bold">75%</span>
+</div>
+<div class="h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-brand-success rounded-full" style="width: 75%;"></div>
+</div>
+</div>
+</div>
+<div class="flex justify-end">
+<button class="bg-brand-primary text-on-primary font-label-md px-5 py-2 rounded-full hover:bg-brand-primary/90 transition-colors flex items-center gap-2">
+                                    Continue Managing <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Assignment Review Queue -->
+<section>
+<h2 class="font-headline-md text-on-surface mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined">checklist</span> Assignment Review Queue
+                </h2>
+<div class="bg-surface-container-lowest rounded-round-eight shadow-sm border border-outline-variant/20 overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant/20">
+<th class="p-4 font-label-sm text-on-surface-variant font-semibold">Course</th>
+<th class="p-4 font-label-sm text-on-surface-variant font-semibold">Student Name</th>
+<th class="p-4 font-label-sm text-on-surface-variant font-semibold">Submitted</th>
+<th class="p-4 font-label-sm text-on-surface-variant font-semibold text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20">
+<tr class="hover:bg-surface-container-lowest/50 transition-colors">
+<td class="p-4 font-body-md text-on-surface">Advanced ML</td>
+<td class="p-4 font-body-md text-on-surface">Sarah Jenkins</td>
+<td class="p-4 font-label-sm text-on-surface-variant">2 hours ago</td>
+<td class="p-4 text-right">
+<button class="text-brand-primary font-label-sm hover:underline">Review</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest/50 transition-colors">
+<td class="p-4 font-body-md text-on-surface">Digital Marketing</td>
+<td class="p-4 font-body-md text-on-surface">Michael Chang</td>
+<td class="p-4 font-label-sm text-on-surface-variant">5 hours ago</td>
+<td class="p-4 text-right">
+<button class="text-brand-primary font-label-sm hover:underline">Review</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest/50 transition-colors">
+<td class="p-4 font-body-md text-on-surface">Advanced ML</td>
+<td class="p-4 font-body-md text-on-surface">Elena Rodriguez</td>
+<td class="p-4 font-label-sm text-on-surface-variant">Yesterday</td>
+<td class="p-4 text-right">
+<button class="text-brand-primary font-label-sm hover:underline">Review</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column -->
+<div class="flex flex-col gap-8">
+<!-- Pending Student Doubts -->
+<section class="bg-surface-container-lowest rounded-round-eight p-6 shadow-sm border border-outline-variant/20">
+<div class="flex justify-between items-center mb-6">
+<h2 class="font-headline-md text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined">help_center</span> Student Doubts
+                    </h2>
+</div>
+<div class="flex flex-col gap-4">
+<div class="p-4 bg-surface rounded-md border border-outline-variant/20">
+<div class="flex justify-between items-start mb-2">
+<span class="px-2 py-0.5 bg-[#EF4444]/10 text-[#DC2626] text-[10px] font-bold rounded uppercase tracking-wider">High Priority</span>
+<span class="text-[12px] text-on-surface-variant">1h ago</span>
+</div>
+<p class="font-body-md text-on-surface mb-3">"Can someone explain Nash Equilibrium?"</p>
+<button class="text-brand-primary font-label-sm hover:underline flex items-center gap-1">Respond <span class="material-symbols-outlined text-[14px]">chevron_right</span></button>
+</div>
+<div class="p-4 bg-surface rounded-md border border-outline-variant/20">
+<div class="flex justify-between items-start mb-2">
+<span class="px-2 py-0.5 bg-[#F59E0B]/10 text-[#D97706] text-[10px] font-bold rounded uppercase tracking-wider">Medium Priority</span>
+<span class="text-[12px] text-on-surface-variant">3h ago</span>
+</div>
+<p class="font-body-md text-on-surface mb-3">"Need help with Python Linked Lists"</p>
+<button class="text-brand-primary font-label-sm hover:underline flex items-center gap-1">Respond <span class="material-symbols-outlined text-[14px]">chevron_right</span></button>
+</div>
+<div class="p-4 bg-surface rounded-md border border-outline-variant/20">
+<div class="flex justify-between items-start mb-2">
+<span class="px-2 py-0.5 bg-[#F59E0B]/10 text-[#D97706] text-[10px] font-bold rounded uppercase tracking-wider">Medium Priority</span>
+<span class="text-[12px] text-on-surface-variant">5h ago</span>
+</div>
+<p class="font-body-md text-on-surface mb-3">"Difference between Classification and Regression"</p>
+<button class="text-brand-primary font-label-sm hover:underline flex items-center gap-1">Respond <span class="material-symbols-outlined text-[14px]">chevron_right</span></button>
+</div>
+</div>
+<button class="w-full mt-4 py-2 border border-outline-variant text-on-surface font-label-md rounded-full hover:bg-surface-container-low transition-colors">
+                    View All Doubts
+                </button>
+</section>
+<!-- Student Engagement -->
+<section class="bg-surface-container-lowest rounded-round-eight p-6 shadow-sm border border-outline-variant/20">
+<h2 class="font-headline-md text-on-surface mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined">monitoring</span> Student Engagement
+                </h2>
+<div class="flex flex-col gap-5">
+<div class="flex flex-col gap-1.5">
+<div class="flex justify-between font-label-sm">
+<span class="text-on-surface">Attendance Rate</span>
+<span class="font-bold text-on-surface">94%</span>
+</div>
+<div class="h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-brand-primary rounded-full" style="width: 94%;"></div>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<div class="flex justify-between font-label-sm">
+<span class="text-on-surface">Assignment Submission</span>
+<span class="font-bold text-on-surface">88%</span>
+</div>
+<div class="h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-brand-primary rounded-full" style="width: 88%;"></div>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<div class="flex justify-between font-label-sm">
+<span class="text-on-surface">Course Completion</span>
+<span class="font-bold text-on-surface">91%</span>
+</div>
+<div class="h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-brand-primary rounded-full" style="width: 91%;"></div>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<div class="flex justify-between font-label-sm">
+<span class="text-on-surface">Discussion Participation</span>
+<span class="font-bold text-on-surface">High</span>
+</div>
+<div class="h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-brand-primary rounded-full" style="width: 85%;"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Teacher Achievements -->
+<section class="bg-surface-container-lowest rounded-round-eight p-6 shadow-sm border border-outline-variant/20">
+<h2 class="font-headline-md text-on-surface mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined">emoji_events</span> Achievements
+                </h2>
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-3 p-3 bg-surface rounded-md border border-outline-variant/20">
+<span class="material-symbols-outlined text-brand-primary">library_books</span>
+<span class="font-body-md text-on-surface">15 Courses Published</span>
+</div>
+<div class="flex items-center gap-3 p-3 bg-surface rounded-md border border-outline-variant/20">
+<span class="material-symbols-outlined text-brand-primary">groups</span>
+<span class="font-body-md text-on-surface">300+ Students Guided</span>
+</div>
+<div class="flex items-center gap-3 p-3 bg-surface rounded-md border border-outline-variant/20">
+<span class="material-symbols-outlined text-brand-primary">star</span>
+<span class="font-body-md text-on-surface">4.8 Average Rating</span>
+</div>
+<div class="flex items-center gap-3 p-3 bg-surface rounded-md border border-outline-variant/20">
+<span class="material-symbols-outlined text-brand-primary">forum</span>
+<span class="font-body-md text-on-surface">120 Community Answers</span>
+</div>
+<div class="flex items-center gap-3 p-3 bg-surface rounded-md border border-outline-variant/20">
+<span class="material-symbols-outlined text-brand-primary">task_alt</span>
+<span class="font-body-md text-on-surface">95% Review Rate</span>
+</div>
+</div>
+</section>
+<!-- Recent Activity Timeline -->
+<section class="bg-surface-container-lowest rounded-round-eight p-6 shadow-sm border border-outline-variant/20">
+<h2 class="font-headline-md text-on-surface mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined">history</span> Recent Activity
+                </h2>
+<div class="relative border-l-2 border-outline-variant/30 ml-3 flex flex-col gap-6">
+<div class="relative pl-6">
+<div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-brand-primary border-2 border-surface-container-lowest"></div>
+<p class="font-body-md text-on-surface">Published new module</p>
+<p class="font-label-sm text-on-surface-variant">1h ago</p>
+</div>
+<div class="relative pl-6">
+<div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-outline-variant border-2 border-surface-container-lowest"></div>
+<p class="font-body-md text-on-surface">Answered student doubt</p>
+<p class="font-label-sm text-on-surface-variant">3h ago</p>
+</div>
+<div class="relative pl-6">
+<div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-outline-variant border-2 border-surface-container-lowest"></div>
+<p class="font-body-md text-on-surface">Reviewed 5 assignments</p>
+<p class="font-label-sm text-on-surface-variant">Yesterday</p>
+</div>
+<div class="relative pl-6">
+<div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-outline-variant border-2 border-surface-container-lowest"></div>
+<p class="font-body-md text-on-surface">Updated course syllabus</p>
+<p class="font-label-sm text-on-surface-variant">Oct 24</p>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low w-full py-12 border-t border-outline-variant/30">
+<div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="flex flex-col gap-4">
+<div class="font-headline-md text-brand-primary font-bold">EduNext</div>
+<p class="font-label-sm text-on-surface">© 2024 EduNext Platform. Empowering Lifelong Educators.</p>
+</div>
+<div class="flex flex-wrap gap-6 md:justify-end items-center">
+<a class="font-label-sm text-on-surface-variant hover:text-brand-primary underline transition-all" href="#">Privacy Policy</a>
+<a class="font-label-sm text-on-surface-variant hover:text-brand-primary underline transition-all" href="#">Terms of Service</a>
+<a class="font-label-sm text-on-surface-variant hover:text-brand-primary underline transition-all" href="#">Help Center</a>
+<a class="font-label-sm text-on-surface-variant hover:text-brand-primary underline transition-all" href="#">Teaching Standards</a>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en" style="width: 1280px; height: 1024px; overflow: hidden; position: relative;"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduNext - Courses Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#12a150",
+                        "on-background": "#191c1e",
+                        "secondary-container": "#a6c5fe",
+                        "on-tertiary-fixed": "#0f0069",
+                        "on-tertiary-fixed-variant": "#3323cc",
+                        "secondary-fixed": "#d6e3ff",
+                        "surface-dim": "#d9dadc",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#c3c0ff",
+                        "surface-bright": "#f8f9fb",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed": "#e2dfff",
+                        "primary-fixed-dim": "#62de85",
+                        "outline-variant": "#bdcabb",
+                        "surface-container-highest": "#e1e2e4",
+                        "on-surface-variant": "#3e4a3e",
+                        "on-primary-fixed": "#00210b",
+                        "error": "#ba1a1a",
+                        "tertiary": "#4b41e1",
+                        "surface-tint": "#12a150",
+                        "secondary-fixed-dim": "#a9c7ff",
+                        "on-primary-fixed-variant": "#005225",
+                        "on-tertiary": "#ffffff",
+                        "background": "#f8f9fb",
+                        "primary-fixed": "#7ffb9f",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#e1e2e4",
+                        "on-surface": "#191c1e",
+                        "secondary": "#405f91",
+                        "on-tertiary-container": "#fffbff",
+                        "surface-container": "#edeef0",
+                        "inverse-primary": "#62de85",
+                        "surface-container-low": "#f3f4f6",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#f0f1f3",
+                        "on-secondary-fixed": "#001b3d",
+                        "on-secondary-container": "#315182",
+                        "surface": "#ffffff",
+                        "inverse-surface": "#2e3132",
+                        "on-primary-container": "#f7fff3",
+                        "on-secondary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "outline": "#6e7a6d",
+                        "surface-container-high": "#e7e8ea",
+                        "primary-container": "#e6f5ec",
+                        "tertiary-container": "#645efb"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "gutter": "2rem",
+                        "stack-lg": "2.5rem",
+                        "margin-mobile": "1rem",
+                        "container-max": "1280px",
+                        "stack-sm": "0.5rem",
+                        "stack-md": "1.5rem"
+                    },
+                    fontFamily: {
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-bold": ["Inter"],
+                        "headline-lg": ["Plus Jakarta Sans"]
+                    },
+                    fontSize: {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-bold": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen">
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-screen w-64 bg-surface border-r border-outline-variant flex flex-col py-6 overflow-y-auto hidden md:flex z-40">
+<div class="px-6 mb-8">
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary">EduNext</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Teacher Dashboard</p>
+</div>
+<div class="px-4 mb-6">
+</div>
+<ul class="flex-1 flex flex-col gap-1">
+<li class="">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors rounded-lg mx-2" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-bold text-label-bold">Dashboard</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-4 py-3 text-primary font-bold bg-primary-container rounded-lg mx-2" href="#">
+<span class="material-symbols-outlined" style='font-variation-settings: "FILL" 1;'>menu_book</span>
+<span class="font-label-bold text-label-bold">Courses</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors rounded-lg mx-2" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-bold text-label-bold">Students</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors rounded-lg mx-2" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-bold text-label-bold">Learning Analytics</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors rounded-lg mx-2" href="#">
+<span class="material-symbols-outlined">visibility</span>
+<span class="font-label-bold text-label-bold">Attention Analytics</span>
+</a>
+</li>
+<li class="">
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors rounded-lg mx-2" href="#">
+<span class="material-symbols-outlined">quiz</span>
+<span class="font-label-bold text-label-bold">Quizzes</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors rounded-lg mx-2" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="font-label-bold text-label-bold">Assignments</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors rounded-lg mx-2" href="#">
+<span class="material-symbols-outlined">forum</span>
+<span class="font-label-bold text-label-bold">Community</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors rounded-lg mx-2" href="#">
+<span class="material-symbols-outlined">campaign</span>
+<span class="font-label-bold text-label-bold">Announcements</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors rounded-lg mx-2" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-bold text-label-bold">Apprenticeships</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors rounded-lg mx-2" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-label-bold text-label-bold">Reports</span>
+</a>
+</li>
+</ul>
+<div class="mt-auto px-4 pt-6 border-t border-outline-variant">
+<ul class="flex flex-col gap-1">
+<li class="">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors rounded-lg mx-2" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-bold text-label-bold">Settings</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors rounded-lg mx-2" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-bold text-label-bold">Logout</span>
+</a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- TopAppBar -->
+<header class="hidden md:flex justify-between items-center w-full px-gutter h-20 ml-64 max-w-[calc(100%-16rem)] bg-surface docked top-0 sticky z-30 border-b border-outline-variant">
+<div class="flex items-center gap-4 flex-1">
+<!-- Global search is empty in this view as requested by design -->
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined">help</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined">apps</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-surface-variant border border-outline overflow-hidden ml-2">
+<img alt="Dr. Amarjeet Kaur" class="w-full h-full object-cover" data-alt="A professional headshot avatar for a user profile, showing a generated placeholder image with a solid green background and white initials. The design is simple, clean, and functional, adhering to a modern corporate style suitable for an educational platform. The overall aesthetic is minimalistic and easily legible." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCobZMvZb9tH-kNruRTBglva4EpJWwNSMOwkxli3o1rv7OYJP5MVS18dG1rp7m0bwXPkHll6Hy66YX_mkw1x57i_hw4wNHqJPksKF6XXIL_uHrebdmAkuA_DvLXzRh9xAZvi1L1_0w15cYGLrHPCu1i5B6LG1xUNRWfefHfc3ifHaAFteEK0H4H0eMgcEIcFOvZKRXbb6p0dXH9qXT41ZR8xHj7I96k3VesVMKeDJjX-ujkaaBMzCJxYjWUOBf4Gs1hEb8ZKoZTPE"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="md:ml-64 pt-8 px-gutter pb-24 md:pb-12 max-w-[1440px] mx-auto">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-8">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-background font-bold tracking-tight">Courses</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Manage your educational content, track student progress, and organize your curriculum.</p>
+</div>
+<button class="bg-primary text-white py-2.5 px-6 rounded-lg font-label-bold text-label-bold flex items-center justify-center gap-2 hover:bg-opacity-90 transition-colors shadow-sm whitespace-nowrap h-fit">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                Add New Course
+            </button>
+</div>
+<!-- Filters and Search -->
+<div class="flex flex-col lg:flex-row gap-4 mb-8 items-start lg:items-center">
+<div class="relative w-full lg:w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline-variant">search</span>
+<input class="w-full pl-10 pr-4 py-2.5 bg-surface border border-outline-variant rounded-lg text-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" placeholder="Search Courses..." type="text"/>
+</div>
+<div class="flex flex-wrap gap-3 w-full lg:w-auto">
+<select class="px-4 py-2.5 bg-surface border border-outline-variant rounded-lg text-body-md text-on-surface-variant focus:outline-none focus:border-primary appearance-none pr-10 relative bg-no-repeat bg-[right_1rem_center] bg-[length:1.2em_1.2em]" style="background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%236e7a6d%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E');">
+<option value="">Category: All</option>
+<option value="cs">Computer Science</option>
+<option value="data">Data Science</option>
+<option value="prog">Programming</option>
+</select>
+<select class="px-4 py-2.5 bg-surface border border-outline-variant rounded-lg text-body-md text-on-surface-variant focus:outline-none focus:border-primary appearance-none pr-10 relative bg-no-repeat bg-[right_1rem_center] bg-[length:1.2em_1.2em]" style="background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%236e7a6d%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E');">
+<option value="">Difficulty: All</option>
+<option value="beginner">Beginner</option>
+<option value="intermediate">Intermediate</option>
+<option value="advanced">Advanced</option>
+</select>
+<select class="px-4 py-2.5 bg-surface border border-outline-variant rounded-lg text-body-md text-on-surface-variant focus:outline-none focus:border-primary appearance-none pr-10 relative bg-no-repeat bg-[right_1rem_center] bg-[length:1.2em_1.2em]" style="background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%236e7a6d%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E');">
+<option value="">Status: All</option>
+<option value="published">Published</option>
+<option value="draft">Draft</option>
+</select>
+</div>
+</div>
+<!-- Course List (Larger Cards) -->
+<div class="flex flex-col gap-6">
+<!-- Course Card 1 -->
+<article class="bg-surface rounded-xl border border-outline-variant overflow-hidden hover:shadow-md transition-shadow flex flex-col lg:flex-row h-auto lg:h-[240px] group">
+<div class="relative w-full lg:w-[420px] shrink-0 bg-surface-variant overflow-hidden">
+<img alt="Fundamentals of Machine Learning Thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AP1WRLtizuJxFYDsAuysuHVTU3bGYPmN3BsH5Z2s4Xn_fvj7VV0n_a8MYK3zoHkDIylb4hst2tMpZGvFu-_ZtnZ6PBRmtHaQWbYGPpOBW3hPZU-Y8zkba38aH1zTKo_kpZWth1TMOInEgELoBCRduyO99H4pIEUsXOXnAFn_AVfAaB2GRa1jGN49e1mQ3teu-NAeH_1e0YiYsFImYVevxhQ_ty33IrTIXVENNNf1cMxluCNl5ZPRCe0nh1CAbw"/>
+<div class="absolute top-4 left-4">
+<span class="bg-primary text-white px-3 py-1.5 rounded-md font-label-bold text-label-sm uppercase tracking-wider shadow-sm">Published</span>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-3 text-on-surface-variant font-label-sm uppercase tracking-wider">
+<span class="font-semibold">Computer Science</span>
+<span class="w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
+<span class="font-medium text-primary">Beginner</span>
+</div>
+<h3 class="font-headline-lg-mobile text-[22px] font-bold text-on-background mb-4 line-clamp-2">Fundamentals of Machine Learning</h3>
+<div class="flex flex-wrap items-center gap-6 text-on-surface-variant font-body-md text-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-outline">group</span>
+<span class="font-medium">1,245 Students Enrolled</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-outline">menu_book</span>
+<span class="font-medium">24 Lessons</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-outline">language</span>
+<span class="font-medium">English</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between mt-6 pt-6 border-t border-surface-variant">
+<div class="flex gap-3">
+<button class="bg-primary-container text-primary font-label-bold px-4 py-2 rounded-lg hover:bg-primary hover:text-white transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+                Manage
+            </button>
+<button class="bg-surface text-on-surface-variant border border-outline-variant font-label-bold px-4 py-2 rounded-lg hover:bg-surface-container-low transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">analytics</span>
+                Analytics
+            </button>
+<button class="bg-surface text-on-surface-variant border border-outline-variant font-label-bold px-4 py-2 rounded-lg hover:bg-surface-container-low transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+                Edit
+            </button>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant font-label-bold hover:text-error transition-colors flex items-center gap-1 px-2 py-2">
+<span class="material-symbols-outlined text-[20px]">unpublished</span>
+                Unpublish
+            </button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<!-- Course Card 2 -->
+<article class="bg-surface rounded-xl border border-outline-variant overflow-hidden hover:shadow-md transition-shadow flex flex-col lg:flex-row h-auto lg:h-[240px] group opacity-90">
+<div class="relative w-full lg:w-[420px] shrink-0 bg-surface-variant overflow-hidden">
+<img alt="Advanced Python Programming Thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 grayscale-[20%]" src="https://lh3.googleusercontent.com/aida/AP1WRLuia-g06UzEsTu3ttGXRCLxrGuMQgRm6q2xjBIAKahyiaXWbi_qCTYWW0fmifrcElgnzvNoN-YL8x5j1tYyG9hkdq8aNNF_VP02ARXnPsRWPc-mjdwaUM7oGh8HIkfwYeq31RRrh1mBPIfVSHT65D6bUoyDB5C6i-94-TuvwhOB-gRuMrCYuI9RNgPiqBpNtLyGDx8sxwL97vg32OxNTij0UJvBiu2KdHMrnU0NN1Eo61KYCWlDWyljIbU"/>
+<div class="absolute top-4 left-4">
+<span class="bg-surface-variant text-on-surface-variant border border-outline-variant px-3 py-1.5 rounded-md font-label-bold text-label-sm uppercase tracking-wider shadow-sm">Draft</span>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-3 text-on-surface-variant font-label-sm uppercase tracking-wider">
+<span class="font-semibold">Programming</span>
+<span class="w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
+<span class="font-medium text-tertiary">Advanced</span>
+</div>
+<h3 class="font-headline-lg-mobile text-[22px] font-bold text-on-background mb-4 line-clamp-2">Advanced Python Programming</h3>
+<div class="flex flex-wrap items-center gap-6 text-on-surface-variant font-body-md text-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-outline">group</span>
+<span class="font-medium">-- Students Enrolled</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-outline">menu_book</span>
+<span class="font-medium">42 Lessons</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-outline">language</span>
+<span class="font-medium">English</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between mt-6 pt-6 border-t border-surface-variant">
+<div class="flex gap-3">
+<button class="bg-primary-container text-primary font-label-bold px-4 py-2 rounded-lg hover:bg-primary hover:text-white transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+                Manage
+            </button>
+<button class="bg-surface text-outline border border-surface-variant font-label-bold px-4 py-2 rounded-lg cursor-not-allowed flex items-center gap-2 opacity-60">
+<span class="material-symbols-outlined text-[18px]">analytics</span>
+                Analytics
+            </button>
+<button class="bg-surface text-on-surface-variant border border-outline-variant font-label-bold px-4 py-2 rounded-lg hover:bg-surface-container-low transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+                Edit
+            </button>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-primary font-label-bold hover:text-surface-tint transition-colors flex items-center gap-1 px-2 py-2">
+<span class="material-symbols-outlined text-[20px]">publish</span>
+                Publish
+            </button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<!-- Course Card 3 -->
+<article class="bg-surface rounded-xl border border-outline-variant overflow-hidden hover:shadow-md transition-shadow flex flex-col lg:flex-row h-auto lg:h-[240px] group">
+<div class="relative w-full lg:w-[420px] shrink-0 bg-surface-variant overflow-hidden">
+<img alt="Data Analytics Thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AP1WRLttpYtuVwDps8qWcugd2Hj2WbnmDMs-AhkcRgv5l_eMY1L-7ZIOLN__duVk4z48pDDqhvMpDNIQpd5CoaqQH_Dz0W0U9cJHvtb_tmCEX3otvm4lr8cO7iVVRsJxCFI01Nfe4Hr5nugScKcsKbW1rySfu9nHdQt-9ayFFWk4KlYjGv_xrNtgkDcZRemcBa_hqtcWhCd7i2x3nZqpl6JnoZPlEqLzMEpx3Bjs_giz2LLW-Nh6bzInfZw8bLE"/>
+<div class="absolute top-4 left-4">
+<span class="bg-primary text-white px-3 py-1.5 rounded-md font-label-bold text-label-sm uppercase tracking-wider shadow-sm">Published</span>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-3 text-on-surface-variant font-label-sm uppercase tracking-wider">
+<span class="font-semibold">Data Science</span>
+<span class="w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
+<span class="font-medium text-secondary">Intermediate</span>
+</div>
+<h3 class="font-headline-lg-mobile text-[22px] font-bold text-on-background mb-4 line-clamp-2">Data Analytics and Visualization</h3>
+<div class="flex flex-wrap items-center gap-6 text-on-surface-variant font-body-md text-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-outline">group</span>
+<span class="font-medium">892 Students Enrolled</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-outline">menu_book</span>
+<span class="font-medium">18 Lessons</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-outline">language</span>
+<span class="font-medium">Spanish</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between mt-6 pt-6 border-t border-surface-variant">
+<div class="flex gap-3">
+<button class="bg-primary-container text-primary font-label-bold px-4 py-2 rounded-lg hover:bg-primary hover:text-white transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+                Manage
+            </button>
+<button class="bg-surface text-on-surface-variant border border-outline-variant font-label-bold px-4 py-2 rounded-lg hover:bg-surface-container-low transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">analytics</span>
+                Analytics
+            </button>
+<button class="bg-surface text-on-surface-variant border border-outline-variant font-label-bold px-4 py-2 rounded-lg hover:bg-surface-container-low transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+                Edit
+            </button>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant font-label-bold hover:text-error transition-colors flex items-center gap-1 px-2 py-2">
+<span class="material-symbols-outlined text-[20px]">unpublished</span>
+                Unpublish
+            </button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+</div>
+</main>
+<!-- Mobile Bottom Navigation (Visible only on md:hidden) -->
+<nav class="fixed bottom-0 left-0 right-0 bg-surface border-t border-outline-variant md:hidden z-40 px-2 pb-safe pt-2">
+<ul class="flex justify-around items-center h-16">
+<li class="flex-1">
+<a class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-medium mt-1">Dashboard</span>
+</a>
+</li>
+<li class="flex-1">
+<a class="flex flex-col items-center justify-center w-full h-full text-primary font-bold" href="#">
+<div class="bg-primary-container px-4 py-1 rounded-full mb-1">
+<span class="material-symbols-outlined" style='font-variation-settings: "FILL" 1;'>menu_book</span>
+</div>
+<span class="text-[10px]">Courses</span>
+</a>
+</li>
+<li class="flex-1">
+<a class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="text-[10px] font-medium mt-1">Students</span>
+</a>
+</li>
+<li class="flex-1">
+<a class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">menu</span>
+<span class="text-[10px] font-medium mt-1">More</span>
+</a>
+</li>
+</ul>
+</nav>
+</body></html>

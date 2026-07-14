@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduNext - Educator Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "secondary": "#405f91",
+                        "outline": "#6e7a6d",
+                        "inverse-on-surface": "#f0f1f3",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#a6c5fe",
+                        "surface": "#f8f9fb",
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#62de85",
+                        "on-tertiary-fixed-variant": "#3323cc",
+                        "primary": "#006b31",
+                        "tertiary-container": "#645efb",
+                        "secondary-fixed": "#d6e3ff",
+                        "surface-container-high": "#e7e8ea",
+                        "inverse-surface": "#2e3132",
+                        "primary-container": "#008740",
+                        "on-primary-fixed-variant": "#005225",
+                        "tertiary-fixed": "#e2dfff",
+                        "surface-container-highest": "#e1e2e4",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#a9c7ff",
+                        "surface-bright": "#f8f9fb",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#315182",
+                        "outline-variant": "#bdcabb",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#001b3d",
+                        "surface-tint": "#006d33",
+                        "tertiary-fixed-dim": "#c3c0ff",
+                        "on-primary-fixed": "#00210b",
+                        "surface-dim": "#d9dadc",
+                        "on-primary-container": "#f7fff3",
+                        "inverse-primary": "#62de85",
+                        "on-tertiary-fixed": "#0f0069",
+                        "surface-variant": "#e1e2e4",
+                        "on-surface": "#191c1e",
+                        "tertiary": "#4b41e1",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#3e4a3e",
+                        "surface-container-low": "#f3f4f6",
+                        "background": "#f8f9fb",
+                        "on-background": "#191c1e",
+                        "surface-container": "#edeef0",
+                        "primary-fixed": "#7ffb9f",
+                        "on-tertiary-container": "#fffbff",
+                        "on-secondary-fixed-variant": "#264778"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "1rem",
+                        "gutter": "1.5rem",
+                        "stack-lg": "2.5rem",
+                        "stack-sm": "0.5rem",
+                        "container-max": "1280px",
+                        "stack-md": "1.5rem"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "label-bold": ["Inter"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "label-bold": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md h-screen w-full overflow-hidden flex flex-col md:flex-row">
+<!-- Left Side: Image Carousel (Hidden on Mobile) -->
+<div class="hidden lg:block lg:w-1/2 h-full relative overflow-hidden bg-surface-container">
+<div class="w-full h-full relative" id="hero-carousel">
+<img alt="Teacher preparing course content" class="carousel-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCq0qOVUX7yjBA10B8Dr95_PWZwAqPY-_Mz4dILZtOsNgSUtZJPx6dwKghyTOreji8iVfNlKlTpQrHrTUCTc6NyCHML5AMEscafq8BrAp6CukrJ1brMCh7EHS2cESTwpaQ-0TjZdGunuBL3mFLJiXkePN8ha8ud5yWBAzB_x-wHUj3WLrZbbZHDiM7MpeS8gPD-v8wvAGZYzsKQ8bQAiQVszQMBHc-WR8_nvlgNzc4PVMusvql0byuBwDdFgQd3bK-LwgF2V7sBNuY"/>
+<img alt="Teacher conducting virtual class" class="carousel-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDIOIk-meZ1eioy4oowbqiXS00BQtip3vDY-4JmJVYMjCiMAfDuZl1UDySWfAPy_M_vy_-DlBoBAI34h9DjpWEuOSXR1khmVQTMtdavlW-5vJ1GH97Z5AK38AFzjCt42R9ZsANFA3D8WDGS1ZDpnX7mnst6xKePyzXSw6Y1o1bvBcs7H3BaQ_7oU5vhcC2uMvksUhVI1YjJM0pzBrNeVLyh67OBX97Q8bj6bYPY8sVgg9QbX7QckA7vfHSbtX4Xj5igM1sqGz_nHE"/>
+<img alt="Teacher interacting with students" class="carousel-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAM7msyxE1Wp4iBA3yFmtFDH5Zz7w9paDBKyN5v4dFK2SgfqIwr6MfhtA62MmSmLTrhdWc859osYeG960ahFmYsT06tXyWuDhkqXuZjdPmlsbQ1BTQSMcdCeGo7h7fARJFp5oWkdKByZIwevBEh-XwevEbICR2RecyiyvREHGHM92CfttSjiAirJ6snFyUdb4C4OgRDxeE34xD5CmGHf05y2kBYZ-qi0Lc_2cYYq5RYHADrcjbup5QznmNzcT09RhFHup4Kx9hbtc"/>
+<!-- Subtle gradient overlay for better text contrast if needed, though mostly visual here -->
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent z-10 pointer-events-none"></div>
+</div>
+</div>
+<!-- Right Side: Interaction Area -->
+<div class="w-full lg:w-1/2 h-full flex flex-col items-center justify-center p-gutter md:p-stack-lg bg-surface overflow-y-auto">
+<div class="w-full max-w-md flex flex-col gap-stack-lg">
+<!-- Top Controls: Role Switcher -->
+<div class="flex justify-end w-full">
+<div class="inline-flex bg-surface-container-high rounded-lg p-1 border border-outline-variant/30 shadow-sm">
+<button class="px-4 py-1.5 rounded-md font-label-bold text-label-bold text-on-surface-variant hover:text-on-surface transition-colors" type="button">
+                        Student
+                    </button>
+<button class="px-4 py-1.5 rounded-md font-label-bold text-label-bold bg-surface text-on-surface shadow-sm border border-outline-variant/20" type="button">
+                        Teacher
+                    </button>
+</div>
+</div>
+<!-- Header -->
+<div class="flex flex-col gap-stack-sm text-center lg:text-left">
+<h1 class="font-headline-lg-mobile lg:font-headline-lg text-headline-lg-mobile lg:text-headline-lg text-on-surface">
+                    Welcome Back, Educator
+                </h1>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    Sign in to manage courses, track learner engagement, and monitor classroom analytics.
+                </p>
+</div>
+<!-- Content Area -->
+<div class="w-full">
+<!-- Tabs -->
+<div class="flex border-b border-outline-variant mb-stack-md">
+<button class="flex-1 pb-3 text-center font-label-bold text-label-bold text-primary border-b-2 border-primary" type="button">
+                        Sign In
+                    </button>
+<button class="flex-1 pb-3 text-center font-label-bold text-label-bold text-on-surface-variant hover:text-on-surface transition-colors" onclick="document.getElementById('signin-form').classList.toggle('hidden'); document.getElementById('signup-form').classList.toggle('hidden');" type="button">
+                        Create Account
+                    </button>
+</div>
+<!-- Sign In Form -->
+<form class="flex flex-col gap-stack-md" id="signin-form">
+<!-- Google Auth -->
+<button class="w-full flex items-center justify-center gap-2 py-2.5 px-4 border border-outline-variant rounded-lg bg-surface text-on-surface font-label-bold text-label-bold hover:bg-surface-container transition-colors shadow-sm" type="button">
+<svg class="w-5 h-5" fill="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
+</svg>
+                        Continue with Google
+                    </button>
+<div class="relative flex items-center py-2">
+<div class="flex-grow border-t border-outline-variant"></div>
+<span class="flex-shrink-0 mx-4 text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">OR</span>
+<div class="flex-grow border-t border-outline-variant"></div>
+</div>
+<!-- Email -->
+<div class="flex flex-col gap-1">
+<label class="font-label-bold text-label-bold text-on-surface" for="email">Email Address</label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-on-surface-variant/70" style="font-variation-settings: 'FILL' 0;">mail</span>
+</span>
+<input class="w-full pl-10 pr-4 py-2.5 border border-outline-variant rounded-lg bg-surface text-on-surface focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none" id="email" placeholder="teacher@institution.edu" type="email"/>
+</div>
+</div>
+<!-- Password -->
+<div class="flex flex-col gap-1">
+<label class="font-label-bold text-label-bold text-on-surface" for="password">Password</label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-on-surface-variant/70" style="font-variation-settings: 'FILL' 0;">lock</span>
+</span>
+<input class="w-full pl-10 pr-4 py-2.5 border border-outline-variant rounded-lg bg-surface text-on-surface focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none" id="password" placeholder="••••••••" type="password"/>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex items-center justify-between mt-1">
+<label class="flex items-center gap-2 cursor-pointer">
+<input class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary bg-surface cursor-pointer" type="checkbox"/>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Remember me</span>
+</label>
+<a class="font-label-sm text-label-sm text-primary hover:underline" href="#">Forgot Password?</a>
+</div>
+<!-- Submit -->
+<button class="w-full py-3 mt-2 bg-primary text-on-primary font-label-bold text-label-bold rounded-lg hover:bg-primary-container focus:ring-4 focus:ring-primary/30 transition-all shadow-md" type="submit">
+                        Sign In
+                    </button>
+</form>
+<!-- Create Account Form (Hidden by default) -->
+<form class="hidden flex flex-col gap-stack-md" id="signup-form">
+<!-- Fields omitted for brevity but structure matches Sign In -->
+<p class="text-center font-body-md text-on-surface-variant">Registration form fields would go here...</p>
+<button class="w-full py-3 mt-2 bg-surface border border-outline text-on-surface font-label-bold text-label-bold rounded-lg hover:bg-surface-container transition-all" type="button">
+                        Back to Sign In
+                    </button>
+</form>
+</div>
+<!-- Feature Card -->
+<div class="mt-stack-sm bg-surface-container-lowest border border-outline-variant rounded-xl p-4 shadow-sm">
+<h3 class="font-label-bold text-label-bold text-on-surface mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">stars</span>
+                    As a Teacher You Can:
+                </h3>
+<ul class="grid grid-cols-1 gap-2">
+<li class="flex items-start gap-2 font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[16px] mt-0.5" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                        Create Courses &amp; Upload Materials
+                    </li>
+<li class="flex items-start gap-2 font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[16px] mt-0.5" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                        Manage Assignments &amp; Quizzes
+                    </li>
+<li class="flex items-start gap-2 font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[16px] mt-0.5" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                        Monitor Student Analytics &amp; Reports
+                    </li>
+</ul>
+</div>
+</div>
+</div>
+<script>
+        // Simple Carousel Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const items = document.querySelectorAll('.carousel-img');
+            if(items.length === 0) return;
+            let currentIndex = 0;
+
+            setInterval(() => {
+                items[currentIndex].classList.remove('opacity-100');
+                items[currentIndex].classList.add('opacity-0');
+                
+                currentIndex = (currentIndex + 1) % items.length;
+                
+                items[currentIndex].classList.remove('opacity-0');
+                items[currentIndex].classList.add('opacity-100');
+            }, 5000); // Change image every 5 seconds
+        });
+    </script>
+</body></html>

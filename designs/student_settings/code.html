@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduNext - Student Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#d8e2ff",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "outline-variant": "#c4c6cf",
+                        "surface-variant": "#e0e3e5",
+                        "background": "#f7f9fb",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "inverse-surface": "#2d3133",
+                        "secondary-container": "#6bff8f",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#455f88",
+                        "on-tertiary-fixed": "#001a42",
+                        "on-secondary-container": "#007432",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#005321",
+                        "surface-container-highest": "#e0e3e5",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "surface-container-high": "#e6e8ea",
+                        "surface": "#f7f9fb",
+                        "primary": "#002045",
+                        "tertiary-container": "#003374",
+                        "on-background": "#191c1e",
+                        "inverse-primary": "#adc7f7",
+                        "surface-bright": "#f7f9fb",
+                        "secondary": "#006e2f",
+                        "primary-fixed": "#d6e3ff",
+                        "on-primary-fixed": "#001b3c",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#191c1e",
+                        "secondary-fixed-dim": "#4ae176",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#d8dadc",
+                        "outline": "#74777f",
+                        "tertiary": "#001f4b",
+                        "surface-container": "#eceef0",
+                        "on-surface-variant": "#43474e",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#eff1f3",
+                        "secondary-fixed": "#6bff8f",
+                        "primary-container": "#1a365d",
+                        "on-tertiary-fixed-variant": "#004395",
+                        "primary-fixed-dim": "#adc7f7",
+                        "on-secondary-fixed": "#002109",
+                        "on-tertiary-container": "#6a9dff",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#f2f4f6",
+                        "on-primary-container": "#86a0cd"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "base": "8px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "margin-desktop": "40px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background-color: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #006e2f;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #006e2f;
+        }
+        .toggle-checkbox:checked + .toggle-label:after {
+            transform: translateX(100%);
+            border-color: white;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md flex flex-col min-h-screen">
+<!-- Header -->
+<header class="bg-surface/80 backdrop-blur-xl border-b border-outline-variant/20 px-6 py-4 sticky top-0 z-50 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-on-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">school</span>
+</div>
+<h1 class="font-headline-md text-headline-md text-primary font-bold">EduNext</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border-2 border-primary/20">
+<img alt="Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnkZm_8Z1aFEEtXmOHylXNqTIZdJsF5LjpwM2tBx1kTpWwabbdMq2ox3utPTFAs38CsIcCwblFkQx6VuvETPJTP_g05hhyEIf2EWV4o13i3nsVFOjCIvkphOqbZdEL0QYcPNm308xg0rZDvtBMHs3YZlp4QADR4p1O-i7-sWEPGsJmpe0821jAVgB6fE1LX47_abs1KioJ9v1F4Z2Ickfpb0jgUYm0Z1Vn_Jq3kUOJFk2RVrlsk5FopOqhmGHpVj9C-x_hf8DqjGo"/>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto px-margin-mobile md:px-margin-desktop py-8 md:py-12 pb-32">
+<div class="max-w-4xl mx-auto w-full">
+<!-- Page Header -->
+<div class="mb-10">
+<nav aria-label="Breadcrumb" class="flex text-on-surface-variant font-label-sm text-label-sm mb-4">
+<ol class="inline-flex items-center space-x-1 md:space-x-2">
+<li class="inline-flex items-center hover:text-primary transition-colors cursor-pointer">Dashboard</li>
+<li><span class="material-symbols-outlined text-[14px] mx-1">chevron_right</span></li>
+<li class="inline-flex items-center hover:text-primary transition-colors cursor-pointer">Profile</li>
+<li><span class="material-symbols-outlined text-[14px] mx-1">chevron_right</span></li>
+<li aria-current="page" class="inline-flex items-center text-primary font-medium">Settings</li>
+</ol>
+</nav>
+<h2 class="font-headline-xl text-headline-xl text-on-background mb-2">Student Settings</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Manage your account, learning preferences, accessibility options and platform experience.</p>
+</div>
+<!-- Sections Container -->
+<div class="space-y-8">
+<!-- Section 1: Personal Information -->
+<section class="space-y-6" id="section-personal">
+<div class="glass-panel rounded-2xl p-6 md:p-8 shadow-sm">
+<h3 class="font-headline-md text-headline-md text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-[24px]">person</span>
+                            Profile Information
+                        </h3>
+<div class="flex flex-col md:flex-row gap-8 items-start">
+<!-- Avatar Column -->
+<div class="flex flex-col items-center gap-4 shrink-0">
+<div class="relative w-32 h-32 rounded-full overflow-hidden border-4 border-surface shadow-md">
+<img alt="Profile avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnkZm_8Z1aFEEtXmOHylXNqTIZdJsF5LjpwM2tBx1kTpWwabbdMq2ox3utPTFAs38CsIcCwblFkQx6VuvETPJTP_g05hhyEIf2EWV4o13i3nsVFOjCIvkphOqbZdEL0QYcPNm308xg0rZDvtBMHs3YZlp4QADR4p1O-i7-sWEPGsJmpe0821jAVgB6fE1LX47_abs1KioJ9v1F4Z2Ickfpb0jgUYm0Z1Vn_Jq3kUOJFk2RVrlsk5FopOqhmGHpVj9C-x_hf8DqjGo"/>
+<button class="absolute bottom-0 inset-x-0 bg-black/50 text-white font-label-sm text-label-sm py-1.5 flex items-center justify-center gap-1 hover:bg-black/70 transition-colors">
+<span class="material-symbols-outlined text-[14px]">photo_camera</span>
+                                        Edit
+                                    </button>
+</div>
+<button class="font-label-md text-label-md text-primary hover:text-primary-container transition-colors">Change Photo</button>
+</div>
+<!-- Form Grid -->
+<div class="flex-1 w-full grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">Full Name</label>
+<input class="w-full bg-surface/50 border border-outline-variant/50 rounded-lg px-4 py-2.5 font-body-md text-body-md text-on-surface focus:ring-2 focus:ring-primary focus:border-primary transition-all shadow-sm" type="text" value="Eleanor Shellstrop"/>
+</div>
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">Email Address</label>
+<input class="w-full bg-surface/50 border border-outline-variant/50 rounded-lg px-4 py-2.5 font-body-md text-body-md text-on-surface focus:ring-2 focus:ring-primary focus:border-primary transition-all shadow-sm" type="email" value="eleanor.s@university.edu"/>
+</div>
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">Phone Number</label>
+<input class="w-full bg-surface/50 border border-outline-variant/50 rounded-lg px-4 py-2.5 font-body-md text-body-md text-on-surface focus:ring-2 focus:ring-primary focus:border-primary transition-all shadow-sm" type="tel" value="+1 (555) 123-4567"/>
+</div>
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">Institution</label>
+<input class="w-full bg-surface-variant/30 border border-outline-variant/30 rounded-lg px-4 py-2.5 font-body-md text-body-md text-on-surface-variant cursor-not-allowed" readonly="" type="text" value="Good Place University"/>
+</div>
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">Department</label>
+<input class="w-full bg-surface-variant/30 border border-outline-variant/30 rounded-lg px-4 py-2.5 font-body-md text-body-md text-on-surface-variant cursor-not-allowed" readonly="" type="text" value="Moral Philosophy"/>
+</div>
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">Academic Year</label>
+<select class="w-full bg-surface/50 border border-outline-variant/50 rounded-lg px-4 py-2.5 font-body-md text-body-md text-on-surface focus:ring-2 focus:ring-primary focus:border-primary transition-all shadow-sm">
+<option>Freshman</option>
+<option>Sophomore</option>
+<option selected="">Junior</option>
+<option>Senior</option>
+<option>Graduate</option>
+</select>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Learning Preferences -->
+<section class="space-y-6" id="section-learning">
+<div class="glass-panel rounded-2xl p-6 md:p-8 shadow-sm">
+<h3 class="font-headline-md text-headline-md text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-[24px]">school</span>
+                            Learning Preferences
+                        </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">Primary Language</label>
+<select class="w-full bg-surface/50 border border-outline-variant/50 rounded-lg px-4 py-2.5 font-body-md text-body-md text-on-surface focus:ring-2 focus:ring-primary focus:border-primary transition-all shadow-sm">
+<option selected="">English</option>
+<option>Spanish</option>
+<option>French</option>
+</select>
+</div>
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">Learning Goal</label>
+<select class="w-full bg-surface/50 border border-outline-variant/50 rounded-lg px-4 py-2.5 font-body-md text-body-md text-on-surface focus:ring-2 focus:ring-primary focus:border-primary transition-all shadow-sm">
+<option selected="">Degree Completion</option>
+<option>Skill Acquisition</option>
+<option>Personal Interest</option>
+</select>
+</div>
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">Learning Style</label>
+<select class="w-full bg-surface/50 border border-outline-variant/50 rounded-lg px-4 py-2.5 font-body-md text-body-md text-on-surface focus:ring-2 focus:ring-primary focus:border-primary transition-all shadow-sm">
+<option selected="">Visual</option>
+<option>Auditory</option>
+<option>Reading/Writing</option>
+<option>Kinesthetic</option>
+</select>
+</div>
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">Interests (Comma separated)</label>
+<input class="w-full bg-surface/50 border border-outline-variant/50 rounded-lg px-4 py-2.5 font-body-md text-body-md text-on-surface focus:ring-2 focus:ring-primary focus:border-primary transition-all shadow-sm" type="text" value="Ethics, Logic, History"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Notifications -->
+<section class="space-y-6" id="section-notifications">
+<div class="glass-panel rounded-2xl p-6 md:p-8 shadow-sm">
+<h3 class="font-headline-md text-headline-md text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-[24px]">notifications</span>
+                            Notifications
+                        </h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-4 bg-surface/30 rounded-xl border border-outline-variant/20">
+<div>
+<p class="font-label-md text-on-surface">Assignment Deadlines</p>
+<p class="font-label-sm text-on-surface-variant">Get notified about upcoming due dates.</p>
+</div>
+<div class="relative inline-block w-12 h-6 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" id="notif-assignment" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-outline-variant cursor-pointer" for="notif-assignment"></label>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface/30 rounded-xl border border-outline-variant/20">
+<div>
+<p class="font-label-md text-on-surface">Quiz Reminders</p>
+<p class="font-label-sm text-on-surface-variant">Alerts for scheduled quizzes and tests.</p>
+</div>
+<div class="relative inline-block w-12 h-6 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" id="notif-quiz" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-outline-variant cursor-pointer" for="notif-quiz"></label>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface/30 rounded-xl border border-outline-variant/20">
+<div>
+<p class="font-label-md text-on-surface">Community Activity</p>
+<p class="font-label-sm text-on-surface-variant">Updates on forum replies and group mentions.</p>
+</div>
+<div class="relative inline-block w-12 h-6 align-middle select-none transition duration-200 ease-in">
+<input class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" id="notif-community" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-outline-variant cursor-pointer" for="notif-community"></label>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface/30 rounded-xl border border-outline-variant/20">
+<div>
+<p class="font-label-md text-on-surface">Course Announcements</p>
+<p class="font-label-sm text-on-surface-variant">Important messages from instructors.</p>
+</div>
+<div class="relative inline-block w-12 h-6 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" id="notif-announcements" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-outline-variant cursor-pointer" for="notif-announcements"></label>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface/30 rounded-xl border border-outline-variant/20">
+<div>
+<p class="font-label-md text-on-surface">Learning Streak</p>
+<p class="font-label-sm text-on-surface-variant">Daily reminders to maintain your learning streak.</p>
+</div>
+<div class="relative inline-block w-12 h-6 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" id="notif-streak" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-outline-variant cursor-pointer" for="notif-streak"></label>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 4: Accessibility -->
+<section class="space-y-6" id="section-accessibility">
+<div class="glass-panel rounded-2xl p-6 md:p-8 shadow-sm">
+<h3 class="font-headline-md text-headline-md text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-[24px]">accessibility</span>
+                            Accessibility
+                        </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">Font Size</label>
+<select class="w-full bg-surface/50 border border-outline-variant/50 rounded-lg px-4 py-2.5 font-body-md text-body-md text-on-surface focus:ring-2 focus:ring-primary focus:border-primary transition-all shadow-sm">
+<option>Small</option>
+<option selected="">Medium (Default)</option>
+<option>Large</option>
+<option>Extra Large</option>
+</select>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-4 bg-surface/30 rounded-xl border border-outline-variant/20">
+<div>
+<p class="font-label-md text-on-surface">High Contrast</p>
+<p class="font-label-sm text-on-surface-variant">Increase contrast for better visibility.</p>
+</div>
+<div class="relative inline-block w-12 h-6 align-middle select-none transition duration-200 ease-in">
+<input class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" id="acc-contrast" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-outline-variant cursor-pointer" for="acc-contrast"></label>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface/30 rounded-xl border border-outline-variant/20">
+<div>
+<p class="font-label-md text-on-surface">Reduce Motion</p>
+<p class="font-label-sm text-on-surface-variant">Minimize UI animations and transitions.</p>
+</div>
+<div class="relative inline-block w-12 h-6 align-middle select-none transition duration-200 ease-in">
+<input class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" id="acc-motion" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-outline-variant cursor-pointer" for="acc-motion"></label>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface/30 rounded-xl border border-outline-variant/20">
+<div>
+<p class="font-label-md text-on-surface">Always Show Captions</p>
+<p class="font-label-sm text-on-surface-variant">Enable closed captions on all video content by default.</p>
+</div>
+<div class="relative inline-block w-12 h-6 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" id="acc-captions" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-outline-variant cursor-pointer" for="acc-captions"></label>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface/30 rounded-xl border border-outline-variant/20">
+<div>
+<p class="font-label-md text-on-surface">Screen Reader Optimization</p>
+<p class="font-label-sm text-on-surface-variant">Enhance compatibility with screen reading software.</p>
+</div>
+<div class="relative inline-block w-12 h-6 align-middle select-none transition duration-200 ease-in">
+<input class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" id="acc-screenreader" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-outline-variant cursor-pointer" for="acc-screenreader"></label>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface/30 rounded-xl border border-outline-variant/20">
+<div>
+<p class="font-label-md text-on-surface">Dyslexia Friendly Mode</p>
+<p class="font-label-sm text-on-surface-variant">Use specialized fonts and spacing to improve readability.</p>
+</div>
+<div class="relative inline-block w-12 h-6 align-middle select-none transition duration-200 ease-in">
+<input class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" id="acc-dyslexia" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-outline-variant cursor-pointer" for="acc-dyslexia"></label>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 5: Offline Learning -->
+<section class="space-y-6" id="section-offline">
+<div class="glass-panel rounded-2xl p-6 md:p-8 shadow-sm">
+<h3 class="font-headline-md text-headline-md text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-[24px]">download_for_offline</span>
+                            Offline Learning
+                        </h3>
+<div class="space-y-4 mb-6">
+<div class="flex items-center justify-between p-4 bg-surface/30 rounded-xl border border-outline-variant/20">
+<div>
+<p class="font-label-md text-on-surface">Auto-Download Course Material</p>
+<p class="font-label-sm text-on-surface-variant">Automatically download new materials for enrolled courses.</p>
+</div>
+<div class="relative inline-block w-12 h-6 align-middle select-none transition duration-200 ease-in">
+<input class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" id="off-auto" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-outline-variant cursor-pointer" for="off-auto"></label>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface/30 rounded-xl border border-outline-variant/20">
+<div>
+<p class="font-label-md text-on-surface">Download Over Wi-Fi Only</p>
+<p class="font-label-sm text-on-surface-variant">Prevent data charges by restricting downloads to Wi-Fi networks.</p>
+</div>
+<div class="relative inline-block w-12 h-6 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" id="off-wifi" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-outline-variant cursor-pointer" for="off-wifi"></label>
+</div>
+</div>
+</div>
+<div class="p-4 bg-surface/30 rounded-xl border border-outline-variant/20 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+<div>
+<p class="font-label-md text-on-surface">Storage Usage</p>
+<p class="font-label-sm text-on-surface-variant">Currently using 1.2 GB of local storage.</p>
+</div>
+<button class="bg-surface-variant text-on-surface-variant font-label-md px-4 py-2 rounded-lg hover:bg-surface-container-high transition-colors">Manage Downloads</button>
+</div>
+</div>
+</section>
+<!-- Section 6: Appearance -->
+<section class="space-y-6" id="section-appearance">
+<div class="glass-panel rounded-2xl p-6 md:p-8 shadow-sm">
+<h3 class="font-headline-md text-headline-md text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-[24px]">palette</span>
+                            Appearance
+                        </h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- Theme Cards -->
+<label class="relative cursor-pointer group">
+<input checked="" class="peer sr-only" name="theme" type="radio" value="light"/>
+<div class="h-32 rounded-xl border-2 border-outline-variant/30 bg-white p-2 peer-checked:border-primary peer-checked:ring-1 peer-checked:ring-primary transition-all">
+<div class="w-full h-full bg-slate-50 rounded-lg border border-slate-100 flex flex-col gap-2 p-2">
+<div class="w-full h-3 bg-slate-200 rounded-full"></div>
+<div class="w-2/3 h-3 bg-slate-200 rounded-full"></div>
+<div class="mt-auto w-full h-8 bg-blue-100 rounded flex items-center justify-center text-blue-800 text-[10px] font-bold">Aa</div>
+</div>
+</div>
+<div class="mt-3 flex items-center justify-center gap-2">
+<div class="w-4 h-4 rounded-full border border-outline peer-checked:border-[4px] peer-checked:border-primary transition-all"></div>
+<span class="font-label-md text-label-md text-on-surface">Light Mode</span>
+</div>
+</label>
+<label class="relative cursor-pointer group">
+<input class="peer sr-only" name="theme" type="radio" value="dark"/>
+<div class="h-32 rounded-xl border-2 border-outline-variant/30 bg-slate-900 p-2 peer-checked:border-primary peer-checked:ring-1 peer-checked:ring-primary transition-all">
+<div class="w-full h-full bg-slate-800 rounded-lg border border-slate-700 flex flex-col gap-2 p-2">
+<div class="w-full h-3 bg-slate-700 rounded-full"></div>
+<div class="w-2/3 h-3 bg-slate-700 rounded-full"></div>
+<div class="mt-auto w-full h-8 bg-blue-900/50 rounded flex items-center justify-center text-blue-200 text-[10px] font-bold">Aa</div>
+</div>
+</div>
+<div class="mt-3 flex items-center justify-center gap-2">
+<div class="w-4 h-4 rounded-full border border-outline peer-checked:border-[4px] peer-checked:border-primary transition-all"></div>
+<span class="font-label-md text-label-md text-on-surface">Dark Mode</span>
+</div>
+</label>
+<label class="relative cursor-pointer group">
+<input class="peer sr-only" name="theme" type="radio" value="system"/>
+<div class="h-32 rounded-xl border-2 border-outline-variant/30 bg-gradient-to-r from-white to-slate-900 p-2 peer-checked:border-primary peer-checked:ring-1 peer-checked:ring-primary transition-all flex">
+<div class="w-1/2 h-full bg-slate-50 rounded-l-lg border-y border-l border-slate-100 flex flex-col gap-2 p-2">
+<div class="w-full h-2 bg-slate-200 rounded-full"></div>
+</div>
+<div class="w-1/2 h-full bg-slate-800 rounded-r-lg border-y border-r border-slate-700 flex flex-col gap-2 p-2">
+<div class="w-full h-2 bg-slate-700 rounded-full"></div>
+</div>
+</div>
+<div class="mt-3 flex items-center justify-center gap-2">
+<div class="w-4 h-4 rounded-full border border-outline peer-checked:border-[4px] peer-checked:border-primary transition-all"></div>
+<span class="font-label-md text-label-md text-on-surface">System Default</span>
+</div>
+</label>
+</div>
+</div>
+</section>
+<!-- Section 7: Privacy & Security -->
+<section class="space-y-6" id="section-privacy">
+<div class="glass-panel rounded-2xl p-6 md:p-8 shadow-sm">
+<h3 class="font-headline-md text-headline-md text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-[24px]">security</span>
+                            Privacy &amp; Security
+                        </h3>
+<div class="space-y-4">
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center p-4 bg-surface/30 rounded-xl border border-outline-variant/20 gap-4">
+<div>
+<p class="font-label-md text-on-surface">Password</p>
+<p class="font-label-sm text-on-surface-variant">Last changed 3 months ago.</p>
+</div>
+<button class="bg-surface-variant text-on-surface-variant font-label-md px-4 py-2 rounded-lg hover:bg-surface-container-high transition-colors">Change Password</button>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface/30 rounded-xl border border-outline-variant/20">
+<div>
+<p class="font-label-md text-on-surface">Two-Factor Authentication (2FA)</p>
+<p class="font-label-sm text-on-surface-variant">Add an extra layer of security to your account.</p>
+</div>
+<div class="relative inline-block w-12 h-6 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" id="priv-2fa" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-outline-variant cursor-pointer" for="priv-2fa"></label>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center p-4 bg-surface/30 rounded-xl border border-outline-variant/20 gap-4">
+<div>
+<p class="font-label-md text-on-surface">Active Sessions</p>
+<p class="font-label-sm text-on-surface-variant">Manage devices currently logged into your account.</p>
+</div>
+<button class="bg-surface-variant text-on-surface-variant font-label-md px-4 py-2 rounded-lg hover:bg-surface-container-high transition-colors">View Sessions</button>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface/30 rounded-xl border border-outline-variant/20">
+<div>
+<p class="font-label-md text-on-surface">Save Search History</p>
+<p class="font-label-sm text-on-surface-variant">Allow EduNext to save your search history for better recommendations.</p>
+</div>
+<div class="relative inline-block w-12 h-6 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" id="priv-history" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-outline-variant cursor-pointer" for="priv-history"></label>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center p-4 bg-surface/30 rounded-xl border border-outline-variant/20 gap-4">
+<div>
+<p class="font-label-md text-on-surface">Device Management</p>
+<p class="font-label-sm text-on-surface-variant">Review authorized devices and applications.</p>
+</div>
+<button class="bg-surface-variant text-on-surface-variant font-label-md px-4 py-2 rounded-lg hover:bg-surface-container-high transition-colors">Manage Devices</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 8: Learning Analytics -->
+<section class="space-y-6" id="section-analytics">
+<div class="glass-panel rounded-2xl p-6 md:p-8 shadow-sm">
+<h3 class="font-headline-md text-headline-md text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-[24px]">analytics</span>
+                            Learning Analytics
+                        </h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-4 bg-surface/30 rounded-xl border border-outline-variant/20">
+<div>
+<p class="font-label-md text-on-surface">Anonymous Analytics</p>
+<p class="font-label-sm text-on-surface-variant">Share anonymous usage data to help us improve the platform.</p>
+</div>
+<div class="relative inline-block w-12 h-6 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" id="ana-anon" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-outline-variant cursor-pointer" for="ana-anon"></label>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface/30 rounded-xl border border-outline-variant/20">
+<div>
+<p class="font-label-md text-on-surface">Research Participation</p>
+<p class="font-label-sm text-on-surface-variant">Allow your data to be used in educational research studies.</p>
+</div>
+<div class="relative inline-block w-12 h-6 align-middle select-none transition duration-200 ease-in">
+<input class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" id="ana-research" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-outline-variant cursor-pointer" for="ana-research"></label>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface/30 rounded-xl border border-outline-variant/20">
+<div>
+<p class="font-label-md text-on-surface">Experience Improvements</p>
+<p class="font-label-sm text-on-surface-variant">Opt-in to personalized recommendations based on your learning patterns.</p>
+</div>
+<div class="relative inline-block w-12 h-6 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" id="ana-improve" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-outline-variant cursor-pointer" for="ana-improve"></label>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 9: Support & Feedback -->
+<section class="space-y-6" id="section-support">
+<div class="glass-panel rounded-2xl p-6 md:p-8 shadow-sm">
+<h3 class="font-headline-md text-headline-md text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-[24px]">help</span>
+                            Support &amp; Feedback
+                        </h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+<button class="flex items-center justify-center gap-2 bg-surface/50 border border-outline-variant/50 hover:bg-surface-container-high transition-colors py-3 rounded-xl font-label-md text-on-surface">
+<span class="material-symbols-outlined text-[20px]">menu_book</span>
+                                Help Center
+                            </button>
+<button class="flex items-center justify-center gap-2 bg-surface/50 border border-outline-variant/50 hover:bg-surface-container-high transition-colors py-3 rounded-xl font-label-md text-on-surface">
+<span class="material-symbols-outlined text-[20px]">support_agent</span>
+                                Contact Support
+                            </button>
+<button class="flex items-center justify-center gap-2 bg-surface/50 border border-outline-variant/50 hover:bg-surface-container-high transition-colors py-3 rounded-xl font-label-md text-on-surface">
+<span class="material-symbols-outlined text-[20px]">bug_report</span>
+                                Report an Issue
+                            </button>
+<button class="flex items-center justify-center gap-2 bg-surface/50 border border-outline-variant/50 hover:bg-surface-container-high transition-colors py-3 rounded-xl font-label-md text-on-surface">
+<span class="material-symbols-outlined text-[20px]">lightbulb</span>
+                                Suggest a Feature
+                            </button>
+</div>
+<div class="pt-6 border-t border-outline-variant/20 flex flex-col items-center text-center">
+<p class="font-body-md text-on-surface-variant mb-4">Need direct assistance from our administration team?</p>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-6 py-3 rounded-xl shadow-sm hover:bg-primary-container hover:text-on-primary-container transition-all active:scale-95 flex items-center justify-center gap-2" onclick="this.innerText='santhoshravichandran1204@gmail.com'; this.classList.remove('bg-primary', 'text-on-primary', 'hover:bg-primary-container'); this.classList.add('bg-surface-variant', 'text-on-surface', 'cursor-text');">
+<span class="material-symbols-outlined text-[18px]">mail</span>
+                                Contact Us
+                            </button>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- Sticky Bottom Actions -->
+<div class="fixed bottom-0 left-0 right-0 p-4 md:p-6 bg-surface-container-lowest/90 backdrop-blur-xl border-t border-outline-variant/20 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] z-30">
+<div class="max-w-4xl mx-auto flex items-center justify-end gap-4">
+<button class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface px-4 py-2.5 transition-colors">Reset Preferences</button>
+<button class="bg-secondary text-on-secondary font-label-md text-label-md px-8 py-2.5 rounded-xl shadow-md shadow-secondary/20 hover:bg-secondary-container hover:text-on-secondary-container hover:shadow-lg transition-all active:scale-95 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">save</span>
+                Save Changes
+            </button>
+</div>
+</div>
+</body></html>

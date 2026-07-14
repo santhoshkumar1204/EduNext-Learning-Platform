@@ -1,0 +1,313 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>EduNext - Create Course</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                            "surface-dim": "#d9dadc",
+                            "inverse-surface": "#2e3132",
+                            "surface-container-high": "#e7e8ea",
+                            "inverse-on-surface": "#f0f1f3",
+                            "surface-variant": "#e1e2e4",
+                            "on-tertiary-container": "#fffbff",
+                            "on-surface-variant": "#3e4a3e",
+                            "secondary": "#405f91",
+                            "on-tertiary-fixed-variant": "#3323cc",
+                            "outline-variant": "#bdcabb",
+                            "surface": "#f8f9fb",
+                            "surface-container": "#edeef0",
+                            "primary-container": "#008740",
+                            "secondary-container": "#a6c5fe",
+                            "on-error-container": "#93000a",
+                            "on-tertiary": "#ffffff",
+                            "inverse-primary": "#62de85",
+                            "on-secondary-container": "#315182",
+                            "on-secondary": "#ffffff",
+                            "on-background": "#191c1e",
+                            "on-tertiary-fixed": "#0f0069",
+                            "background": "#f8f9fb",
+                            "tertiary-fixed": "#e2dfff",
+                            "on-primary-fixed-variant": "#005225",
+                            "primary": "#006b31",
+                            "surface-bright": "#f8f9fb",
+                            "surface-container-low": "#f3f4f6",
+                            "on-surface": "#191c1e",
+                            "tertiary-fixed-dim": "#c3c0ff",
+                            "tertiary-container": "#645efb",
+                            "surface-tint": "#006d33",
+                            "secondary-fixed-dim": "#a9c7ff",
+                            "primary-fixed": "#7ffb9f",
+                            "on-primary-fixed": "#00210b",
+                            "primary-fixed-dim": "#62de85",
+                            "on-secondary-fixed-variant": "#264778",
+                            "surface-container-highest": "#e1e2e4",
+                            "surface-container-lowest": "#ffffff",
+                            "error": "#ba1a1a",
+                            "tertiary": "#4b41e1",
+                            "on-secondary-fixed": "#001b3d",
+                            "outline": "#6e7a6d",
+                            "on-error": "#ffffff",
+                            "on-primary-container": "#f7fff3",
+                            "error-container": "#ffdad6",
+                            "secondary-fixed": "#d6e3ff",
+                            "on-primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                            "DEFAULT": "0.25rem",
+                            "lg": "0.5rem",
+                            "xl": "0.75rem",
+                            "full": "9999px"
+                    },
+                    "spacing": {
+                            "gutter": "1.5rem",
+                            "stack-md": "1.5rem",
+                            "stack-lg": "2.5rem",
+                            "margin-mobile": "1rem",
+                            "stack-sm": "0.5rem",
+                            "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                            "label-bold": ["Inter"],
+                            "headline-lg-mobile": ["Plus Jakarta Sans"],
+                            "headline-lg": ["Plus Jakarta Sans"],
+                            "body-md": ["Inter"],
+                            "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                            "label-bold": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+                            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                            "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md h-screen flex overflow-hidden">
+<!-- SideNavBar Component -->
+<nav class="fixed left-0 top-0 h-screen w-64 border-r border-outline-variant dark:border-outline bg-surface dark:bg-inverse-surface flex flex-col py-6 overflow-y-auto hidden md:flex z-20">
+<div class="px-6 mb-8 flex flex-col gap-1">
+<div class="font-headline-lg text-headline-lg font-bold text-primary dark:text-inverse-primary">EduNext</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Teacher Dashboard</div>
+</div>
+<div class="px-4 mb-6">
+<button class="w-full bg-primary text-on-primary font-label-bold text-label-bold py-3 rounded-lg hover:bg-primary/90 transition-colors">
+                Create New Course
+            </button>
+</div>
+<div class="flex-1 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant font-medium hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors rounded-r-full mr-4" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-bold text-label-bold">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-primary dark:text-inverse-primary font-bold border-r-4 border-primary dark:border-inverse-primary bg-primary-container/10" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">menu_book</span>
+<span class="font-label-bold text-label-bold">Courses</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant font-medium hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors rounded-r-full mr-4" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-bold text-label-bold">Students</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant font-medium hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors rounded-r-full mr-4" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-bold text-label-bold">Learning Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant font-medium hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors rounded-r-full mr-4" href="#">
+<span class="material-symbols-outlined">visibility</span>
+<span class="font-label-bold text-label-bold">Attention Analytics</span>
+</a>
+
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant font-medium hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors rounded-r-full mr-4" href="#">
+<span class="material-symbols-outlined">quiz</span>
+<span class="font-label-bold text-label-bold">Quizzes</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant font-medium hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors rounded-r-full mr-4" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="font-label-bold text-label-bold">Assignments</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant font-medium hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors rounded-r-full mr-4" href="#">
+<span class="material-symbols-outlined">forum</span>
+<span class="font-label-bold text-label-bold">Community</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant font-medium hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors rounded-r-full mr-4" href="#">
+<span class="material-symbols-outlined">campaign</span>
+<span class="font-label-bold text-label-bold">Announcements</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant font-medium hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors rounded-r-full mr-4" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-bold text-label-bold">Apprenticeships</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant font-medium hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors rounded-r-full mr-4" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-label-bold text-label-bold">Reports</span>
+</a>
+</div>
+<div class="mt-auto px-4 flex flex-col gap-1 border-t border-outline-variant pt-4">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant font-medium hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors rounded-r-full mr-4" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-bold text-label-bold">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant font-medium hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors rounded-r-full mr-4" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-bold text-label-bold">Logout</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col md:ml-64 relative w-full overflow-hidden bg-background">
+<!-- TopAppBar Component -->
+<header class="bg-background dark:bg-background border-b border-outline-variant dark:border-outline sticky top-0 z-10 flex justify-between items-center w-full px-gutter h-20">
+<div class="flex items-center gap-4 flex-1">
+<button class="md:hidden text-on-surface p-2 rounded-full hover:bg-surface-container-low">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="relative w-full max-w-md hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border border-transparent rounded-lg focus:bg-surface focus:border-primary focus:ring-1 focus:ring-primary text-body-md transition-all" placeholder="Search..." type="text">
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container p-2 rounded-full transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined">help</span>
+</button>
+<button class="text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined">apps</span>
+</button>
+<div class="ml-4 w-10 h-10 rounded-full bg-surface-container-highest border border-outline-variant overflow-hidden cursor-pointer">
+<img alt="Dr. Amarjeet Kaur" class="w-full h-full object-cover" data-alt="A professional headshot of a female educator in a modern corporate setting. She is wearing business casual attire, with a warm, encouraging smile. The lighting is soft and bright, emphasizing a studious and approachable aesthetic typical of high-quality educational platforms." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWgbu4fyPa-iqDuqpi4tpe9Hk4xuCV2Wd7IRFlLGhqh5czasot2amQGht9EgHZu79un_XL-fLiUPPYwRMF_Un7RTYsQP36FcqrwcNc-JrAR7Ba4etpsF17bAkYnWkl04x_u-ib_QoOvtICLK9vMpEbKYyZqIPEsBlwhVNLpmZsmKhHat3ArrPUNsp_4XFJDsQhoWZad_PeQXjAXZQU4qWpMj26KAemdogldOSc2a7-IvcaY5psF_ig-kcpZqvcz-0TKYcqj7pPJCA">
+</div>
+</div>
+</header>
+<!-- Course Creation Form -->
+<main class="flex-1 overflow-y-auto p-gutter relative">
+<div class="max-w-[800px] mx-auto w-full pb-20">
+<div class="mb-stack-lg">
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-2">Create New Course</h1>
+<p class="text-on-surface-variant font-body-md text-body-md">Start by providing the fundamental details for your new offering.</p>
+</div>
+<!-- Stepper -->
+<div class="mb-stack-lg border-b border-surface-variant pb-6">
+<div class="flex items-center justify-between relative">
+<div class="absolute left-0 top-1/2 -translate-y-1/2 w-full h-0.5 bg-surface-variant -z-10"></div>
+<div class="flex flex-col items-center gap-2 bg-background px-2">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-bold text-label-bold border-2 border-background ring-2 ring-primary">1</div>
+<span class="font-label-sm text-label-sm text-primary font-bold">Basics</span>
+</div>
+<div class="flex flex-col items-center gap-2 bg-background px-2">
+<div class="w-8 h-8 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center font-label-bold text-label-bold border-2 border-background">2</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Structure</span>
+</div>
+<div class="flex flex-col items-center gap-2 bg-background px-2">
+<div class="w-8 h-8 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center font-label-bold text-label-bold border-2 border-background">3</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Content</span>
+</div>
+<div class="flex flex-col items-center gap-2 bg-background px-2">
+<div class="w-8 h-8 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center font-label-bold text-label-bold border-2 border-background">4</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Permissions</span>
+</div>
+<div class="flex flex-col items-center gap-2 bg-background px-2">
+<div class="w-8 h-8 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center font-label-bold text-label-bold border-2 border-background">5</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Publish</span>
+</div>
+</div>
+</div>
+<!-- Form Container -->
+<div class="bg-surface rounded-xl border border-surface-variant p-6 shadow-sm flex flex-col gap-stack-md">
+<!-- Basic Info -->
+<div class="flex flex-col gap-stack-sm">
+<label class="font-label-bold text-label-bold text-on-surface" for="course-title">Course Title <span class="text-error">*</span></label>
+<input class="w-full px-3 py-3 bg-surface border border-outline-variant rounded-lg focus:border-primary focus:ring-1 focus:ring-primary text-body-md transition-all outline-none" id="course-title" placeholder="e.g. Introduction to Advanced Machine Learning" type="text">
+</div>
+<div class="flex flex-col gap-stack-sm">
+<label class="font-label-bold text-label-bold text-on-surface" for="course-description">Course Description <span class="text-error">*</span></label>
+<textarea class="w-full px-3 py-3 bg-surface border border-outline-variant rounded-lg focus:border-primary focus:ring-1 focus:ring-primary text-body-md transition-all outline-none resize-y" id="course-description" placeholder="Describe what students will learn..." rows="4"></textarea>
+<p class="font-label-sm text-label-sm text-on-surface-variant text-right">0/500 words</p>
+</div>
+<!-- Grid for Dropdowns -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+<div class="flex flex-col gap-stack-sm">
+<label class="font-label-bold text-label-bold text-on-surface" for="course-category">Category</label>
+<div class="relative">
+<select class="w-full px-3 py-3 bg-surface border border-outline-variant rounded-lg focus:border-primary focus:ring-1 focus:ring-primary text-body-md appearance-none outline-none" id="course-category">
+<option disabled="" selected="" value="">Select category...</option>
+<option value="cs">Computer Science</option>
+<option value="math">Mathematics</option>
+<option value="arts">Arts &amp; Humanities</option>
+<option value="business">Business</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline pointer-events-none">expand_more</span>
+</div>
+</div>
+<div class="flex flex-col gap-stack-sm">
+<label class="font-label-bold text-label-bold text-on-surface" for="course-difficulty">Difficulty Level</label>
+<div class="relative">
+<select class="w-full px-3 py-3 bg-surface border border-outline-variant rounded-lg focus:border-primary focus:ring-1 focus:ring-primary text-body-md appearance-none outline-none" id="course-difficulty">
+<option value="beginner">Beginner</option>
+<option value="intermediate">Intermediate</option>
+<option value="advanced">Advanced</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline pointer-events-none">expand_more</span>
+</div>
+</div>
+<div class="flex flex-col gap-stack-sm">
+<label class="font-label-bold text-label-bold text-on-surface" for="course-language">Language</label>
+<div class="relative">
+<select class="w-full px-3 py-3 bg-surface border border-outline-variant rounded-lg focus:border-primary focus:ring-1 focus:ring-primary text-body-md appearance-none outline-none" id="course-language">
+<option selected="" value="en">English</option>
+<option value="es">Spanish</option>
+<option value="fr">French</option>
+<option value="de">German</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline pointer-events-none">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Thumbnail Upload -->
+<div class="flex flex-col gap-stack-sm mt-4">
+<label class="font-label-bold text-label-bold text-on-surface">Course Thumbnail</label>
+<div class="w-full border-2 border-dashed border-outline-variant rounded-xl p-8 flex flex-col items-center justify-center gap-4 bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer group">
+<div class="w-16 h-16 rounded-full bg-primary-container/20 text-primary flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">image</span>
+</div>
+<div class="text-center">
+<p class="font-label-bold text-label-bold text-primary mb-1">Click to upload or drag and drop</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">SVG, PNG, JPG or GIF (max. 800x400px)</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Form Actions -->
+<div class="flex justify-end gap-4 mt-8">
+<button class="px-6 py-2.5 rounded-lg border border-outline-variant bg-surface text-on-surface font-label-bold text-label-bold hover:bg-surface-container-low transition-colors">
+                        Cancel
+                    </button>
+<button class="px-6 py-2.5 rounded-lg bg-primary text-on-primary font-label-bold text-label-bold hover:bg-primary/90 transition-colors flex items-center gap-2">
+                        Next Step
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</main>
+</div>
+
+
+</body></html>

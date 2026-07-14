@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduNext - Create Course: Publish</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#d9dadc",
+                        "inverse-surface": "#2e3132",
+                        "surface-container-high": "#e7e8ea",
+                        "inverse-on-surface": "#f0f1f3",
+                        "surface-variant": "#e1e2e4",
+                        "on-tertiary-container": "#fffbff",
+                        "on-surface-variant": "#3e4a3e",
+                        "secondary": "#405f91",
+                        "on-tertiary-fixed-variant": "#3323cc",
+                        "outline-variant": "#bdcabb",
+                        "surface": "#f8f9fb",
+                        "surface-container": "#edeef0",
+                        "primary-container": "#008740",
+                        "secondary-container": "#a6c5fe",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#62de85",
+                        "on-secondary-container": "#315182",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#191c1e",
+                        "on-tertiary-fixed": "#0f0069",
+                        "background": "#f8f9fb",
+                        "tertiary-fixed": "#e2dfff",
+                        "on-primary-fixed-variant": "#005225",
+                        "primary": "#006b31",
+                        "surface-bright": "#f8f9fb",
+                        "surface-container-low": "#f3f4f6",
+                        "on-surface": "#191c1e",
+                        "tertiary-fixed-dim": "#c3c0ff",
+                        "tertiary-container": "#645efb",
+                        "surface-tint": "#006d33",
+                        "secondary-fixed-dim": "#a9c7ff",
+                        "primary-fixed": "#7ffb9f",
+                        "on-primary-fixed": "#00210b",
+                        "primary-fixed-dim": "#62de85",
+                        "on-secondary-fixed-variant": "#264778",
+                        "surface-container-highest": "#e1e2e4",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "tertiary": "#4b41e1",
+                        "on-secondary-fixed": "#001b3d",
+                        "outline": "#6e7a6d",
+                        "on-error": "#ffffff",
+                        "on-primary-container": "#f7fff3",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#d6e3ff",
+                        "on-primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "1.5rem",
+                        "stack-md": "1.5rem",
+                        "stack-lg": "2.5rem",
+                        "margin-mobile": "1rem",
+                        "stack-sm": "0.5rem",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "label-bold": ["Inter"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-bold": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: theme('colors.background'); color: theme('colors.on-background'); }
+    </style>
+</head>
+<body class="flex min-h-screen bg-background font-body-md text-body-md text-on-background">
+<!-- TopAppBar (Canvas Priority - Navigation Suppressed for Linear Task) -->
+<header class="fixed top-0 z-40 flex w-full items-center justify-between border-b border-outline-variant bg-surface px-gutter h-20 shadow-sm md:hidden">
+<div class="flex items-center gap-3">
+<button class="flex items-center justify-center rounded-full p-2 text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary">EduNext</span>
+</div>
+</header>
+<!-- Main Canvas Content -->
+<main class="flex-1 w-full pt-24 md:pt-12 px-gutter lg:px-8 pb-24 mx-auto max-w-container-max flex justify-center">
+<div class="w-full max-w-3xl flex flex-col gap-stack-lg">
+<!-- Header & Context -->
+<div class="flex flex-col gap-stack-sm md:flex-row md:justify-between md:items-end">
+<div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary">Create New Course</h1>
+<p class="text-on-surface-variant mt-2">Finalize and publish your course materials.</p>
+</div>
+<button class="hidden md:flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors font-label-bold text-label-bold">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+                    Exit Wizard
+                </button>
+</div>
+<!-- Progress Stepper -->
+<div class="w-full py-4">
+<div class="flex items-center justify-between relative">
+<!-- Progress Line Background -->
+<div class="absolute left-0 top-1/2 -translate-y-1/2 w-full h-1 bg-surface-variant rounded-full z-0"></div>
+<!-- Progress Line Active -->
+<div class="absolute left-0 top-1/2 -translate-y-1/2 w-full h-1 bg-primary rounded-full z-0 transition-all duration-500"></div>
+<!-- Steps -->
+<div class="relative z-10 flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-bold text-label-bold ring-4 ring-background">
+<span class="material-symbols-outlined text-[16px]" data-icon="check">check</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant hidden md:block">Details</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-bold text-label-bold ring-4 ring-background">
+<span class="material-symbols-outlined text-[16px]" data-icon="check">check</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant hidden md:block">Curriculum</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-bold text-label-bold ring-4 ring-background">
+<span class="material-symbols-outlined text-[16px]" data-icon="check">check</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant hidden md:block">Media</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-bold text-label-bold ring-4 ring-background">
+<span class="material-symbols-outlined text-[16px]" data-icon="check">check</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant hidden md:block">Settings</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-bold text-label-bold ring-4 ring-primary-container/20">
+                            5
+                        </div>
+<span class="font-label-sm text-label-sm text-primary font-bold hidden md:block">Publish</span>
+</div>
+</div>
+</div>
+<!-- Summary Card -->
+<div class="bg-surface rounded-xl border border-outline-variant p-6 md:p-8 flex flex-col gap-stack-md shadow-sm">
+<div class="flex items-start gap-6 border-b border-surface-variant pb-6">
+<div class="w-24 h-24 rounded-lg bg-surface-container overflow-hidden flex-shrink-0 relative">
+<img alt="Course Thumbnail" class="w-full h-full object-cover" data-alt="A modern, brightly lit university classroom or workspace seen from a slightly elevated angle, focusing on a sleek laptop surrounded by neatly organized notebooks and a cup of coffee. The environment uses a clean, light color palette with soft natural daylight. The mood is academic, focused, and professional, perfectly reflecting an educational setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAi480kYz-okQ34mJPKkgHSI8Yk25fI5TziSNwKd_YvD4WcL07IrxToKKDMIubDUyrnpL8tPW1CT1vJPKJa6Ooh0ZcJtr9TVMfRgMgsweyHs9sTjfzRE50WT12qw5SqO7EyEzTX96XXBQmyTVMPjbWYahof6iijXcIx7F6d6UPIgHsGNvKUuKWqwbd1ywmcsDJdSTBoo4tf-Dh651CIsrwSTB-0LWwItg6aHNC8ouc5fj4XcRyTcXlv5DJfThsjlNmiTWWhkgR1djs"/>
+</div>
+<div class="flex flex-col gap-2">
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm text-primary bg-primary-container/10 px-2 py-1 rounded-md w-fit">
+<span class="material-symbols-outlined text-[14px]" data-icon="school">school</span>
+                            Computer Science
+                        </span>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg">Advanced Data Structures</h2>
+<p class="text-on-surface-variant line-clamp-2">A comprehensive deep dive into complex data structures, algorithmic efficiency, and practical implementation in modern software engineering.</p>
+</div>
+</div>
+<!-- Bento Stats Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 py-2">
+<div class="bg-surface-container-low rounded-lg p-5 border border-surface-variant flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-primary mb-2 text-3xl" data-icon="view_module">view_module</span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">12</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1 uppercase tracking-wider">Total Modules</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-5 border border-surface-variant flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-primary mb-2 text-3xl" data-icon="play_lesson">play_lesson</span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">48</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1 uppercase tracking-wider">Total Lessons</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-5 border border-surface-variant flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-primary mb-2 text-3xl" data-icon="library_books">library_books</span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">156</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1 uppercase tracking-wider">Materials</span>
+</div>
+</div>
+<div class="bg-primary-container/5 rounded-lg p-4 border border-primary-container/20 flex gap-4 items-start mt-2">
+<span class="material-symbols-outlined text-primary mt-0.5" data-icon="info">info</span>
+<div>
+<h4 class="font-label-bold text-label-bold text-primary">Ready to go live</h4>
+<p class="text-on-surface-variant text-sm mt-1">Once published, students will immediately have access to the first 2 modules based on your drip schedule settings.</p>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex flex-col-reverse md:flex-row gap-4 justify-between items-center mt-4">
+<button class="w-full md:w-auto px-6 py-3 flex items-center justify-center gap-2 rounded-lg border border-outline-variant text-on-surface-variant bg-surface hover:bg-surface-container-low transition-colors font-label-bold text-label-bold">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+                    Back to Settings
+                </button>
+<div class="flex flex-col-reverse md:flex-row gap-4 w-full md:w-auto">
+<button class="w-full md:w-auto px-6 py-3 rounded-lg border border-outline-variant text-on-surface font-label-bold text-label-bold bg-surface hover:bg-surface-container-low transition-colors">
+                        Save Draft
+                    </button>
+<button class="w-full md:w-auto px-8 py-3 rounded-lg bg-primary text-on-primary font-label-bold text-label-bold hover:bg-surface-tint transition-colors shadow-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="publish">publish</span>
+                        Publish Course
+                    </button>
+</div>
+</div>
+</div>
+</main>
+</body></html>
