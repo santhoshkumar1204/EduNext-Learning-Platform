@@ -2,5 +2,7 @@ node_modules/
 .vite/
 dist/
 .env
+.env.local
+.env.*.local
 .vscode/
 *.log
