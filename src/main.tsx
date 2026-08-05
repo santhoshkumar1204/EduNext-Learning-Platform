@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import { seedDatabase } from "./lib/database";
+import "./firebase";
 import "./index.css";
 
 // Seed IndexedDB with mock users/courses on first run.
@@ -15,6 +16,6 @@ seedDatabase().finally(() => {
           <App />
         </LanguageProvider>
       </BrowserRouter>
-    </React.StrictMode>
+    </React.StrictMode>,
   );
 });
